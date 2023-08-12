@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{63F190A0-C31C-4F50-9505-F0FCDB7E981B}</ProjectGuid>
+    <ProjectGuid>{9E7CAC7B-43F7-4435-A74E-E2782322C015}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Example</RootNamespace>
-    <AssemblyName>Example</AssemblyName>
+    <RootNamespace>Practice</RootNamespace>
+    <AssemblyName>Practice</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Example_01 %28기초%29\CExample_01.cs" />
-    <Compile Include="Classes\Example_02 %28자료형 및 변수%29\CExample_02.cs" />
-    <Compile Include="Classes\Example_03 %28연산자%29\CExample_03.cs" />
-    <Compile Include="Classes\Example_04 %28조건문%29\CExample_04.cs" />
-    <Compile Include="Classes\Example_05 %28반복문%29\CExample_05.cs" />
+    <Compile Include="Classes\Practice_01\CPractice_01.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

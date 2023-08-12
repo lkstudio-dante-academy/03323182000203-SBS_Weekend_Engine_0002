@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,12 +39,53 @@ namespace Example.Classes.Example_03 {
 			 * 따라서, 정수와 실수를 산술 연산 했을 경우 내부적으로 정수를 실수로 형 변환
 			 * 후 연산을 수행한다는 것을 알 수 있다.
 			 */
-			Console.WriteLine("=====> 산술 연산 <=====");
+			Console.WriteLine("=====> 산술 연산자 <=====");
 			Console.WriteLine("{0} + {1} = {2}", nLhs, nRhs, nLhs + nRhs);
 			Console.WriteLine("{0} - {1} = {2}", nLhs, nRhs, nLhs - nRhs);
 			Console.WriteLine("{0} * {1} = {2}", nLhs, nRhs, nLhs * nRhs);
 			Console.WriteLine("{0} / {1} = {2}", nLhs, nRhs, nLhs / (float)nRhs);
 			Console.WriteLine("{0} % {1} = {2}", nLhs, nRhs, nLhs % nRhs);
+
+			Console.WriteLine("\n=====> 관계 연산자 <=====");
+			Console.WriteLine("{0} < {1} = {2}", nLhs, nRhs, nLhs < nRhs);
+			Console.WriteLine("{0} > {1} = {2}", nLhs, nRhs, nLhs > nRhs);
+			Console.WriteLine("{0} <= {1} = {2}", nLhs, nRhs, nLhs <= nRhs);
+			Console.WriteLine("{0} >= {1} = {2}", nLhs, nRhs, nLhs >= nRhs);
+			Console.WriteLine("{0} == {1} = {2}", nLhs, nRhs, nLhs == nRhs);
+			Console.WriteLine("{0} != {1} = {2}", nLhs, nRhs, nLhs != nRhs);
+
+			bool bIsLhs = nLhs != 0;
+			bool bIsRhs = nRhs != 0;
+
+			Console.WriteLine("\n=====> 논리 연산자 <=====");
+			Console.WriteLine("{0} && {1} = {2}", nLhs, nRhs, bIsLhs && bIsRhs);
+			Console.WriteLine("{0} || {1} = {2}", nLhs, nRhs, bIsLhs || bIsRhs);
+			Console.WriteLine("!{0} = {1}", nLhs, !bIsLhs);
+
+			/*
+			 * 전위 증감 연산자 vs 후위 증감 연산자
+			 * - 전위 증감 연산자는 선 증감 후 연산의 순서를 지니고 있기 때문에
+			 * 특정 변수가 지니고 있는 데이터를 먼저 변화 시킨 후 연산에 사용하는
+			 * 특징이 존재한다.
+			 * 
+			 * 반면, 후위 증감 연산자는 선 연산 후 증감의 순서를 지니고 있기 때문에
+			 * 특정 변수가 지니고 있는 데이터를 연산에 먼저 사용한 후 해당 변수가
+			 * 지니고 있는 데이터를 변화 시킨다는 차이점이 존재한다.
+			 */
+			Console.WriteLine("\n=====> 증감 연산자 <=====");
+			Console.WriteLine("++{0}, --{1}", ++nLhs, --nRhs);
+			Console.WriteLine("{0}++, {1}--", nLhs++, nRhs--);
+
+			Console.WriteLine("\n=====> 후위 증감 연산자 후 <=====");
+			Console.WriteLine("{0}, {1}", nLhs, nRhs);
+
+			Console.WriteLine("\n=====> 비트 연산자 <=====");
+			Console.WriteLine("{0} & {1} = {2}", nLhs, nRhs, nLhs & nRhs);
+			Console.WriteLine("{0} | {1} = {2}", nLhs, nRhs, nLhs | nRhs);
+			Console.WriteLine("{0} ^ {1} = {2}", nLhs, nRhs, nLhs ^ nRhs);
+			Console.WriteLine("~{0} = {1}", nLhs, ~nLhs);
+			Console.WriteLine("{0} << 1 = {1}", nLhs, nLhs << 1);
+			Console.WriteLine("{0} >> 1 = {1}", nRhs, nRhs >> 1);
 		}
 	}
 }
