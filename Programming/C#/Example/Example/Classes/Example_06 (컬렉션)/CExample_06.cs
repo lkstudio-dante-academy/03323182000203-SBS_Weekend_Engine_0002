@@ -1,10 +1,13 @@
 //#define E06_ARRAY
-#define E06_LINEAR
+//#define E06_LINEAR
 #define E06_NON_LINEAR
 
 #if E06_ARRAY
 //#define E06_ARRAY_01
 #define E06_ARRAY_02
+#elif E06_LINEAR
+//#define E06_LINEAR_01
+#define E06_LINEAR_02
 #endif
 
 using System;
@@ -236,6 +239,7 @@ namespace Example.Classes.Example_06 {
 			Console.WriteLine("\n합계 : {0}", nSumVal);
 #endif
 #elif E06_LINEAR
+#if E06_LINEAR_01
 			/*
 			 * 배열 vs 리스트
 			 * - 배열은 한번 정해진 크기를 변경하는 것이 불가능하기 때문에
@@ -338,8 +342,130 @@ namespace Example.Classes.Example_06 {
 			}
 
 			Console.WriteLine();
-#elif E06_NON_LINEAR
+#elif E06_LINEAR_02
+			/*
+			 * 스택이란?
+			 * - LIFO (Last In First Out) 구조를 지니는 컬렉션을 의미한다.
+			 * (즉, 마지막에 추가 된 데이터가 가장 처음 출력 된다는 것을 
+			 * 알 수 있다.)
+			 * 
+			 * 큐란?
+			 * - FIFO (First In First Out) 구조를 지니는 컬렉션을 의미한다.
+			 * (즉, 처음 추가 된 데이터가 가장 처음 출력 된다는 것을 알 수
+			 * 있다.)
+			 * 
+			 * 따라서, 스택과 큐는 일반적인 다른 컬렉션과 달리 데이터를 입력하고
+			 * 출력하는 순서가 제한 된다는 특징이 있다. (즉, 자유롭게 특정 위치에
+			 * 존재하는 데이터를 가져오는 기능을 제공하지 않는다.)
+			 */
+			Stack<int> oValStack = new Stack<int>();
+			Queue<int> oValQueue = new Queue<int>();
 
+			Console.WriteLine("=====> 데이터 입력 순서 <=====");
+
+			for(int i = 0; i < 15; ++i) {
+				oValStack.Push(i + 1);
+				oValQueue.Enqueue(i + 1);
+
+				Console.Write("{0}, ", i + 1);
+			}
+
+			Console.WriteLine("\n\n=====> 스택 데이터 출력 순서 <=====");
+
+			while(oValStack.Count >= 1) {
+				Console.Write("{0}, ", oValStack.Pop());
+			}
+
+			Console.WriteLine("\n\n=====> 큐 데이터 출력 순서 <=====");
+
+			while(oValQueue.Count >= 1) {
+				Console.Write("{0}, ", oValQueue.Dequeue());
+			}
+
+			Console.WriteLine();
+#endif
+#elif E06_NON_LINEAR
+			/*
+			 * 셋이란?
+			 * - 데이터의 중복을 허용하지 않는 컬렉션을 의미한다. (즉, 셋을
+			 * 활용하면 중복적으로 존재하는 특정 데이터 컬렉션으로부터 순열
+			 * 데이터를 필터링하는 것이 가능하다.)
+			 * 
+			 * 따라서, 셋은 다른 컬렉션과 달리 범용적으로 사용되는 컬렉션이
+			 * 아니라 특정 상황에서만 사용되는 특징이 존재한다.
+			 * 
+			 * 딕셔너리란?
+			 * - 데이터를 찾기 위한 탐색에 특화 된 컬렉션을 의미한다. (즉,
+			 * 딕셔너리 컬렉션은 저장 된 데이터가 많을수록 다른 컬렉션에
+			 * 비해 빠르게 특정 데이터를 가져오는 것이 가능하다.)
+			 * 
+			 * 또한, 딕셔너리 컬렉션은 키 (Key) 와 벨류 (Value) 를 하나의
+			 * 쌍으로 관리하는 컬렉션이기 때문에 키는 중복을 허용하지 않는
+			 * 반면 벨류는 실제 관리 할 데이터를 의미하기 때문에 중복을
+			 * 허용하는 특징이 존재한다. (즉, 키 데이터는 벨류를 탐색하기
+			 * 위한 식별자를 의미한다.)
+			 */
+			Random oRandom = new Random();
+			HashSet<int> oValSet = new HashSet<int>();
+			Dictionary<string, int> oValDict = new Dictionary<string, int>();
+
+			for(int i = 0; i < 10; ++i) {
+				string oKey = $"Key_{i + 1:00}";
+				oValDict.Add(oKey, i + 1);
+			}
+
+			for(int i = 0; i < 20; ++i) {
+				oValSet.Add(oRandom.Next(0, 10));
+			}
+			
+			Console.WriteLine("=====> 셋 <=====");
+
+			/*
+			 * foreach 반복문은 특정 컬렉션을 기반으로 해당 컬렉션이 관리하는
+			 * 데이터를 순회하는 역할을 수행한다. (즉, foreach 반복문은 다른
+			 * 반복문과 달리 컬렉션을 필요로 한다는 것을 알 수 있다.)
+			 * 
+			 * 따라서, 특정 컬렉션이 관리하는 데이터에 모두 접근하고 싶을 경우
+			 * foreach 반복문을 활용하면 된다.
+			 */
+			foreach(int nVal in oValSet) {
+				Console.Write("{0}, ", nVal);
+			}
+
+			Console.WriteLine("\n\n=====> 딕셔너리 <=====");
+
+			foreach(var stKeyVal in oValDict) {
+				Console.Write("{0}:{1}, ", stKeyVal.Key, stKeyVal.Value);
+			}
+
+			oValSet.Remove(1);
+			Console.WriteLine("\n\n=====> 셋 - 제거 후 <=====");
+
+			foreach(int nVal in oValSet) {
+				Console.Write("{0}, ", nVal);
+			}
+
+			oValDict.Remove("Key_01");
+			Console.WriteLine("\n\n=====> 딕셔너리 - 제거 후 <=====");
+
+			foreach(var stKeyVal in oValDict) {
+				Console.Write("{0}:{1}, ", stKeyVal.Key, stKeyVal.Value);
+			}
+
+			/*
+			 * 딕셔너리 컬렉션에 존재하는 특정 데이터를 변경하거나 가져오고
+			 * 싶을 때는 [ ] (인덱스 연산자) 와 키 데이터를 명시하면 된다.
+			 * (즉, 인덱스 연산자에 키 데이터를 명시 할 경우 해당 키와 쌍을
+			 * 이루는 벨류를 제어 할 수 있다는 것을 알 수 있다.)
+			 */
+			oValDict["Key_02"] = 200;
+			Console.WriteLine("\n\n=====> 딕셔너리 - 변경 후 <=====");
+
+			foreach(var stKeyVal in oValDict) {
+				Console.Write("{0}:{1}, ", stKeyVal.Key, stKeyVal.Value);
+			}
+
+			Console.WriteLine();
 #endif
 		}
 	}
