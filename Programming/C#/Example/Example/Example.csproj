@@ -49,6 +49,7 @@
     <Compile Include="Classes\Example_04 %28조건문%29\CExample_04.cs" />
     <Compile Include="Classes\Example_05 %28반복문%29\CExample_05.cs" />
     <Compile Include="Classes\Example_06 %28컬렉션%29\CExample_06.cs" />
+    <Compile Include="Classes\Example_07 %28메서드%29\CExample_07.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

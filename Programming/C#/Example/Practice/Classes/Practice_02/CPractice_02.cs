@@ -287,7 +287,33 @@ namespace Practice.Classes.Practice_02 {
 				Console.Write("{0}, ", oAnswer[i]);
 			}
 
-			Console.WriteLine();
+			Console.WriteLine("\n");
+
+			int nNumBalls = 0;
+			int nNumStrikes = 0;
+
+			do {
+				Console.Write("숫자 (4 개) 입력 : ");
+				string[] oTokens = Console.ReadLine().Split();
+
+				nNumBalls = 0;
+				nNumStrikes = 0;
+
+				for(int i = 0; i < oTokens.Length; ++i) {
+					int.TryParse(oTokens[i], out int nNum);
+
+					// 숫자가 정답에 포함 되어있을 경우
+					if(oAnswer.Contains(nNum)) {
+						int nIdx = oAnswer.IndexOf(nNum);
+
+						nNumBalls += (i != nIdx) ? 1 : 0;
+						nNumStrikes += (i == nIdx) ? 1 : 0;
+					}
+				}
+
+				Console.WriteLine("결과 : {0} Strike, {1} Ball\n",
+					nNumStrikes, nNumBalls);
+			} while(nNumStrikes < oAnswer.Count);
 #endif
 		}
 	}
