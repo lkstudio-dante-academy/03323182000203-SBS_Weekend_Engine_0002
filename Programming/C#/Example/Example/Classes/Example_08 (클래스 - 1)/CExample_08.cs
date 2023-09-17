@@ -1,6 +1,7 @@
 //#define E08_CLASS_01
 //#define E08_CLASS_02
-#define E08_CLASS_03
+//#define E08_CLASS_03
+#define E08_CLASS_04
 
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,18 @@ namespace Example.Classes.Example_08 {
 
 			Console.WriteLine("=====> 캐릭터 정보 <=====");
 			oCharacter.ShowInfo();
+#elif E08_CLASS_04
+			CArray oVals = new CArray(10);
+
+			for(int i = 0; i < oVals.Length; ++i) {
+				oVals[i] = i + 1;
+			}
+
+			for(int i = 0; i < oVals.Length; ++i) {
+				Console.Write("{0}, ", oVals[i]);
+			}
+
+			Console.WriteLine();
 #endif
 		}
 
@@ -243,6 +256,46 @@ namespace Example.Classes.Example_08 {
 				Console.WriteLine("체력 : {0}", m_nHP);
 				Console.WriteLine("공격력 : {0}", m_nATK);
 				Console.WriteLine("방어력 : {0}", DEF);
+			}
+		}
+#elif E08_CLASS_04
+		/** 배열 */
+		public class CArray {
+			private int[] m_oVals = null;
+
+			public int Length { get; private set; } = 0;
+
+			/*
+			 * 인덱서란?
+			 * - 객체를 대상으로 [ ] (인덱스 연산자) 를 사용 할 수 있는 기능을 의미한다.
+			 * (즉, 인덱서를 활용하면 객체를 배열처럼 사용하는 것이 가능하다.)
+			 * 
+			 * C# 인덱서 구현 방법
+			 * - this + 매개 변수 + 인덱서 몸체
+			 * 
+			 * Ex)
+			 * public int this[int a_nIdx] {
+			 *      get {
+			 *           // Getter 구현
+			 *      } set {
+			 *           // Setter 구현
+			 *      }
+			 * }
+			 */
+			/** 인덱서 */
+			public int this[int a_nIdx] {
+				get {
+					return m_oVals[a_nIdx];
+				}
+				set {
+					m_oVals[a_nIdx] = value;
+				}
+			}
+
+			/** 생성자 */
+			public CArray(int a_nLength) {
+				m_oVals = new int[a_nLength];
+				this.Length = a_nLength;
 			}
 		}
 #endif
