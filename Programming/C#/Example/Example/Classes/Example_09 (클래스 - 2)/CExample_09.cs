@@ -65,10 +65,10 @@ namespace Example.Classes.Example_09 {
 			Console.WriteLine("Base 1 -> Derived : {0}", oBase01 as CDerived);
 			Console.WriteLine("Base 2 -> Derived : {0}", oBase02 as CDerived);
 #elif E09_CLASS_03
-			CData oData01 = new CData();
+			CData oData01 = CData.GetInst();
 			oData01.m_nInstVal = 10;
 
-			CData oData02 = new CData();
+			CData oData02 = CData.GetInst();
 			oData02.m_nInstVal = 20;
 
 			CData.m_nVal = 10;
@@ -261,6 +261,23 @@ namespace Example.Classes.Example_09 {
 			public int m_nInstVal = 0;
 			public static int m_nVal = 0;
 			public static float m_fVal = 0.0f;
+
+			private static CData m_oInst = null;
+
+			/** 생성자 */
+			private CData() {
+				// Do Something
+			}
+
+			/** 인스턴스를 반환한다 */
+			public static CData GetInst() {
+				// 생성 된  인스턴스가 없을 경우
+				if(m_oInst == null) {
+					m_oInst = new CData();
+				}
+
+				return m_oInst;
+			}
 
 			/** 정보를 출력한다 */
 			public void ShowInstInfo() {

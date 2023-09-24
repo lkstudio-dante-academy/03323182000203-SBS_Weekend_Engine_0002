@@ -42,7 +42,10 @@ namespace Example {
 			//Classes.Example_06.CExample_06.Start(args);
 			//Classes.Example_07.CExample_07.Start(args);
 			//Classes.Example_08.CExample_08.Start(args);
-			Classes.Example_09.CExample_09.Start(args);
+			//Classes.Example_09.CExample_09.Start(args);
+			//Classes.Example_10.CExample_10.Start(args);
+			//Classes.Example_11.CExample_11.Start(args);
+			Classes.Example_12.CExample_12.Start(args);
 
 			/*
 			 * Console.Read 계열 메서드는 콘솔 창으로부터 특정 문자를 입력 
