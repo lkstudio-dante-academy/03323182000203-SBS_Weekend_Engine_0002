@@ -55,6 +55,7 @@
     <Compile Include="Classes\Example_10 %28클래스 - 3%29\CExample_10.cs" />
     <Compile Include="Classes\Example_11 %28제네릭%29\CExample_11.cs" />
     <Compile Include="Classes\Example_12 %28사용자 정의 자료형%29\CExample_12.cs" />
+    <Compile Include="Classes\Example_13 %28델리게이트%29\CExample_13.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
