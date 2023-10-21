@@ -23,5 +23,6 @@ public static partial class KDefine
     public const string G_SCENE_N_EXAMPLE_01 = "Example_01 (기초)";
     public const string G_SCENE_N_EXAMPLE_02 = "Example_02 (프리팹, 스크립트)";
     public const string G_SCENE_N_EXAMPLE_03 = "Example_03 (카메라, 광원)";
+    public const string G_SCENE_N_EXAMPLE_04 = "Example_04 (물리)";
     #endregion // 상수
 }

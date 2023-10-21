@@ -66,6 +66,7 @@
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Base\CComponent.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_03\CExample_03.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Scene\CSceneManager.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_04\CExample_04.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
