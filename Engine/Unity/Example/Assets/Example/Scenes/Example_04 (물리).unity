@@ -2893,6 +2893,7 @@ MonoBehaviour:
   - {fileID: 1188651863}
   - {fileID: 1204734421}
   - {fileID: 867723168}
+  m_oPhysics02Target: {fileID: 748092320}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

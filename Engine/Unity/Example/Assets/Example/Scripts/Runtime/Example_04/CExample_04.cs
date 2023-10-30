@@ -1,4 +1,4 @@
-#define E04_PHYSICS_01
+//#define E04_PHYSICS_01
 #define E04_PHYSICS_02
 
 using System.Collections;
@@ -7,71 +7,74 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /*
- * ¹°¸® ¿£ÁøÀÌ¶õ?
- * - Çö½Ç°ú °°Àº ¹°Ã¼ÀÇ »óÈ£ ÀÛ¿ëÀ» Ã³¸®ÇØÁÖ´Â ±â´ÉÀ» ÀÇ¹ÌÇÑ´Ù. (Áï, Unity ´Â
- * ¹°¸® ¿£ÁøÀ» Å¾ÀçÇÏ°í ÀÖ±â ¶§¹®¿¡ ÇØ´ç ¿£ÁøÀ» È°¿ëÇÏ¸é Çö½Ç¿¡ °¡±î¿î ¹°¸®
- * ÀÛ¿ëÀ» °£´ÜÇÏ°Ô Ã³¸®ÇÏ´Â °ÍÀÌ °¡´ÉÇÏ´Ù.)
+ * ë¬¼ë¦¬ ì—”ì§„ì´ë€?
+ * - í˜„ì‹¤ê³¼ ê°™ì€ ë¬¼ì²´ì˜ ìƒí˜¸ ì‘ìš©ì„ ì²˜ë¦¬í•´ì£¼ëŠ” ê¸°ëŠ¥ì„ ì˜ë¯¸í•œë‹¤. (ì¦‰, Unity ëŠ”
+ * ë¬¼ë¦¬ ì—”ì§„ì„ íƒ‘ì¬í•˜ê³  ìˆê¸° ë•Œë¬¸ì— í•´ë‹¹ ì—”ì§„ì„ í™œìš©í•˜ë©´ í˜„ì‹¤ì— ê°€ê¹Œìš´ ë¬¼ë¦¬
+ * ì‘ìš©ì„ ê°„ë‹¨í•˜ê²Œ ì²˜ë¦¬í•˜ëŠ” ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤.)
  * 
- * Unity ¹°¸® ¿£Áø Á¾·ù
+ * Unity ë¬¼ë¦¬ ì—”ì§„ ì¢…ë¥˜
  * - Box2D
  * - PhysicX
  * - Havok
  * 
- * Box2D ¹°¸® ¿£ÁøÀÌ¶õ?
- * - 2 Â÷¿ø ¹°Ã¼¿¡ ´ëÇÑ ¹°¸® »óÈ£ ÀÛ¿ëÀ» Ã³¸®ÇØÁÖ´Â ¿£ÁøÀ» ÀÇ¹ÌÇÑ´Ù. (Áï, ÇØ´ç
- * ¿£ÁøÀº 2 Â÷¿ø Àü¿ëÀÌ¶ó´Â °ÍÀ» ¾Ë ¼ö ÀÖ´Ù.)
+ * Box2D ë¬¼ë¦¬ ì—”ì§„ì´ë€?
+ * - 2 ì°¨ì› ë¬¼ì²´ì— ëŒ€í•œ ë¬¼ë¦¬ ìƒí˜¸ ì‘ìš©ì„ ì²˜ë¦¬í•´ì£¼ëŠ” ì—”ì§„ì„ ì˜ë¯¸í•œë‹¤. (ì¦‰, í•´ë‹¹
+ * ì—”ì§„ì€ 2 ì°¨ì› ì „ìš©ì´ë¼ëŠ” ê²ƒì„ ì•Œ ìˆ˜ ìˆë‹¤.)
  * 
- * PhysicX ¹°¸® ¿£ÁøÀÌ¶õ?
- * - 3 Â÷¿ø ¹°Ã¼¿¡ ´ëÇÑ ¹°¸® »óÈ£ ÀÛ¿ëÀ» Ã³¸®ÇØÁÖ´Â ¿£ÁøÀ» ÀÇ¹ÌÇÑ´Ù. (Áï, ÇØ´ç
- * ¿£ÁøÀ» È°¿ëÇÏ¸é 2 Â÷¿ø°ú 3 Â÷¿ø ¹°Ã¼¿¡ ¸ğµÎ ¹°¸® ÀÛ¿ëÀ» Ã³¸®ÇÏ´Â °ÍÀÌ °¡´ÉÇÏ´Ù.)
+ * PhysicX ë¬¼ë¦¬ ì—”ì§„ì´ë€?
+ * - 3 ì°¨ì› ë¬¼ì²´ì— ëŒ€í•œ ë¬¼ë¦¬ ìƒí˜¸ ì‘ìš©ì„ ì²˜ë¦¬í•´ì£¼ëŠ” ì—”ì§„ì„ ì˜ë¯¸í•œë‹¤. (ì¦‰, í•´ë‹¹
+ * ì—”ì§„ì„ í™œìš©í•˜ë©´ 2 ì°¨ì›ê³¼ 3 ì°¨ì› ë¬¼ì²´ì— ëª¨ë‘ ë¬¼ë¦¬ ì‘ìš©ì„ ì²˜ë¦¬í•˜ëŠ” ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤.)
  * 
- * ´Ü, 2 Â÷¿ø ¹°Ã¼¿¡ PhysicX ¹°¸® ¿£ÁøÀ» »ç¿ëÇÒ °æ¿ì ºÒÇÊ¿äÇÑ ¿¬»êÀÌ ¹ß»ıÇÏ±â
- * ¶§¹®¿¡ 2 Â÷¿ø °ÔÀÓÀ» °³¹ß ÇÒ °æ¿ì¿¡´Â Box2D ¹°¸® ¿£Áø¸¸À» »ç¿ëÇÏ´Â °ÍÀ»
- * ÃßÃµÇÑ´Ù.
+ * ë‹¨, 2 ì°¨ì› ë¬¼ì²´ì— PhysicX ë¬¼ë¦¬ ì—”ì§„ì„ ì‚¬ìš©í•  ê²½ìš° ë¶ˆí•„ìš”í•œ ì—°ì‚°ì´ ë°œìƒí•˜ê¸°
+ * ë•Œë¬¸ì— 2 ì°¨ì› ê²Œì„ì„ ê°œë°œ í•  ê²½ìš°ì—ëŠ” Box2D ë¬¼ë¦¬ ì—”ì§„ë§Œì„ ì‚¬ìš©í•˜ëŠ” ê²ƒì„
+ * ì¶”ì²œí•œë‹¤.
  * 
- * Unity ¹°¸® °ü·Ã ÄÄÆ÷³ÍÆ® Á¾·ù
+ * Unity ë¬¼ë¦¬ ê´€ë ¨ ì»´í¬ë„ŒíŠ¸ ì¢…ë¥˜
  * - Collider
  * - Rigidbody
  * 
- * Collider ÄÄÆ÷³ÍÆ®¶õ?
- * - ¹°¸® ¿£ÁøÀÌ ½Äº°ÇÏ´Â ¹°Ã¼ÀÇ ÇüÅÂ¸¦ ³ªÅ¸³»´Â ÄÄÆ÷³ÍÆ®¸¦ ÀÇ¹ÌÇÑ´Ù. (Áï, Unity
- * ¹°¸® ¿£ÁøÀº Collider ÄÄÆ÷³ÍÆ®¸¦ ±â¹İÀ¸·Î ¹°Ã¼ÀÇ ÇüÅÂ¸¦ ½Äº°ÇÏ±â ¶§¹®¿¡ ½ÇÁ¦
- * È­¸é Ãâ·ÂµÇ´Â ¹°Ã¼ÀÇ ÇüÅÂ¿Í ¹°¸® ¿£ÁøÀÌ ÀÎ½ÄÇÏ´Â ¹°Ã¼ÀÇ ÇüÅÂ°¡ ´Ù¸¦ ¼ö ÀÖ´Ù.)
+ * Collider ì»´í¬ë„ŒíŠ¸ë€?
+ * - ë¬¼ë¦¬ ì—”ì§„ì´ ì‹ë³„í•˜ëŠ” ë¬¼ì²´ì˜ í˜•íƒœë¥¼ ë‚˜íƒ€ë‚´ëŠ” ì»´í¬ë„ŒíŠ¸ë¥¼ ì˜ë¯¸í•œë‹¤. (ì¦‰, Unity
+ * ë¬¼ë¦¬ ì—”ì§„ì€ Collider ì»´í¬ë„ŒíŠ¸ë¥¼ ê¸°ë°˜ìœ¼ë¡œ ë¬¼ì²´ì˜ í˜•íƒœë¥¼ ì‹ë³„í•˜ê¸° ë•Œë¬¸ì— ì‹¤ì œ
+ * í™”ë©´ ì¶œë ¥ë˜ëŠ” ë¬¼ì²´ì˜ í˜•íƒœì™€ ë¬¼ë¦¬ ì—”ì§„ì´ ì¸ì‹í•˜ëŠ” ë¬¼ì²´ì˜ í˜•íƒœê°€ ë‹¤ë¥¼ ìˆ˜ ìˆë‹¤.)
  * 
- * Collider ÄÄÆ÷³ÍÆ® Á¾·ù
+ * Collider ì»´í¬ë„ŒíŠ¸ ì¢…ë¥˜
  * - Box
  * - Sphere
  * - Capsule
  * - Mesh
  * 
- * À§¿Í °°ÀÌ Mesh Collider ¸¦ Á¦¿ÜÇÏ°í´Â ´Ü¼øÇÑ ÇüÅÂ¸¦ Áö´Ï°í ÀÖ´Â °ÍÀ» ¾Ë ¼ö
- * ÀÖÀ¸¸ç ÀÌ´Â ¹°¸® ¿£ÁøÀº ¹°Ã¼ÀÇ »óÈ£ ÀÛ¿ëÀ» ¿¬»êÇÏ±â À§ÇÑ ¿¬»ê·®À» ÁÙÀÌ±â
- * À§ÇÔÀÌ¶ó´Â °ÍÀ» ¾Ë ¼ö ÀÖ´Ù. (Áï, ¹°Ã¼ÀÇ ÇüÅÂ¸¦ ´Ü¼øÈ­ ½ÃÅ´À¸·Î ¹°¸® ¿¬»ê
- * Ã³¸®¸¦ ºü¸£°Ô ¼öÇàÇÒ ¼ö ÀÖ´Ù´Â °ÍÀ» ¾Ë ¼ö ÀÖ´Ù.)
+ * ìœ„ì™€ ê°™ì´ Mesh Collider ë¥¼ ì œì™¸í•˜ê³ ëŠ” ë‹¨ìˆœí•œ í˜•íƒœë¥¼ ì§€ë‹ˆê³  ìˆëŠ” ê²ƒì„ ì•Œ ìˆ˜
+ * ìˆìœ¼ë©° ì´ëŠ” ë¬¼ë¦¬ ì—”ì§„ì€ ë¬¼ì²´ì˜ ìƒí˜¸ ì‘ìš©ì„ ì—°ì‚°í•˜ê¸° ìœ„í•œ ì—°ì‚°ëŸ‰ì„ ì¤„ì´ê¸°
+ * ìœ„í•¨ì´ë¼ëŠ” ê²ƒì„ ì•Œ ìˆ˜ ìˆë‹¤. (ì¦‰, ë¬¼ì²´ì˜ í˜•íƒœë¥¼ ë‹¨ìˆœí™” ì‹œí‚´ìœ¼ë¡œ ë¬¼ë¦¬ ì—°ì‚°
+ * ì²˜ë¦¬ë¥¼ ë¹ ë¥´ê²Œ ìˆ˜í–‰í•  ìˆ˜ ìˆë‹¤ëŠ” ê²ƒì„ ì•Œ ìˆ˜ ìˆë‹¤.)
  * 
- * Rigidbody ÄÄÆ÷³ÍÆ®¶õ?
- * - ¹°¸® ¿£Áø¿¡ ÀÇÇØ¼­ ½ÇÁúÀûÀ¸·Î »óÈ£ ÀÛ¿ë ¿©ºÎ¸¦ Ã³¸®ÇÏ´Â ÄÄÆ÷³ÍÆ®¸¦ ÀÇ¹ÌÇÑ´Ù.
- * (Áï, Unity ¾À »ó¿¡ ¹èÄ¡ µÈ °ÔÀÓ °´Ã¼°¡ Rigidbody ÄÄÆ÷³ÍÆ®¸¦ Áö´Ï°í ÀÖ´Ù¸é
- * ¹°¸® ¿£Áø¿¡ ÀÇÇØ ¹°¸® ¿¬»êÀÌ Ã³¸® µÈ´Ù´Â °ÍÀ» ¾Ë ¼ö ÀÖ´Ù.)
+ * Rigidbody ì»´í¬ë„ŒíŠ¸ë€?
+ * - ë¬¼ë¦¬ ì—”ì§„ì— ì˜í•´ì„œ ì‹¤ì§ˆì ìœ¼ë¡œ ìƒí˜¸ ì‘ìš© ì—¬ë¶€ë¥¼ ì²˜ë¦¬í•˜ëŠ” ì»´í¬ë„ŒíŠ¸ë¥¼ ì˜ë¯¸í•œë‹¤.
+ * (ì¦‰, Unity ì”¬ ìƒì— ë°°ì¹˜ ëœ ê²Œì„ ê°ì²´ê°€ Rigidbody ì»´í¬ë„ŒíŠ¸ë¥¼ ì§€ë‹ˆê³  ìˆë‹¤ë©´
+ * ë¬¼ë¦¬ ì—”ì§„ì— ì˜í•´ ë¬¼ë¦¬ ì—°ì‚°ì´ ì²˜ë¦¬ ëœë‹¤ëŠ” ê²ƒì„ ì•Œ ìˆ˜ ìˆë‹¤.)
  */
 /** Example 4 */
-public class CExample_04 : CSceneManager
-{
-	#region º¯¼ö
+public class CExample_04 : CSceneManager {
+	#region ë³€ìˆ˜
 	private float m_fShootPower = 0.0f;
+
+	[Header("=====> Physics 1 <=====")]
 	[SerializeField] private Image m_oPhysics01GaugeImg = null;
 	[SerializeField] private Rigidbody m_oPhysics01Target = null;
 	[SerializeField] private List<Rigidbody> m_oPhysics01ObstacleList = new List<Rigidbody>();
-	#endregion // º¯¼ö
 
-	#region ÇÁ·ÎÆÛÆ¼
+	[Header("=====> Physics 2 <=====")]
+	[SerializeField] private GameObject m_oPhysics02Target = null;
+	#endregion // ë³€ìˆ˜
+
+	#region í”„ë¡œí¼í‹°
 	public override string SceneName => KDefine.G_SCENE_N_EXAMPLE_04;
-	#endregion // ÇÁ·ÎÆÛÆ¼
+	#endregion // í”„ë¡œí¼í‹°
 
-	#region ÇÔ¼ö
-	/** ÃÊ±âÈ­ */
-	public override void Awake()
-	{
+	#region í•¨ìˆ˜
+	/** ì´ˆê¸°í™” */
+	public override void Awake() {
 		base.Awake();
 
 #if E04_PHYSICS_01
@@ -81,16 +84,14 @@ public class CExample_04 : CSceneManager
 #endif
 	}
 
-	/** Áß·Â ¿©ºÎ¸¦ º¯°æÇÑ´Ù */
-	private void SetupGravity(bool a_bIsTrue)
-	{
+	/** ì¤‘ë ¥ ì—¬ë¶€ë¥¼ ë³€ê²½í•œë‹¤ */
+	private void SetupGravity(bool a_bIsTrue) {
 		m_oPhysics01Target.useGravity = a_bIsTrue;
 
-		m_oPhysics01Target.constraints = a_bIsTrue ? 
+		m_oPhysics01Target.constraints = a_bIsTrue ?
 			RigidbodyConstraints.None : RigidbodyConstraints.FreezeAll;
 
-		for (int i = 0; i < m_oPhysics01ObstacleList.Count; ++i)
-		{
+		for(int i = 0; i < m_oPhysics01ObstacleList.Count; ++i) {
 			m_oPhysics01ObstacleList[i].useGravity = a_bIsTrue;
 
 			m_oPhysics01ObstacleList[i].constraints = a_bIsTrue ?
@@ -98,11 +99,10 @@ public class CExample_04 : CSceneManager
 		}
 	}
 
-	/** »óÅÂ¸¦ °»½ÅÇÑ´Ù */
-	public void Update()
-	{
+	/** ìƒíƒœë¥¼ ê°±ì‹ í•œë‹¤ */
+	public void Update() {
 #if E04_PHYSICS_01
-		// È¸Àü Å°¸¦ ´­·¶À» °æ¿ì
+		// íšŒì „ í‚¤ë¥¼ ëˆŒë €ì„ ê²½ìš°
 		if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
         {
             float fDirection = Input.GetKey(KeyCode.UpArrow) ? 1.0f : -1.0f;
@@ -114,12 +114,12 @@ public class CExample_04 : CSceneManager
 			m_oPhysics01Target.transform.localEulerAngles = stFinalAngle;
         }
 
-		// ¹ß»ç Å°¸¦ ´­·¶À» °æ¿ì
+		// ë°œì‚¬ í‚¤ë¥¼ ëˆŒë €ì„ ê²½ìš°
 		if (Input.GetKey(KeyCode.Space))
 		{
 			m_fShootPower = Mathf.Clamp01(m_fShootPower + Time.deltaTime);
 		}
-		// ¹ß»ç Å° ÀÔ·ÂÀÌ Á¾·á µÇ¾úÀ» °æ¿ì
+		// ë°œì‚¬ í‚¤ ì…ë ¥ì´ ì¢…ë£Œ ë˜ì—ˆì„ ê²½ìš°
 		else if (Input.GetKeyUp(KeyCode.Space))
 		{
 			this.SetupGravity(true);
@@ -134,15 +134,88 @@ public class CExample_04 : CSceneManager
 
 		this.UpdateUIsState();
 #elif E04_PHYSICS_02
+		// íšŒì „ í‚¤ë¥¼ ëˆŒë €ì„ ê²½ìš°
+		if(Input.GetKey(KeyCode.LeftArrow) ||
+			Input.GetKey(KeyCode.RightArrow)) {
+			float fDirection = Input.GetKey(KeyCode.LeftArrow) ?
+				-1.0f : 1.0f;
 
+			/*
+			 * Time í´ë˜ìŠ¤ëŠ” ì‹œê°„ê³¼ ê´€ë ¨ ëœ ì—¬ëŸ¬ í¸ë¦¬ ê¸°ëŠ¥ì„ ì œê³µí•˜ëŠ” ì—­í• ì„ ìˆ˜í–‰í•œë‹¤.
+			 * 
+			 * ë˜í•œ, í•´ë‹¹ í´ë˜ìŠ¤ì— ì¡´ì¬í•˜ëŠ” deltaTime ì†ì„±ì„ í™œìš©í•˜ë©´ ì´ì „ í”„ë ˆì„ê³¼
+			 * í˜„ì¬ í”„ë ˆì„ ì‚¬ì´ì— í˜ëŸ¬ê°„ ì‹œê°„ì„ ê³„ì‚°í•˜ëŠ” ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤. (ì¦‰, í•˜ë“œì›¨ì–´
+			 * ìŠ¤í™ì´ ë™ì¼í•˜ì§€ ì•Šì€ ì—¬ëŸ¬ í™˜ê²½ì—ì„œ ë™ì‘í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì œì‘ í•  ê²½ìš° 
+			 * ë°˜ë“œì‹œ í•´ë‹¹ ì†ì„±ì„ í™œìš©í•  í•„ìš”ê°€ ìˆë‹¤ëŠ” ê²ƒì„ ì•Œ ìˆ˜ ìˆë‹¤.)
+			 */
+			m_oPhysics02Target.transform.Rotate(Vector3.up,
+				180.0f * fDirection * Time.deltaTime, Space.World);
+		}
+
+		// ì´ë™ í‚¤ë¥¼ ëˆŒë €ì„ ê²½ìš°
+		if(Input.GetKey(KeyCode.UpArrow) ||
+			Input.GetKey(KeyCode.DownArrow)) {
+			float fDirection = Input.GetKey(KeyCode.UpArrow) ?
+				1.0f : -1.0f;
+
+			var stTranslation = Vector3.forward *
+				1500.0f * fDirection * Time.deltaTime;
+
+			m_oPhysics02Target.transform.Translate(stTranslation,
+				Space.Self);
+		}
+
+		var stRay = new Ray(m_oPhysics02Target.transform.position,
+			m_oPhysics02Target.transform.forward);
+
+		/*
+		 * Physics.Raycast ë©”ì„œë“œë¥¼ í™œìš©í•˜ë©´ Unity ë¬¼ë¦¬ ì—”ì§„ì„ ì´ìš©í•´ì„œ ê´‘ì„  ì¶”ì 
+		 * ì—°ì‚°ì„ ìˆ˜í–‰í•˜ëŠ” ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤. (ì¦‰, í•´ë‹¹ ë©”ì„œë“œë¥¼ í™œìš©í•˜ë©´ íŠ¹ì • ë¬¼ì²´ ì „ë°©ì—
+		 * ì¡´ì¬í•˜ëŠ” ëŒ€ìƒì„ ê²€ì¶œí•˜ëŠ” ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤.)
+		 * 
+		 * ë‹¨, í•´ë‹¹ ë©”ì„œë“œë¥¼ í†µí•´ ì¶©ëŒ ëœ ë¬¼ì²´ë¥¼ ê²€ì¶œí•˜ê¸° ìœ„í•´ì„œëŠ” í•´ë‹¹ ë¬¼ì²´ê°€ ë°˜ë“œì‹œ
+		 * Collider ì»´í¬ë„ŒíŠ¸ë¥¼ ì§€ë‹ˆê³  ìˆì–´ì•¼í•œë‹¤. (ì¦‰, Collider ì»´í¬ë„ŒíŠ¸ê°€ ì¡´ì¬í•˜ì§€
+		 * ì•Šì„ ê²½ìš° ë¬¼ë¦¬ ì—”ì§„ì´ í•´ë‹¹ ë¬¼ì²´ì˜ í˜•íƒœë¥¼ ì¸ì§€í•  ìˆ˜ ì—†ë‹¤ëŠ” ê²ƒì„ ì˜ë¯¸í•œë‹¤.)
+		 */
+		bool bIsHit = Physics.Raycast(stRay, 
+			out RaycastHit stRaycastHit, 250.0f);
+		
+		// ì¶©ëŒ ëœ ë¬¼ì²´ê°€ ì¡´ì¬ í•  ê²½ìš°
+		if(bIsHit) {
+			Debug.Log($"{stRaycastHit.collider.name} ë¬¼ì²´ê°€ ì „ë°©ì— ì¡´ì¬í•©ë‹ˆë‹¤.");
+		}
 #endif
-    }
+	}
 
-	/** UI »óÅÂ¸¦ °»½ÅÇÑ´Ù */
-	private void UpdateUIsState()
-    {
+	/** UI ìƒíƒœë¥¼ ê°±ì‹ í•œë‹¤ */
+	private void UpdateUIsState() {
 		float fPosX = m_oPhysics01GaugeImg.rectTransform.sizeDelta.x * m_fShootPower;
 		m_oPhysics01GaugeImg.rectTransform.anchoredPosition = new Vector2(fPosX, 0.0f);
-    }
-#endregion // ÇÔ¼ö
+	}
+
+	/*
+	 * OnDrawGizmos ë©”ì„œë“œë¥¼ ì´ìš©í•˜ë©´ Unity ì—ë””í„°ì˜ ì”¬ ë·°ì— ê·¸ë˜í”½ì„ ì¶œë ¥í•˜ëŠ”
+	 * ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤. (ì¦‰, í•´ë‹¹ ë©”ì„œë“œë¥¼ í™œìš©í•˜ë©´ í”„ë¡œê·¸ë¨ì„ ì œì‘í•˜ëŠ”ë° í•„ìš”í•œ
+	 * ì—¬ëŸ¬ ë¶€ê°€ ì •ë³´ë¥¼ ì”¬ ìƒì— ì¶œë ¥í•˜ëŠ” ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤.)
+	 * 
+	 * ë‹¨, í•´ë‹¹ ë©”ì„œë“œ ë‚´ë¶€ì—ì„œ ì‚¬ìš©ë˜ëŠ” Gizmos í´ë˜ìŠ¤ëŠ” Unity í”„ë¡œì íŠ¸ ìƒì—
+	 * ì¡´ì¬í•˜ëŠ” ëª¨ë“  ì»´í¬ë„ŒíŠ¸ê°€ ê³µìš©ìœ¼ë¡œ ì‚¬ìš©í•˜ëŠ” í´ë˜ìŠ¤ì´ê¸° ë•Œë¬¸ì— í•´ë‹¹ í´ë˜ìŠ¤ì˜
+	 * íŠ¹ì • ì†ì„±ì„ ë³€ê²½í–ˆë‹¤ë©´ ë°˜ë“œì‹œ ì‘ì—…ì„ ì™„ë£Œ í›„ ë‹¤ì‹œ ì›ë˜ ì†ì„±ìœ¼ë¡œ ë³€ê²½í•´ì¤„
+	 * í•„ìš”ê°€ ìˆë‹¤.
+	 */
+	/** ê¸°ì¦ˆëª¨ë¥¼ ê·¸ë¦°ë‹¤ */
+	private void OnDrawGizmos() {
+		var stPrevColor = Gizmos.color;
+
+		try {
+			var stStartPos = m_oPhysics02Target.transform.position;
+			var stEndPos = stStartPos + (m_oPhysics02Target.transform.forward * 250.0f);
+
+			Gizmos.color = Color.red;
+			Gizmos.DrawLine(stStartPos, stEndPos);
+		} finally {
+			Gizmos.color = stPrevColor;
+		}	
+	}
+	#endregion // í•¨ìˆ˜
 }

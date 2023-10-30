@@ -60,12 +60,20 @@
   <ItemGroup>
     <Compile Include="Assets\Example\Scripts\Runtime\Example_02\CExample_02.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Camera\CResolutionHandler.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CTriggerDispatcher.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Type.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Global.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_05\CExample_05.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Scene\CSceneLoader.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CCollisionDispatcher.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Extension\CExtension+Global.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CExample_06.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_07\CExample_07.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_01\CExample_01.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Base\CComponent.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_03\CExample_03.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Scene\CSceneManager.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Base\CSingleton.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_04\CExample_04.cs" />
   </ItemGroup>
   <ItemGroup>

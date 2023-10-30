@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * partial Å°¿öµå¸¦ È°¿ëÇÏ¸é Æ¯Á¤ Å¬·¡½º¸¦ ¿©·¯ ÆÄÀÏ¿¡ ³ª´©¾î¼­ Á¤ÀÇÇÏ´Â
- * °ÍÀÌ °¡´ÉÇÏ´Ù. (Áï, Å¬·¡½º°¡ Áö´Ï´Â ±â´ÉÀÌ ¸¹À»¼ö·Ï ÇØ´ç Å¬·¡½º¿¡ ÀÛ¼ºµÇ´Â
- * ¸í·É¹®Àº ¸¹¾ÆÁö±â ¶§¹®¿¡ ÀÌ´Â °ð °ü¸®ÀÇ ¿ëÀÌ¼ºÀÌ ¶³¾îÁö´Â ´ÜÁ¡ÀÌ Á¸ÀçÇÑ´Ù´Â
- * °ÍÀ» ¾Ë ¼ö ÀÖ´Ù.)
+ * partial í‚¤ì›Œë“œë¥¼ í™œìš©í•˜ë©´ íŠ¹ì • í´ëž˜ìŠ¤ë¥¼ ì—¬ëŸ¬ íŒŒì¼ì— ë‚˜ëˆ„ì–´ì„œ ì •ì˜í•˜ëŠ”
+ * ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤. (ì¦‰, í´ëž˜ìŠ¤ê°€ ì§€ë‹ˆëŠ” ê¸°ëŠ¥ì´ ë§Žì„ìˆ˜ë¡ í•´ë‹¹ í´ëž˜ìŠ¤ì— ìž‘ì„±ë˜ëŠ”
+ * ëª…ë ¹ë¬¸ì€ ë§Žì•„ì§€ê¸° ë•Œë¬¸ì— ì´ëŠ” ê³§ ê´€ë¦¬ì˜ ìš©ì´ì„±ì´ ë–¨ì–´ì§€ëŠ” ë‹¨ì ì´ ì¡´ìž¬í•œë‹¤ëŠ”
+ * ê²ƒì„ ì•Œ ìˆ˜ ìžˆë‹¤.)
  * 
- * µû¶ó¼­, partial Å°¿öµå¸¦ È°¿ëÇØ¼­ ¿©·¯ ÆÄÀÏ¿¡ ³ª´©¾î¼­ Á¤ÀÇ µÈ Å¬·¡½º´Â
- * ÄÄÆÄÀÏ ´Ü°è¿¡¼­ ÇÏ³ªÀÇ Å¬·¡½º·Î ÇÕÃÄÁø´Ù´Â °ÍÀ» ¾Ë ¼ö ÀÖ´Ù.
+ * ë”°ë¼ì„œ, partial í‚¤ì›Œë“œë¥¼ í™œìš©í•´ì„œ ì—¬ëŸ¬ íŒŒì¼ì— ë‚˜ëˆ„ì–´ì„œ ì •ì˜ ëœ í´ëž˜ìŠ¤ëŠ”
+ * ì»´íŒŒì¼ ë‹¨ê³„ì—ì„œ í•˜ë‚˜ì˜ í´ëž˜ìŠ¤ë¡œ í•©ì³ì§„ë‹¤ëŠ” ê²ƒì„ ì•Œ ìˆ˜ ìžˆë‹¤.
  */
-/** Àü¿ª »ó¼ö */
+/** ì „ì—­ ìƒìˆ˜ */
 public static partial class KDefine
 {
-    #region »ó¼ö
-    // ÇØ»óµµ
+    #region ìƒìˆ˜
+    // í•´ìƒë„
     public const float G_DESIGN_SCREEN_WIDTH = 1920.0f;
     public const float G_DESIGN_SCREEN_HEIGHT = 1080.0f;
 
-    // ¾À ÀÌ¸§
-    public const string G_SCENE_N_EXAMPLE_01 = "Example_01 (±âÃÊ)";
-    public const string G_SCENE_N_EXAMPLE_02 = "Example_02 (ÇÁ¸®ÆÕ, ½ºÅ©¸³Æ®)";
-    public const string G_SCENE_N_EXAMPLE_03 = "Example_03 (Ä«¸Þ¶ó, ±¤¿ø)";
-    public const string G_SCENE_N_EXAMPLE_04 = "Example_04 (¹°¸®)";
-    #endregion // »ó¼ö
+    // ì”¬ ì´ë¦„
+    public const string G_SCENE_N_EXAMPLE_01 = "Example_01 (ê¸°ì´ˆ)";
+    public const string G_SCENE_N_EXAMPLE_02 = "Example_02 (í”„ë¦¬íŒ¹, ìŠ¤í¬ë¦½íŠ¸)";
+    public const string G_SCENE_N_EXAMPLE_03 = "Example_03 (ì¹´ë©”ë¼, ê´‘ì›)";
+    public const string G_SCENE_N_EXAMPLE_04 = "Example_04 (ë¬¼ë¦¬)";
+	public const string G_SCENE_N_EXAMPLE_05 = "Example_05 (í”Œëž˜í”¼ ë²„ë“œ - ì‹œìž‘)";
+	public const string G_SCENE_N_EXAMPLE_06 = "Example_06 (í”Œëž˜í”¼ ë²„ë“œ - í”Œë ˆì´)";
+	public const string G_SCENE_N_EXAMPLE_07 = "Example_07 (í”Œëž˜í”¼ ë²„ë“œ - ê²°ê³¼)";
+	#endregion // ìƒìˆ˜
 }
