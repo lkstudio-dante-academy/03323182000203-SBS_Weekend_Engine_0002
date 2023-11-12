@@ -26,4 +26,16 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Example/Scenes/Example_07 (\uD50C\uB798\uD53C \uBC84\uB4DC - \uACB0\uACFC).unity"
     guid: 625be82f5955b28428b438d7a7423b3b
+  - enabled: 1
+    path: "Assets/Example/Scenes/Example_08 (\uC2A4\uD504\uB77C\uC774\uD2B8, \uC560\uB2C8\uBA54\uC774\uC158).unity"
+    guid: fcb40b67836a30440b5bc39548b180b9
+  - enabled: 1
+    path: "Assets/Example/Scenes/Example_09 (\uB450\uB354\uC9C0 \uC7A1\uAE30 - \uC2DC\uC791).unity"
+    guid: 43906a98a81de1c40a91ff162ac5d338
+  - enabled: 1
+    path: "Assets/Example/Scenes/Example_10 (\uB450\uB354\uC9C0 \uC7A1\uAE30 - \uD50C\uB808\uC774).unity"
+    guid: 153d7e77d3812454c828f2c28e68341e
+  - enabled: 1
+    path: "Assets/Example/Scenes/Example_11 (\uB450\uB354\uC9C0 \uC7A1\uAE30 - \uACB0\uACFC).unity"
+    guid: 541b55ad7f1243e40bdd27bb0da93e92
   m_configObjects: {}
