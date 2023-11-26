@@ -23,7 +23,7 @@ public class CExample_11 : CSceneManager {
 
 	/** UI 상태를 갱신한다 */
 	private void UpdateUIsState() {
-		//m_oScoreText.text = $"점수 : {CE06DataStorage.Inst.Score}";
+		m_oScoreText.text = $"점수 : {CE10DataStorage.Inst.Score}";
 	}
 
 	/** 다시하기 버튼을 눌렀을 경우 */

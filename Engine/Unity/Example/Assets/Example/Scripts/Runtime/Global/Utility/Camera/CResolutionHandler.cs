@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/** ÇØ»óµµ Ã³¸®ÀÚ */
+/** í•´ìƒë„ ì²˜ë¦¬ì */
 public class CResolutionHandler : CComponent
 {
-    #region º¯¼ö
-    private Camera m_oCamera = null;
+    #region ë³€ìˆ˜
     [SerializeField] private EProjection m_eProjection = EProjection._3D;
-    #endregion // º¯¼ö
+	[SerializeField] private GameObject m_oObjsRoot = null;
 
-    #region ÇÁ·ÎÆÛÆ¼
+    private Camera m_oCamera = null;
+    #endregion // ë³€ìˆ˜
+
+    #region í”„ë¡œí¼í‹°
     public float Distance
     {
         get
@@ -23,10 +25,10 @@ public class CResolutionHandler : CComponent
     }
 
     public float FOV => Mathf.PI / 4.0f;
-    #endregion // ÇÁ·ÎÆÛÆ¼
+    #endregion // í”„ë¡œí¼í‹°
 
-    #region ÇÔ¼ö
-    /** ÃÊ±âÈ­ */
+    #region í•¨ìˆ˜
+    /** ì´ˆê¸°í™” */
     public override void Awake()
     {
         base.Awake();
@@ -35,7 +37,7 @@ public class CResolutionHandler : CComponent
         this.SetupResolution();
     }
 
-    /** »óÅÂ¸¦ ¸®¼ÂÇÑ´Ù */
+    /** ìƒíƒœë¥¼ ë¦¬ì…‹í•œë‹¤ */
     public override void Reset()
     {
         base.Reset();
@@ -44,18 +46,38 @@ public class CResolutionHandler : CComponent
         this.SetupResolution();
     }
 
-    /** ÇØ»óµµ¸¦ ¼³Á¤ÇÑ´Ù */
+    /** í•´ìƒë„ë¥¼ ì„¤ì •í•œë‹¤ */
     private void SetupResolution()
     {
-        var oCamera = m_oCamera ?? this.GetComponent<Camera>();
-        oCamera.nearClipPlane = 0.1f;
-        oCamera.farClipPlane = 25000.0f;
-
-        oCamera.orthographic = m_eProjection != EProjection._3D;
-        oCamera.orthographicSize = KDefine.G_DESIGN_SCREEN_HEIGHT / 2.0f;
-
-        oCamera.fieldOfView = this.FOV * Mathf.Rad2Deg;
-        oCamera.transform.position = new Vector3(0.0f, 0.0f, -this.Distance);
+		this.SetupCamera();
+		this.SetupObjsRoot();
     }
-    #endregion // ÇÔ¼ö
+
+	/** ì¹´ë©”ë¼ë¥¼ ì„¤ì •í•œë‹¤ */
+	private void SetupCamera() {
+		var oCamera = m_oCamera ?? this.GetComponent<Camera>();
+		oCamera.nearClipPlane = 0.1f;
+		oCamera.farClipPlane = 25000.0f;
+
+		oCamera.orthographic = m_eProjection != EProjection._3D;
+		oCamera.orthographicSize = KDefine.G_DESIGN_SCREEN_HEIGHT / 2.0f;
+
+		oCamera.fieldOfView = this.FOV * Mathf.Rad2Deg;
+		oCamera.transform.position = new Vector3(0.0f, 0.0f, -this.Distance);
+	}
+
+	/** ë£¨íŠ¸ ê°ì²´ë¥¼ ì„¤ì •í•œë‹¤ */
+	private void SetupObjsRoot() {
+		float fAspect = KDefine.G_DESIGN_SCREEN_WIDTH / KDefine.G_DESIGN_SCREEN_HEIGHT;
+		float fDesignWidth = KDefine.DeviceScreenSize.y * fAspect;
+
+		// ë¹„ìœ¨ ì¡°ì ˆì´ í•„ìš” ì—†ì„ ê²½ìš°
+		if(fDesignWidth <= KDefine.DeviceScreenSize.x) {
+			return;
+		}
+
+		float fScale = KDefine.DeviceScreenSize.x / fDesignWidth;
+		m_oObjsRoot.transform.localScale = Vector3.one * fScale;
+	}
+    #endregion // í•¨ìˆ˜
 }

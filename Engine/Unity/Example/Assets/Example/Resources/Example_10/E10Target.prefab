@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7207914379850031804}
   - component: {fileID: 2564550161739677706}
   - component: {fileID: 1065951476388312991}
+  - component: {fileID: 7141975580783962657}
+  - component: {fileID: 5509828244268113993}
   m_Layer: 0
   m_Name: E10Target
   m_TagString: Untagged
@@ -110,3 +112,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7141975580783962657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625953258746038641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299856d506229974fa5be5edd3228e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_oController01: {fileID: 9100000, guid: 93886b23b78b97842a6c8ff4d7dc7feb, type: 2}
+  m_oController02: {fileID: 9100000, guid: 18284a826a7b5b74c82b5a483cd96644, type: 2}
+--- !u!65 &5509828244268113993
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5625953258746038641}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 142.81638, y: 161.70602, z: 0.2}
+  m_Center: {x: 1.0997162, y: -21.51221, z: 0}

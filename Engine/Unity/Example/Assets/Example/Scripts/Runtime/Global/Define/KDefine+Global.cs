@@ -19,8 +19,9 @@ public static partial class KDefine
     public const float G_DESIGN_SCREEN_WIDTH = 1920.0f;
     public const float G_DESIGN_SCREEN_HEIGHT = 1080.0f;
 
-    // 씬 이름
-    public const string G_SCENE_N_EXAMPLE_01 = "Example_01 (기초)";
+	// 씬 이름
+	public const string G_SCENE_N_EXAMPLE_00 = "Example_00 (메뉴)";
+	public const string G_SCENE_N_EXAMPLE_01 = "Example_01 (기초)";
     public const string G_SCENE_N_EXAMPLE_02 = "Example_02 (프리팹, 스크립트)";
     public const string G_SCENE_N_EXAMPLE_03 = "Example_03 (카메라, 광원)";
     public const string G_SCENE_N_EXAMPLE_04 = "Example_04 (물리)";
@@ -31,5 +32,19 @@ public static partial class KDefine
 	public const string G_SCENE_N_EXAMPLE_09 = "Example_09 (두더지 잡기 - 시작)";
 	public const string G_SCENE_N_EXAMPLE_10 = "Example_10 (두더지 잡기 - 플레이)";
 	public const string G_SCENE_N_EXAMPLE_11 = "Example_11 (두더지 잡기 - 결과)";
+	public const string G_SCENE_N_EXAMPLE_12 = "Example_12 (UI)";
 	#endregion // 상수
+
+	#region 프로퍼티
+	public static Vector3 DeviceScreenSize {
+		get {
+#if UNITY_EDITOR
+			return new Vector3(Camera.main.pixelWidth,
+				Camera.main.pixelHeight, 0.0f);
+#else
+			return new Vector3(Screen.width, Screen.height, 0.0f);
+#endif
+		}
+	}
+#endregion // 프로퍼티
 }
