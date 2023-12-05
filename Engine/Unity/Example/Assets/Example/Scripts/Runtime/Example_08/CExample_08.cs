@@ -125,7 +125,9 @@ public class CExample_08 : CSceneManager {
 	}
 
 	/** 상태를 갱신한다 */
-	public void Update() {
+	public override void Update() {
+		base.Update();
+
 #if E08_ANIMATION_TWEEN
 		/** 스페이스 키를 눌렀을 경우 */
 		if(Input.GetKeyDown(KeyCode.Space)) {

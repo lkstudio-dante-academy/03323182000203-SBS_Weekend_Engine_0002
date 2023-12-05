@@ -100,7 +100,9 @@ public class CExample_04 : CSceneManager {
 	}
 
 	/** 상태를 갱신한다 */
-	public void Update() {
+	public override void Update() {
+		base.Update();
+
 #if E04_PHYSICS_01
 		// 회전 키를 눌렀을 경우
 		if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))

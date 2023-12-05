@@ -38,7 +38,9 @@ public class CExample_10 : CSceneManager {
 	}
 
 	/** 상태를 갱신한다 */
-	public void Update() {
+	public override void Update() {
+		base.Update();
+
 		// 플레이 상태가 아닐 경우
 		if(m_eState != EState.PLAY) {
 			return;

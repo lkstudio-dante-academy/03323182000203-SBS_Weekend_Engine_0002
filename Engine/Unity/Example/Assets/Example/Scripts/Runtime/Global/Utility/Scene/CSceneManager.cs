@@ -54,7 +54,7 @@ public abstract class CSceneManager : CComponent {
 			this.EventSystem = this.EventSystem ?? oEventSystem?.GetComponent<EventSystem>();
 
 			this.UIs = this.UIs ?? oUIs?.gameObject;
-			this.PopupUIs = this.UIs ?? oPopupUIs?.gameObject;
+			this.PopupUIs = this.PopupUIs ?? oPopupUIs?.gameObject;
 
 			this.Objs = this.Objs ?? oObjs?.gameObject;
 			this.StaticObjs = this.StaticObjs ?? oStaticObjs?.gameObject;
@@ -65,5 +65,50 @@ public abstract class CSceneManager : CComponent {
 
 		this.EventSystem.gameObject.SetActive(this.IsActiveScene);
     }
-    #endregion // 함수
+
+	/** 상태를 갱신한다 */
+	public virtual void Update() {
+		// Escape 키를 눌렀을 경우
+		if(Input.GetKeyDown(KeyCode.Escape)) {
+			this.ShowQuitAlertPopup();
+		}
+	}
+
+	/** 종료 알림 팝업을 출력한다 */
+	protected virtual void ShowQuitAlertPopup() {
+		// 종료 알림 팝업 출력이 불가능 할 경우
+		if(!this.IsEnableShowQuitAlertPopup()) {
+			return;
+		}
+
+		var reParams = CAlertPopup.MakeParams("메뉴 씬으로 이동하시겠습니까?",
+			"확인", this.OnReceiveQuitAlertPopupCallback, "취소");
+
+		var oAlertPopup = CFactory.CreateCloneGameObj<CAlertPopup>("AlertPopup",
+			Resources.Load<GameObject>("Global/Prefabs/G_AlertPopup"), this.PopupUIs);
+
+		oAlertPopup.Init(reParams);
+		oAlertPopup.Show();
+	}
+
+	/** 종료 알림 팝업 콜백을 수신했을 경우 */
+	protected virtual void OnReceiveQuitAlertPopupCallback(CAlertPopup a_oSender,
+		bool a_bIsOK) {
+
+		// 취소 버튼을 눌렀을 경우
+		if(!a_bIsOK) {
+			return;
+		}
+
+		CSceneLoader.Inst.LoadScene(KDefine.G_SCENE_N_EXAMPLE_00);
+	}
+	#endregion // 함수
+
+	#region 접근 함수
+	/** 종료 알림 팝업 출력 가능 여부를 검사한다 */
+	protected bool IsEnableShowQuitAlertPopup() {
+		bool bIsEnable = !this.SceneName.Equals(KDefine.G_SCENE_N_EXAMPLE_00);
+		return bIsEnable && this.PopupUIs.transform.Find("AlertPopup") == null;
+	}
+	#endregion // 접근 함수
 }

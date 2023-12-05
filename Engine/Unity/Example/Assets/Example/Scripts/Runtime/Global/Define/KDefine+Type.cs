@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-#region �⺻
-/** ���콺 ��ư */
+#region 기본
+/** 마우스 버튼 */
 public enum EMouseBtn
 {
     NONE = -1,
@@ -13,7 +13,7 @@ public enum EMouseBtn
     [HideInInspector] MAX_VAL
 }
 
-/** ���� */
+/** 투영 */
 public enum EProjection
 {
     NONE = -1,
@@ -21,4 +21,22 @@ public enum EProjection
     _3D,
     [HideInInspector] MAX_VAL
 }
-#endregion // �⺻
+
+/** 리스트 래퍼 */
+public class CListWrapper<T> {
+	#region 변수
+	public List<T> m_oList = new List<T>();
+	public List<T> m_oAddList = new List<T>();
+	public List<T> m_oRemoveList = new List<T>();
+	#endregion // 변수
+
+	#region 함수
+	/** 값을 클리어한다 */
+	public void Clear() {
+		m_oList?.Clear();
+		m_oAddList?.Clear();
+		m_oRemoveList?.Clear();
+	}
+	#endregion // 함수
+}
+#endregion // 기본

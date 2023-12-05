@@ -3,65 +3,63 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /** Example 3 */
-public class CExample_03 : CSceneManager
-{
-	#region º¯¼ö
+public class CExample_03 : CSceneManager {
+	#region ë³€ìˆ˜
 	[SerializeField] private Light m_oLight = null;
-	#endregion // º¯¼ö
+	#endregion // ë³€ìˆ˜
 
-	#region ÇÁ·ÎÆÛÆ¼
+	#region í”„ë¡œí¼í‹°
 	public override string SceneName => KDefine.G_SCENE_N_EXAMPLE_03;
-	#endregion // ÇÁ·ÎÆÛÆ¼
+	#endregion // í”„ë¡œí¼í‹°
 
-	#region ÇÔ¼ö
-	/** ÃÊ±âÈ­ */
-	public override void Awake()
-	{
+	#region í•¨ìˆ˜
+	/** ì´ˆê¸°í™” */
+	public override void Awake() {
 		base.Awake();
 	}
 
-	/** »óÅÂ¸¦ °»½ÅÇÑ´Ù */
-	public void Update()
-	{
-		// ÁÂ/¿ì ¹æÇâ Å°¸¦ ´­·¶À» °æ¿ì
-		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
-		{
-			float fDirection = Input.GetKey(KeyCode.LeftArrow) ? 
+	/** ìƒíƒœë¥¼ ê°±ì‹ í•œë‹¤ */
+	public override void Update() {
+		base.Update();
+
+		// ì¢Œ/ìš° ë°©í–¥ í‚¤ë¥¼ ëˆŒë €ì„ ê²½ìš°
+		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) {
+			float fDirection = Input.GetKey(KeyCode.LeftArrow) ?
 				-1.0f : 1.0f;
 
 			/*
-			 * Unity ¹°Ã¼ È¸Àü Ç¥Çö ¹æ½Ä
-			 * - ¿ÀÀÏ·¯ È¸Àü
-			 * - »ç¿ø¼ö È¸Àü
+			 * Unity ë¬¼ì²´ íšŒì „ í‘œí˜„ ë°©ì‹
+			 * - ì˜¤ì¼ëŸ¬ íšŒì „
+			 * - ì‚¬ì›ìˆ˜ íšŒì „
 			 * 
-			 * ¿ÀÀÏ·¯ È¸ÀüÀÌ¶õ?
-			 * - ¹°Ã¼ÀÇ °¢ ±âÀú º¤ÅÍ¸¦ È¸ÀüÇÏ´Â 3 °¡Áö °ªÀ» ÇÕÃÄ¼­ ÃÖÁ¾ÀûÀ¸·Î
-			 * ¹°Ã¼ÀÇ È¸Àü Á¤µµ¸¦ Ç¥ÇöÇÏ´Â ¹æ¹ýÀ» ÀÇ¹ÌÇÑ´Ù.
+			 * ì˜¤ì¼ëŸ¬ íšŒì „ì´ëž€?
+			 * - ë¬¼ì²´ì˜ ê° ê¸°ì € ë²¡í„°ë¥¼ íšŒì „í•˜ëŠ” 3 ê°€ì§€ ê°’ì„ í•©ì³ì„œ ìµœì¢…ì ìœ¼ë¡œ
+			 * ë¬¼ì²´ì˜ íšŒì „ ì •ë„ë¥¼ í‘œí˜„í•˜ëŠ” ë°©ë²•ì„ ì˜ë¯¸í•œë‹¤.
 			 * 
-			 * µû¶ó¼­, ¿ÀÀÏ·¯ È¸ÀüÀº ¹°Ã¼ÀÇ ´Ü¼øÇÑ È¸ÀüÀ» Ç¥ÇöÇÏ´Âµ¥ ÀûÇÕÇÏ¸ç
-			 * ¹°Ã¼ÀÇ È¸Àü Á¤µµ º¹ÀâÇÒ ¼ö·Ï ³»ºÎÀûÀ¸·Î ¸¹Àº ¿¬»êÀÌ ÇÊ¿äÇÏ´Ù.
+			 * ë”°ë¼ì„œ, ì˜¤ì¼ëŸ¬ íšŒì „ì€ ë¬¼ì²´ì˜ ë‹¨ìˆœí•œ íšŒì „ì„ í‘œí˜„í•˜ëŠ”ë° ì í•©í•˜ë©°
+			 * ë¬¼ì²´ì˜ íšŒì „ ì •ë„ ë³µìž¡í•  ìˆ˜ë¡ ë‚´ë¶€ì ìœ¼ë¡œ ë§Žì€ ì—°ì‚°ì´ í•„ìš”í•˜ë‹¤.
 			 * 
-			 * ÀÌ´Â ¿ÀÀÏ·¯ È¸ÀüÀÌ °¢ Ãà¿¡ ´ëÇÑ È¸ÀüÀ» Çà·ÄÀ» ÅëÇØ Ç¥ÇöÇÏ±â ¶§¹®¿¡
-			 * Çà·Ä¿¡ Æ¯Â¡ »ó °áÇÕ ¼ø¼­¿¡ µû¶ó °á°ú °ªÀÌ ´Þ¶óÁö±â ¶§¹®ÀÌ´Ù.
+			 * ì´ëŠ” ì˜¤ì¼ëŸ¬ íšŒì „ì´ ê° ì¶•ì— ëŒ€í•œ íšŒì „ì„ í–‰ë ¬ì„ í†µí•´ í‘œí˜„í•˜ê¸° ë•Œë¬¸ì—
+			 * í–‰ë ¬ì— íŠ¹ì§• ìƒ ê²°í•© ìˆœì„œì— ë”°ë¼ ê²°ê³¼ ê°’ì´ ë‹¬ë¼ì§€ê¸° ë•Œë¬¸ì´ë‹¤.
 			 * 
-			 * µû¶ó¼­, ¿ÀÀÏ·¯ È¸ÀüÀº ¹°Ã¼ÀÇ È¸Àü »óÅÂ¸¦ Ç¥ÇöÇÏ±â À§ÇØ¼­ Ç×»ó 
-			 * Y (Yaw), X (Pitch), Z (Roll) ¼øÀ¸·Î °¢ ÃàÀÇ È¸Àü °ªÀ» ¿¬»êÇÑ´Ù´Â 
-			 * °ÍÀ» ¾Ë ¼ö ÀÖ´Ù.
+			 * ë”°ë¼ì„œ, ì˜¤ì¼ëŸ¬ íšŒì „ì€ ë¬¼ì²´ì˜ íšŒì „ ìƒíƒœë¥¼ í‘œí˜„í•˜ê¸° ìœ„í•´ì„œ í•­ìƒ 
+			 * Y (Yaw), X (Pitch), Z (Roll) ìˆœìœ¼ë¡œ ê° ì¶•ì˜ íšŒì „ ê°’ì„ ì—°ì‚°í•œë‹¤ëŠ” 
+			 * ê²ƒì„ ì•Œ ìˆ˜ ìžˆë‹¤.
 			 * 
-			 * »ç¿ø¼ö È¸ÀüÀÌ¶õ?
-			 * - ¹°Ã¼ÀÇ È¸Àü »óÅÂ¸¦ ³ªÅ¸³»±â À§ÇØ¼­ È¸ÀüÀÌ µÇ´Â Ãà°ú °¢µµ¸¦ ÇÕÃÄ¼­
-			 * 4 °³ÀÇ ¼ººÐÀ¸·Î ¹°Ã¼ÀÇ È¸Àü Á¤µµ¸¦ Ç¥ÇöÇÏ´Â ¹æ¹ýÀ» ÀÇ¹ÌÇÑ´Ù.
+			 * ì‚¬ì›ìˆ˜ íšŒì „ì´ëž€?
+			 * - ë¬¼ì²´ì˜ íšŒì „ ìƒíƒœë¥¼ ë‚˜íƒ€ë‚´ê¸° ìœ„í•´ì„œ íšŒì „ì´ ë˜ëŠ” ì¶•ê³¼ ê°ë„ë¥¼ í•©ì³ì„œ
+			 * 4 ê°œì˜ ì„±ë¶„ìœ¼ë¡œ ë¬¼ì²´ì˜ íšŒì „ ì •ë„ë¥¼ í‘œí˜„í•˜ëŠ” ë°©ë²•ì„ ì˜ë¯¸í•œë‹¤.
 			 * 
-			 * µû¶ó¼­, »ç¿ø¼ö È¸ÀüÀº ¿ÀÀÏ·¯ È¸Àü¿¡ ºñÇØ ÀûÀº ¿¬»êÀ¸·Î ¹°Ã¼ÀÇ È¸ÀüÀ»
-			 * Ç¥Çö ÇÒ ¼ö ÀÖ±â ¶§¹®¿¡ Unity ¸¦ ºñ·ÔÇÑ ¸¹Àº °ÔÀÓ ¿£Áø¿¡¼­ ±âº»ÀûÀ¸·Î
-			 * Áö¿øÇÏ´Â ¹æ½ÄÀÌ´Ù.
+			 * ë”°ë¼ì„œ, ì‚¬ì›ìˆ˜ íšŒì „ì€ ì˜¤ì¼ëŸ¬ íšŒì „ì— ë¹„í•´ ì ì€ ì—°ì‚°ìœ¼ë¡œ ë¬¼ì²´ì˜ íšŒì „ì„
+			 * í‘œí˜„ í•  ìˆ˜ ìžˆê¸° ë•Œë¬¸ì— Unity ë¥¼ ë¹„ë¡¯í•œ ë§Žì€ ê²Œìž„ ì—”ì§„ì—ì„œ ê¸°ë³¸ì ìœ¼ë¡œ
+			 * ì§€ì›í•˜ëŠ” ë°©ì‹ì´ë‹¤.
 			 * 
-			 * ¶ÇÇÑ, »ç¿ø¼ö´Â ¿ÀÀÏ·¯ È¸Àü¿¡ ºñÇØ °áÇÕ ¼ø¼­°¡ Á¸ÀçÇÏÁö ¾Ê±â ¶§¹®¿¡
-			 * º¹ÀâÇÑ ¹°Ã¼ÀÇ È¸Àü Á¤µµ¸¦ ºñ±³Àû ¼ö¿ùÇÏ°Ô Ç¥ÇöÇÏ´Â °ÍÀÌ °¡´ÉÇÏ´Ù.
+			 * ë˜í•œ, ì‚¬ì›ìˆ˜ëŠ” ì˜¤ì¼ëŸ¬ íšŒì „ì— ë¹„í•´ ê²°í•© ìˆœì„œê°€ ì¡´ìž¬í•˜ì§€ ì•Šê¸° ë•Œë¬¸ì—
+			 * ë³µìž¡í•œ ë¬¼ì²´ì˜ íšŒì „ ì •ë„ë¥¼ ë¹„êµì  ìˆ˜ì›”í•˜ê²Œ í‘œí˜„í•˜ëŠ” ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤.
 			 */
-			m_oLight.transform.Rotate(Vector3.up, 
+			m_oLight.transform.Rotate(Vector3.up,
 				90.0f * fDirection * Time.deltaTime, Space.World);
 		}
 	}
-	#endregion // ÇÔ¼ö
+	#endregion // í•¨ìˆ˜
 }

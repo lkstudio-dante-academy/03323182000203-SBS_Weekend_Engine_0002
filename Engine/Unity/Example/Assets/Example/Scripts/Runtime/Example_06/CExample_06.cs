@@ -55,7 +55,9 @@ public class CExample_06 : CSceneManager {
 	}
 
 	/** 상태를 갱신한다 */
-	public void Update() {
+	public override void Update() {
+		base.Update();
+
 		// 게임 종료 상태 일 경우
 		if(this.CurState == EState.GAME_OVER) {
 			return;
