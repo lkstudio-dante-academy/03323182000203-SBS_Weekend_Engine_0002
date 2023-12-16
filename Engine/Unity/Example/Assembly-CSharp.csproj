@@ -71,9 +71,11 @@
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Scene\CSceneLoader.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CCollisionDispatcher.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10DataStorage.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CNavStackManager.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Factory\CFactory+Global.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_08\CExample_08.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CE06Obstacle.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_13\CExample_13.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_11\CExample_11.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Extension\CExtension+Global.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CExample_06.cs" />
@@ -84,12 +86,15 @@
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CScheduleManager.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_03\CExample_03.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\UI\Popup\CAlertPopup.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CSndManager.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Scene\CSceneManager.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Sound\CSnd.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10StateMachineBehaviour.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_00\CExample_00.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CEventDispatcher.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_12\CExample_12.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Base\CSingleton.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_14\CExample_14.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_09\CExample_09.cs" />
     <Compile Include="Assets\Simple 2D Platformer BE2\ReadMe\Scripts\ReadmeBE2.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_04\CExample_04.cs" />

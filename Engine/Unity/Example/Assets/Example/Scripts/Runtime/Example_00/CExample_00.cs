@@ -30,10 +30,10 @@ public class CExample_00 : CSceneManager {
 			string oScenePath = SceneUtility.GetScenePathByBuildIndex(i);
 			string oSceneName = Path.GetFileNameWithoutExtension(oScenePath);
 
-			var oText = Instantiate(m_oOriginText, 
+			var oText = Instantiate(m_oOriginText,
 					Vector3.zero, Quaternion.identity);
 
-			oText.transform.SetParent(m_oScrollViewContents.transform, 
+			oText.transform.SetParent(m_oScrollViewContents.transform,
 				false);
 
 			oText.GetComponent<Text>().text = oSceneName;

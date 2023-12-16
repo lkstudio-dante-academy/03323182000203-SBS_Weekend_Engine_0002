@@ -33,6 +33,12 @@ public class CPopup : CComponent {
 	}
 
 	/** 초기화 */
+	public override void Start() {
+		base.Start();
+		CNavStackManager.Inst.PushComponent(this);
+	}
+
+	/** 초기화 */
 	public virtual void Init() {
 		this.BlindImg = CFactory.CreateCloneGameObj<Image>("BlindImg",
 			Resources.Load<GameObject>("Global/Prefabs/G_BlindImg"), this.Contents);
@@ -59,6 +65,23 @@ public class CPopup : CComponent {
 	public override void OnDestroy() {
 		base.OnDestroy();
 		this.ResetAnimations();
+
+		// 앱이 종료 되었을 경우
+		if(CExtension.ExIsQuitApp(null)) {
+			return;
+		}
+
+		CNavStackManager.Inst.PopComponent(this);
+	}
+
+	/** 내비게이션 이벤트를 수신했을 경우 */
+	public override void OnReceiveNavStackEvent(ENavStackEvent a_eEvent) {
+		base.OnReceiveNavStackEvent(a_eEvent);
+
+		// 백 키 이벤트 일 경우
+		if(a_eEvent == ENavStackEvent.BACK_KEY_DOWN) {
+			this.Close();
+		}
 	}
 
 	/** 팝업을 출력한다 */

@@ -4,22 +4,27 @@ using UnityEngine;
 
 #region 기본
 /** 마우스 버튼 */
-public enum EMouseBtn
-{
-    NONE = -1,
-    LEFT,
-    RIGHT,
-    MIDDLE,
-    [HideInInspector] MAX_VAL
+public enum EMouseBtn {
+	NONE = -1,
+	LEFT,
+	RIGHT,
+	MIDDLE,
+	[HideInInspector] MAX_VAL
 }
 
 /** 투영 */
-public enum EProjection
-{
-    NONE = -1,
-    _2D,
-    _3D,
-    [HideInInspector] MAX_VAL
+public enum EProjection {
+	NONE = -1,
+	_2D,
+	_3D,
+	[HideInInspector] MAX_VAL
+}
+
+/** 내비게이션 스택 이벤트 */
+public enum ENavStackEvent {
+	NONE = -1,
+	BACK_KEY_DOWN,
+	[HideInInspector] MAX_VAL
 }
 
 /** 리스트 래퍼 */

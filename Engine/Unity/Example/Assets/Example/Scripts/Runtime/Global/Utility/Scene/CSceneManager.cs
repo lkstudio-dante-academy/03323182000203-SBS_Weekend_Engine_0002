@@ -33,11 +33,14 @@ public abstract class CSceneManager : CComponent {
 	public string ActiveSceneName => SceneManager.GetActiveScene().name;
 	#endregion // 프로퍼티
 
+	#region 클래스 프로퍼티
+	public static bool IsQuitApp { get; private set; } = false;
+	#endregion // 클래스 프로퍼티
+
 	#region 함수
 	/** 초기화 */
-	public override void Awake()
-    {
-        base.Awake();
+	public override void Awake() {
+		base.Awake();
 		var oRootGameObjects = this.gameObject.scene.GetRootGameObjects();
 
 		for(int i = 0; i < oRootGameObjects.Length; ++i) {
@@ -64,12 +67,61 @@ public abstract class CSceneManager : CComponent {
 		oAudioListener.enabled = this.IsActiveScene;
 
 		this.EventSystem.gameObject.SetActive(this.IsActiveScene);
-    }
+
+		// 액티브 씬 일 경우
+		if(this.IsActiveScene) {
+			CSndManager.Inst.SetAudioListener(oAudioListener);
+		}
+	}
+
+	/** 초기화 */
+	public override void Start() {
+		base.Start();
+		CScheduleManager.Inst.AddComponent(this);
+
+		// 액티브 씬 일 경우
+		if(this.IsActiveScene) {
+			CNavStackManager.Inst.PushComponent(this);
+		}
+	}
 
 	/** 상태를 갱신한다 */
 	public virtual void Update() {
 		// Escape 키를 눌렀을 경우
 		if(Input.GetKeyDown(KeyCode.Escape)) {
+			CNavStackManager.Inst.SendNavStackEvent(ENavStackEvent.BACK_KEY_DOWN);
+		}
+	}
+
+	/** 제거 되었을 경우 */
+	public override void OnDestroy() {
+		base.OnDestroy();
+
+		/*
+		 * 앱이 종료되는 시점에 특정 게임 객체를 생성 할 경우 내부적으로
+		 * 예외가 발생하기 때문에 게임 객체가 제거 되는 과정에서 특정 명령문을
+		 * 작성 할 경우 반드시 현재 앱이 실행 중인 상태인지를 검사해줘야한다.
+		 */
+		// 앱이 종료 되었을 경우
+		if(this.ExIsQuitApp()) {
+			return;
+		}
+
+		CNavStackManager.Inst.PopComponent(this);
+		CScheduleManager.Inst.RemoveComponent(this);
+	}
+
+	/** 앱이 종료 되었을 경우 */
+	public virtual void OnApplicationQuit() {
+		CSceneManager.IsQuitApp = true;
+	}
+
+	/** 내비게이션 스택 이벤트를 수신했을 경우 */
+	public override void OnReceiveNavStackEvent(ENavStackEvent a_eEvent) {
+		base.OnReceiveNavStackEvent(a_eEvent);
+
+		// 백 키 이벤트 일 경우
+		if(a_eEvent == ENavStackEvent.BACK_KEY_DOWN) {
 			this.ShowQuitAlertPopup();
 		}
 	}

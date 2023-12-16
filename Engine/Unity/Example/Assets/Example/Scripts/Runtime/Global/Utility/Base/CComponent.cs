@@ -1,68 +1,88 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-/** ÃÖ»óÀ§ ÄÄÆ÷³ÍÆ® */
-public abstract class CComponent : MonoBehaviour
-{
-    #region ÇÔ¼ö
-    /*
-     * ÀÌº¥Æ® ¸Ş¼­µå¶õ?
-     * - Unity °¡ µ¿ÀÛ Áß¿¡ ¹ß»ıÇÏ´Â ¿©·¯ º¯È­¸¦ °¨ÁöÇÏ°í Ã³¸® ÇÒ ¼ö ÀÖ´Â
-     * ¸Ş¼­µå¸¦ ÀÇ¹ÌÇÑ´Ù. (Áï, Unity ´Â ¸¹Àº ÀÌº¥Æ® ¸Ş¼­µå¸¦ Á¦°øÇÏ¸ç ÇØ´ç
-     * ¸Ş¼­µå¸¦ È°¿ëÇÏ¸é Æ¯Á¤ »óÈ²¿¡ ´ëÇÑ ÀûÀı Ã³¸®¸¦ ±¸ÇöÇÏ´Â °ÍÀÌ °¡´ÉÇÏ´Ù.)
+/** ìµœìƒìœ„ ì»´í¬ë„ŒíŠ¸ */
+public abstract class CComponent : MonoBehaviour {
+	#region í”„ë¡œí¼í‹°
+	public bool IsDestroy { get; private set; } = false;
+	#endregion // í”„ë¡œí¼í‹°
+
+	#region í•¨ìˆ˜
+	/*
+     * ì´ë²¤íŠ¸ ë©”ì„œë“œë€?
+     * - Unity ê°€ ë™ì‘ ì¤‘ì— ë°œìƒí•˜ëŠ” ì—¬ëŸ¬ ë³€í™”ë¥¼ ê°ì§€í•˜ê³  ì²˜ë¦¬ í•  ìˆ˜ ìˆëŠ”
+     * ë©”ì„œë“œë¥¼ ì˜ë¯¸í•œë‹¤. (ì¦‰, Unity ëŠ” ë§ì€ ì´ë²¤íŠ¸ ë©”ì„œë“œë¥¼ ì œê³µí•˜ë©° í•´ë‹¹
+     * ë©”ì„œë“œë¥¼ í™œìš©í•˜ë©´ íŠ¹ì • ìƒí™©ì— ëŒ€í•œ ì ì ˆ ì²˜ë¦¬ë¥¼ êµ¬í˜„í•˜ëŠ” ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤.)
      * 
-     * Unity ÁÖ¿ä ÀÌº¥Æ® ¸Ş¼­µå
+     * Unity ì£¼ìš” ì´ë²¤íŠ¸ ë©”ì„œë“œ
      * - Awake
      * - Start
      * - Update
      * - LateUpdate
      * - OnDestroy
      * 
-     * Awake ¸Ş¼­µå vs Start ¸Ş¼­µå
-     * - µÎ ¸Ş¼­µå ¸ğµÎ Æ¯Á¤ Game Object ¸¦ ÃÊ±âÈ­ÇÏ±â À§ÇÑ ¿ëµµ·Î È°¿ëµÈ´Ù.
+     * Awake ë©”ì„œë“œ vs Start ë©”ì„œë“œ
+     * - ë‘ ë©”ì„œë“œ ëª¨ë‘ íŠ¹ì • Game Object ë¥¼ ì´ˆê¸°í™”í•˜ê¸° ìœ„í•œ ìš©ë„ë¡œ í™œìš©ëœë‹¤.
      * 
-     * Awake ¸Ş¼­µå´Â Game Object °¡ È°¼º »óÅÂ°¡ µÇ´Â Áï½Ã È£ÃâµÇ´Â ¹İ¸é
-     * Start ¸Ş¼­µå´Â È°¼º »óÅÂ°¡ µÇ°í ÀÌÈÄ ÇÁ·¹ÀÓ¿¡ È£ÃâµÇ´Â Â÷ÀÌÁ¡ÀÌ Á¸Àç
-     * ÇÑ´Ù.
+     * Awake ë©”ì„œë“œëŠ” Game Object ê°€ í™œì„± ìƒíƒœê°€ ë˜ëŠ” ì¦‰ì‹œ í˜¸ì¶œë˜ëŠ” ë°˜ë©´
+     * Start ë©”ì„œë“œëŠ” í™œì„± ìƒíƒœê°€ ë˜ê³  ì´í›„ í”„ë ˆì„ì— í˜¸ì¶œë˜ëŠ” ì°¨ì´ì ì´ ì¡´ì¬
+     * í•œë‹¤.
      * 
-     * µû¶ó¼­, Æ¯Á¤ Game Object ¸¦ »ı¼º°ú µ¿½Ã¿¡ ÇØ´ç Game Object Áö´Ï°í
-     * ÀÖ´Â ÄÄÆ÷³ÍÆ®¸¦ È°¿ëÇÏ°í ½Í´Ù¸é Awake ¸Ş¼­µå ÀûÀıÇÏ´Ù´Â °ÍÀ» ¾Ë ¼ö
-     * ÀÖ´Ù.
+     * ë”°ë¼ì„œ, íŠ¹ì • Game Object ë¥¼ ìƒì„±ê³¼ ë™ì‹œì— í•´ë‹¹ Game Object ì§€ë‹ˆê³ 
+     * ìˆëŠ” ì»´í¬ë„ŒíŠ¸ë¥¼ í™œìš©í•˜ê³  ì‹¶ë‹¤ë©´ Awake ë©”ì„œë“œ ì ì ˆí•˜ë‹¤ëŠ” ê²ƒì„ ì•Œ ìˆ˜
+     * ìˆë‹¤.
      * 
-     * Update ¸Ş¼­µå¶õ?
-     * - ¸Å ÇÁ·¹ÀÓ¸¶´Ù È£ÃâµÇ´Â ¸Ş¼­µå¸¦ ÀÇ¹ÌÇÏ¸ç ÇØ´ç ¸Ş¼­µå¸¦ È°¿ëÇÏ¸é
-     * ½Ç½Ã°£À¸·Î »óÅÂ°¡ º¯ÇÏ´Â °´Ã¼¸¦ Á¦¾îÇÏ´Â °ÍÀÌ °¡´ÉÇÏ´Ù. (Áï, Update
-     * ¸Ş¼­µå´Â Unity °¡ Á¦°øÇÏ´Â ÀÌº¥Æ® ¸Ş¼­µå Áß °¡Àå È£Ãâ ºóµµ°¡ ¸¹´Ù´Â
-     * °ÍÀ» ¾Ë ¼ö ÀÖ´Ù.
+     * Update ë©”ì„œë“œë€?
+     * - ë§¤ í”„ë ˆì„ë§ˆë‹¤ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œë¥¼ ì˜ë¯¸í•˜ë©° í•´ë‹¹ ë©”ì„œë“œë¥¼ í™œìš©í•˜ë©´
+     * ì‹¤ì‹œê°„ìœ¼ë¡œ ìƒíƒœê°€ ë³€í•˜ëŠ” ê°ì²´ë¥¼ ì œì–´í•˜ëŠ” ê²ƒì´ ê°€ëŠ¥í•˜ë‹¤. (ì¦‰, Update
+     * ë©”ì„œë“œëŠ” Unity ê°€ ì œê³µí•˜ëŠ” ì´ë²¤íŠ¸ ë©”ì„œë“œ ì¤‘ ê°€ì¥ í˜¸ì¶œ ë¹ˆë„ê°€ ë§ë‹¤ëŠ”
+     * ê²ƒì„ ì•Œ ìˆ˜ ìˆë‹¤.
      * 
-     * ¶ÇÇÑ, Unity ´Â LateUpdate ¸Ş¼­µå¸¦ Á¦°øÇÏ¸ç ÇØ´ç ¸Ş¼­µå´Â ´Ù¸¥ 
-     * Game Object ÀÇ Update ¸Ş¼­µå°¡ ¸ğµÎ È£Ãâ µÈ ÈÄ È£ÃâµÇ´Â Æ¯Â¡ÀÌ 
-     * Á¸ÀçÇÑ´Ù. (Áï, Æ¯Á¤ Game Object ¸¦ ¸ğµÎ °»½Å ´ÙÀ½¿¡ ÀÌÈÄ ÇØ´ç °´Ã¼¸¦ 
-     * Á¦¾îÇÏ°í ½Í´Ù¸é LateUpdate ¸Ş¼­µå¸¦ È°¿ëÇÏ¸é µÈ´Ù.)
+     * ë˜í•œ, Unity ëŠ” LateUpdate ë©”ì„œë“œë¥¼ ì œê³µí•˜ë©° í•´ë‹¹ ë©”ì„œë“œëŠ” ë‹¤ë¥¸ 
+     * Game Object ì˜ Update ë©”ì„œë“œê°€ ëª¨ë‘ í˜¸ì¶œ ëœ í›„ í˜¸ì¶œë˜ëŠ” íŠ¹ì§•ì´ 
+     * ì¡´ì¬í•œë‹¤. (ì¦‰, íŠ¹ì • Game Object ë¥¼ ëª¨ë‘ ê°±ì‹  ë‹¤ìŒì— ì´í›„ í•´ë‹¹ ê°ì²´ë¥¼ 
+     * ì œì–´í•˜ê³  ì‹¶ë‹¤ë©´ LateUpdate ë©”ì„œë“œë¥¼ í™œìš©í•˜ë©´ ëœë‹¤.)
      */
-    /** ÃÊ±âÈ­ */
-    public virtual void Awake()
-    {
-        // Do Something
-    }
+	/** ì´ˆê¸°í™” */
+	public virtual void Awake() {
+		// Do Something
+	}
 
-    /** ÃÊ±âÈ­ */
-    public virtual void Start()
-    {
-        // Do Something
-    }
+	/** ì´ˆê¸°í™” */
+	public virtual void Start() {
+		// Do Something
+	}
 
-    /** »óÅÂ¸¦ ¸®¼ÂÇÑ´Ù */
-    public virtual void Reset()
-    {
-        // Do Something
-    }
+	/** ìƒíƒœë¥¼ ë¦¬ì…‹í•œë‹¤ */
+	public virtual void Reset() {
+		// Do Something
+	}
 
-    /** Á¦°Å µÇ¾úÀ» °æ¿ì */
-    public virtual void OnDestroy()
-    {
-        // Do Something
-    }
-    #endregion // ÇÔ¼ö
+	/** ì œê±° ë˜ì—ˆì„ ê²½ìš° */
+	public virtual void OnDestroy() {
+		this.IsDestroy = true;
+	}
+
+	/** ìƒíƒœë¥¼ ê°±ì‹ í•œë‹¤ */
+	public virtual void OnUpdate(float a_fDeltaTime) {
+		// Do Something
+	}
+
+	/** ìƒíƒœë¥¼ ê°±ì‹ í•œë‹¤ */
+	public virtual void OnLateUpdate(float a_fDeltaTime) {
+		// Do Something
+	}
+
+	/** ìƒíƒœë¥¼ ê°±ì‹ í•œë‹¤ */
+	public virtual void OnFixedUpdate(float a_fDeltaTime) {
+		// Do Something
+	}
+
+	/** ë‚´ë¹„ê²Œì´ì…˜ ìŠ¤íƒ ì´ë²¤íŠ¸ë¥¼ ìˆ˜ì‹ í–ˆì„ ê²½ìš° */
+	public virtual void OnReceiveNavStackEvent(ENavStackEvent a_eEvent) {
+		// Do Something
+	}
+	#endregion // í•¨ìˆ˜
 }
