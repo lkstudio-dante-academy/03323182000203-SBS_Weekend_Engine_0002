@@ -9,8 +9,8 @@ using UnityEngine.UI;
  * - Audio Listener
  * 
  * Audio Source 컴포넌트란?
- * - 사운드를 재생하는 역할을 수행하는 컴포넌트를 의미한다. (즉, 해당 컴포넌트는
- * 사운드가 발생하는 근원지라는 것을 알 수 있다.)
+ * - 사운드를 재생하는 역할을 수행하는 컴포넌트를 의미한다. (즉, 해당 
+ * 컴포넌트는 사운드가 발생하는 근원지라는 것을 알 수 있다.)
  * 
  * Audio Source 컴포넌트는 한번에 하나의 사운드만 재생하는 것이 가능하기
  * 때문에 여러 사운드를 재생하기 위해서는 재생하고 싶은 사운드의 개수만큼
@@ -75,6 +75,16 @@ public class CExample_14 : CSceneManager {
 			CSndManager.Inst.PlayFXSnds("Example_14/E14FXSnds", 
 				this.MainCamera.transform.position);
 		}
+	}
+
+	/** 배경음 음소거 버튼을 눌렀을 경우 */
+	public void OnTouchIsMuteBGSndsBtn() {
+		CSndManager.Inst.SetIsMuteBGSnd(!CSndManager.Inst.IsMuteBGSnd);
+	}
+
+	/** 효과음 음소거 버튼을 눌렀을 경우 */
+	public void OnTouchIsMuteFXSndsBtn() {
+		CSndManager.Inst.SetIsMuteFXSnds(!CSndManager.Inst.IsMuteFXSnds);
 	}
 	#endregion // 함수
 }
