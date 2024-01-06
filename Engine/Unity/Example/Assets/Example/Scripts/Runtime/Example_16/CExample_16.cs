@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 /*
  * 쉐이더란?
@@ -133,6 +134,10 @@ using UnityEngine;
  */
 /** Example 16 */
 public class CExample_16 : CSceneManager {
+	#region 변수
+	[SerializeField] private GameObject m_oTargetRoot = null;
+	#endregion // 변수
+
 	#region 프로퍼티
 	public override string SceneName => KDefine.G_SCENE_N_EXAMPLE_16;
 	#endregion // 프로퍼티
@@ -141,6 +146,16 @@ public class CExample_16 : CSceneManager {
 	/** 초기화 */
 	public override void Awake() {
 		base.Awake();
+	}
+
+	/** 상태를 갱신한다 */
+	public override void OnUpdate(float a_fDeltaTime) {
+		base.OnUpdate(a_fDeltaTime);
+
+		for(int i = 0; i < m_oTargetRoot.transform.childCount; ++i) {
+			var oChild = m_oTargetRoot.transform.GetChild(i);
+			oChild.Rotate(Vector3.up, 90.0f * a_fDeltaTime, Space.World);
+		}
 	}
 	#endregion // 함수
 }
