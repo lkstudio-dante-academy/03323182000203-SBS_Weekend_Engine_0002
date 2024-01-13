@@ -38,6 +38,8 @@ Shader "Example_16/E16SurfaceShader_05" {
 		}
 		ENDCG
 
+		cull back
+
 		CGPROGRAM
 		#pragma target 3.0
 		#pragma surface SSMain Custom alpha:fade

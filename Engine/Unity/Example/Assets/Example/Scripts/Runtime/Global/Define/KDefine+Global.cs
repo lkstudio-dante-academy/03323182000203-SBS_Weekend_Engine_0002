@@ -37,6 +37,9 @@ public static partial class KDefine
 	public const string G_SCENE_N_EXAMPLE_14 = "Example_14 (사운드)";
 	public const string G_SCENE_N_EXAMPLE_15 = "Example_15 (내비게이션 메쉬)";
 	public const string G_SCENE_N_EXAMPLE_16 = "Example_16 (쉐이더)";
+	public const string G_SCENE_N_EXAMPLE_17 = "Example_17 (3D TPS - 시작)";
+	public const string G_SCENE_N_EXAMPLE_18 = "Example_18 (3D TPS - 플레이)";
+	public const string G_SCENE_N_EXAMPLE_19 = "Example_19 (3D TPS - 결과)";
 	#endregion // 상수
 
 	#region 프로퍼티

@@ -59,4 +59,13 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Example/Scenes/Example_16 (\uC250\uC774\uB354).unity"
     guid: 925e37125aa33594fac15d4ae57fce4b
+  - enabled: 1
+    path: "Assets/Example/Scenes/Example_17 (3D TPS - \uC2DC\uC791).unity"
+    guid: 8d935ee1471ddc14eaacf2e7a37ee0ef
+  - enabled: 1
+    path: "Assets/Example/Scenes/Example_18 (3D TPS - \uD50C\uB808\uC774).unity"
+    guid: c4316fabe6bdd824785852623240f198
+  - enabled: 1
+    path: "Assets/Example/Scenes/Example_19 (3D TPS - \uACB0\uACFC).unity"
+    guid: 40b0df587e5b6454480c3e44c0422aa8
   m_configObjects: {}

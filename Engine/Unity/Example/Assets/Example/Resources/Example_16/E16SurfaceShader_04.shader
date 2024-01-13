@@ -18,6 +18,8 @@ Shader "Example_16/E16SurfaceShader_04" {
 
 		/** 입력 */
 		struct Input {
+			float4 color;
+
 			float3 worldRefl;
 			float3 worldNormal;
 			

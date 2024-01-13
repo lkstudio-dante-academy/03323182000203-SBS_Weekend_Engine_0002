@@ -34,6 +34,8 @@ Shader "Example_16/E16SurfaceShader_03" {
 
 		/** 입력 */
 		struct Input {
+			float4 color;
+
 			float2 uv_MainTex;
 			float2 uv_NormalTex;
 			float2 uv_SpecularTex;

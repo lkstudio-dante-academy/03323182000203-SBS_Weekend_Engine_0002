@@ -5,6 +5,12 @@ using UnityEngine;
 /** 확장 메서드 */
 public static class CExtension {
 	#region 클래스 메서드
+	/** 동일 여부를 검사한다 */
+	public static bool ExIsEquals(this float a_fSender, float a_fRhs) {
+		return a_fSender >= a_fRhs - float.Epsilon &&
+			a_fSender <= a_fRhs + float.Epsilon;
+	}
+
 	/** 인덱스 유효 여부를 검사한다 */
 	public static bool ExIsValidIdx(this int a_nSender) {
 		return a_nSender >= 0;
