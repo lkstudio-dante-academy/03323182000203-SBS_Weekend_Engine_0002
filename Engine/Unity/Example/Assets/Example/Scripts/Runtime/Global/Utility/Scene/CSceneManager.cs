@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 /** 씬 관리자 */
 public abstract class CSceneManager : CComponent {
+	#region 클래스 변수
+	private static Dictionary<string, CSceneManager> m_oSceneManagerDict = new Dictionary<string, CSceneManager>();
+	#endregion // 클래스 변수
+
 	#region 프로퍼티
 	public abstract string SceneName { get; }
 
@@ -41,6 +45,8 @@ public abstract class CSceneManager : CComponent {
 	/** 초기화 */
 	public override void Awake() {
 		base.Awake();
+		CSceneManager.m_oSceneManagerDict.TryAdd(this.SceneName, this);
+
 		var oRootGameObjects = this.gameObject.scene.GetRootGameObjects();
 
 		for(int i = 0; i < oRootGameObjects.Length; ++i) {
@@ -109,6 +115,11 @@ public abstract class CSceneManager : CComponent {
 
 		CNavStackManager.Inst.PopComponent(this);
 		CScheduleManager.Inst.RemoveComponent(this);
+
+		// 제거가 가능 할 경우
+		if(CSceneManager.m_oSceneManagerDict.ContainsKey(this.SceneName)) {
+			CSceneManager.m_oSceneManagerDict.Remove(this.SceneName);
+		}
 	}
 
 	/** 앱이 종료 되었을 경우 */
@@ -163,4 +174,12 @@ public abstract class CSceneManager : CComponent {
 		return bIsEnable && this.PopupUIs.transform.Find("AlertPopup") == null;
 	}
 	#endregion // 접근 함수
+
+	#region 제네릭 접근 함수
+	/** 씬 관리자를 반환한다 */
+	public static T GetSceneManager<T>(string a_oName) where T : CSceneManager {
+		var oSceneManager = CSceneManager.m_oSceneManagerDict.GetValueOrDefault(a_oName);
+		return oSceneManager as T;
+	}
+	#endregion // 제네릭 접근 함수
 }

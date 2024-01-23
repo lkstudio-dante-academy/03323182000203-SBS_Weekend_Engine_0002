@@ -24,8 +24,6 @@ Shader "Example_16/E16SurfaceShader_06" {
 
 		/** 입력 */
 		struct Input {
-			float4 color;
-
 			float2 uv_MainTex;
 			float2 uv_SubTex;
 		};
@@ -49,7 +47,7 @@ Shader "Example_16/E16SurfaceShader_06" {
 			float4 stSubColor = tex2D(_SubTex, a_stInput.uv_SubTex);
 
 			a_stOutput.Albedo = lerp(stMainColor.rgb, stSubColor.rgb, _Weight);
-			a_stOutput.Alpha = lerp(stMainColor.a, stSubColor.a, _Weight);
+			a_stOutput.Alpha = 1.0;
 		}
 
 		/** 광원을 처리한다 */

@@ -21,6 +21,12 @@ public class CE18CameraController : CComponent {
 		CScheduleManager.Inst.AddComponent(this);
 	}
 
+	/** 초기화 */
+	public override void Start() {
+		base.Start();
+		this.UpdateCameraState(true);
+	}
+
 	/** 상태를 갱신한다 */
 	public override void OnLateUpdate(float a_fDeltaTime) {
 		base.OnLateUpdate(a_fDeltaTime);
@@ -28,14 +34,20 @@ public class CE18CameraController : CComponent {
 	}
 
 	/** 카메라 상태를 갱신한다 */
-	private void UpdateCameraState() {
+	private void UpdateCameraState(bool a_bIsImmediate = false) {
 		var stHeight = Vector3.up * m_fHeight;
 		var stDistance = m_oFollowTarget.transform.forward * -m_fDistance;
 
 		var stFollowTargetPos = m_oFollowTarget.transform.position;
 
-		this.transform.position = stFollowTargetPos +
-			stHeight + stDistance;
+		// 즉시 갱신 모드 일 경우
+		if(a_bIsImmediate) {
+			this.transform.position = stFollowTargetPos +
+				stHeight + stDistance;
+		} else {
+			this.transform.position = Vector3.Lerp(this.transform.position,
+				stFollowTargetPos + stHeight + stDistance, Time.deltaTime * 10.0f);
+		}
 
 		this.transform.LookAt(m_oLookTarget.transform);
 	}

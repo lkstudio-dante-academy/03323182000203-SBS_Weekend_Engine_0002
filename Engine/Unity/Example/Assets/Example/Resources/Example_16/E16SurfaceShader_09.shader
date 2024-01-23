@@ -26,7 +26,6 @@ Shader "Example_16/E16SurfaceShader_09" {
 
 		/** 입력 */
 		struct Input {
-			float4 color;
 			float4 screenPos;
 		};
 

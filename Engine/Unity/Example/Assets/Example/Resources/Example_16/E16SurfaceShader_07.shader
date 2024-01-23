@@ -18,10 +18,8 @@ Shader "Example_16/E16SurfaceShader_07" {
 
 		/** 입력 */
 		struct Input {
-			float4 color;
-			float3 worldPos;
-
 			float2 uv_NormalTex;
+			float3 worldPos;
 		};
 
 		/** 출력 */
@@ -60,7 +58,8 @@ Shader "Example_16/E16SurfaceShader_07" {
 			fRim02 = pow(fRim02, 5.0);
 			fRim02 = saturate(fRim02) * 0.25;
 
-			return float4(_RimColor.rgb, saturate(fRim01 + fRim02)) * _LightColor0;
+			float fAlpha = saturate(sin(_Time.y  * 100000.0));
+			return float4(_RimColor.rgb, (fRim01 + fRim02) * fAlpha) * _LightColor0;
 		}
 		ENDCG
 	}

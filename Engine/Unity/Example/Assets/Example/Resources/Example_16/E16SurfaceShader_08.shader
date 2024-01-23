@@ -1,8 +1,8 @@
 Shader "Example_16/E16SurfaceShader_08" {
 	Properties {
+		_Cutout("_Cutout", Range(0.0, 1.0)) = 0.5
 		_SpecularPower("Specular Power", Range(5.0, 25.0)) = 10.0
 		_RimPower("Rim Power", Range(1.0, 5.0)) = 2.5
-		_Cutout("_Cutout", Range(0.0, 1.0)) = 0.5
 
 		_Color("Color", Color) = (1.0, 1.0, 1.0, 1.0)
 		_SpecularColor("Specular Color", Color) = (1.0, 1.0, 1.0, 1.0)
@@ -40,8 +40,6 @@ Shader "Example_16/E16SurfaceShader_08" {
 
 		/** 입력 */
 		struct Input {
-			float4 color;
-
 			float2 uv_MainTex;
 			float2 uv_NormalTex;
 			float2 uv_SpecularTex;

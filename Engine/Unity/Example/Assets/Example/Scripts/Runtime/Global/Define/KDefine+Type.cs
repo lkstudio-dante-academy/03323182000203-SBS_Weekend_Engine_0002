@@ -44,4 +44,20 @@ public class CListWrapper<T> {
 	}
 	#endregion // 함수
 }
+
+/** 풀 리스트 래퍼 */
+public class CPoolListWrapper {
+	#region 변수
+	public List<GameObject> m_oActiveList = new List<GameObject>();
+	public List<GameObject> m_oInactiveList = new List<GameObject>();
+	#endregion // 변수
+
+	#region 함수
+	/** 값을 클리어한다 */
+	public void Clear() {
+		m_oActiveList?.Clear();
+		m_oInactiveList?.Clear();
+	}
+	#endregion // 함수
+}
 #endregion // 기본
