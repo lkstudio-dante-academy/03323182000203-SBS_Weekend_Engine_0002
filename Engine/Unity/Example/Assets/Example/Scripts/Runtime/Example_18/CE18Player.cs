@@ -40,6 +40,12 @@ public class CE18Player : CComponent {
 		m_oController = this.GetComponentInChildren<CharacterController>();
 	}
 
+	/** 초기화 */
+	public override void Start() {
+		base.Start();
+		this.GetSceneManager().SetPlayer(this);
+	}
+
 	/** 상태를 갱신한다 */
 	public override void OnUpdate(float a_fDeltaTime) {
 		base.OnUpdate(a_fDeltaTime);
@@ -182,6 +188,12 @@ public class CE18Player : CComponent {
 	private void HandleOnCollisionEnter(CCollisionDispatcher a_oSender,
 		Collision a_oCollision) {
 
+		a_oSender.TryGetComponent(out CE18NonPlayer oNonPlayerA);
+		a_oCollision.gameObject.TryGetComponent(out CE18NonPlayer oNonPlayerB);
+
+		oNonPlayerA?.OnHit();
+		oNonPlayerB?.OnHit();
+
 		int nBulletLayer = LayerMask.NameToLayer("E18Bullet");
 
 		var oBullet = (a_oSender.gameObject.layer == nBulletLayer) ?
@@ -191,6 +203,13 @@ public class CE18Player : CComponent {
 		oSceneManager.GameObjsPoolManager.DespawnGameObj(typeof(CE18Bullet).ToString(), oBullet);
 	}
 	#endregion // 함수
+
+	#region 접근 함수
+	/** 씬 관리자를 반환한다 */
+	public CExample_18 GetSceneManager() {
+		return CSceneManager.GetSceneManager<CExample_18>(KDefine.G_SCENE_N_EXAMPLE_18);
+	}
+	#endregion // 접근 함수
 
 	#region 팩토리 함수
 	/** 총알을 생성한다 */

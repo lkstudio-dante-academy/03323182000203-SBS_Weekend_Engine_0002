@@ -11,6 +11,26 @@ public static class CExtension {
 			a_fSender <= a_fRhs + float.Epsilon;
 	}
 
+	/** 미만 여부를 검사한다 */
+	public static bool ExIsLess(this float a_fSender, float a_fRhs) {
+		return a_fSender < a_fRhs - float.Epsilon;
+	}
+
+	/** 이하 여부를 검사한다 */
+	public static bool ExIsLessEquals(this float a_fSender, float a_fRhs) {
+		return a_fSender.ExIsLess(a_fRhs) || a_fSender.ExIsEquals(a_fRhs);
+	}
+
+	/** 초과 여부를 검사한다 */
+	public static bool ExIsGreat(this float a_fSender, float a_fRhs) {
+		return a_fSender > a_fRhs + float.Epsilon;
+	}
+
+	/** 이상 여부를 검사한다 */
+	public static bool ExIsGreatEquals(this float a_fSender, float a_fRhs) {
+		return a_fSender.ExIsGreat(a_fRhs) || a_fSender.ExIsEquals(a_fRhs);
+	}
+
 	/** 인덱스 유효 여부를 검사한다 */
 	public static bool ExIsValidIdx(this int a_nSender) {
 		return a_nSender >= 0;
