@@ -9,10 +9,14 @@ public class CE18NonPlayer : CComponent {
 	#region 변수
 	[Header("=====> Etc <=====")]
 	[SerializeField] private int m_nHP = 0;
+	[SerializeField] private int m_nATK = 0;
+
+	[SerializeField] private float m_fSightAngle = 0.0f;
 	[SerializeField] private float m_fAttackDelay = 0.0f;
 	[SerializeField] private float m_fAttackRange = 0.0f;
 	[SerializeField] private float m_fTrackingRange = 0.0f;
 
+	[SerializeField] private Collider m_oCollider = null;
 	[SerializeField] private Animator m_oAnimator = null;
 	[SerializeField] private NavMeshAgent m_oNavMeshAgent = null;
 
@@ -28,8 +32,12 @@ public class CE18NonPlayer : CComponent {
 
 	#region 프로퍼티
 	public CStateMachine<CState<CE18NonPlayer>> StateMachine { get; } = new CStateMachine<CState<CE18NonPlayer>>();
+	public bool IsEnableHit { get; set; } = false;
+
+	public int ATK => m_nATK;
 	public float AttackDelay => m_fAttackDelay;
 
+	public Collider Collider => m_oCollider;
 	public Animator Animator => m_oAnimator; 
 	public NavMeshAgent NavMeshAgent => m_oNavMeshAgent;
 	#endregion // 프로퍼티
@@ -41,6 +49,8 @@ public class CE18NonPlayer : CComponent {
 		CScheduleManager.Inst.AddComponent(this);
 
 		m_nMaxHP = m_nHP;
+		m_oNavMeshAgent.enabled = false;
+
 		this.StateMachine.SetOwner(this);
 	}
 
@@ -49,6 +59,7 @@ public class CE18NonPlayer : CComponent {
 		base.Start();
 		this.GetSceneManager().AddNonPlayer(this);
 
+		m_oNavMeshAgent.enabled = true;
 		this.StateMachine.SetState(this.CreateIdleState());
 	}
 
@@ -100,8 +111,10 @@ public class CE18NonPlayer : CComponent {
 	}
 
 	/** 피격되었을 경우 */
-	public void OnHit() {
-		m_nHP = Mathf.Max(0, m_nHP - 1);
+	public void OnHit(int a_nDamage, 
+		System.Action<CE18NonPlayer> a_oDeathCallback) {
+
+		m_nHP = Mathf.Max(0, m_nHP - a_nDamage);
 		m_bIsDirtyUpdate = true;
 		m_bIsEnableUpdate = false;
 
@@ -113,6 +126,7 @@ public class CE18NonPlayer : CComponent {
 			var oBehaviour = this.Animator.GetBehaviour<CE18HitStateMachineBehaviour>();
 			oBehaviour.ExitCallback = this.HandleOnStateExitHit;
 		} else {
+			a_oDeathCallback?.Invoke(this);
 			this.StateMachine.SetState(this.CreateDeathState());
 		}
 	}
@@ -122,7 +136,11 @@ public class CE18NonPlayer : CComponent {
 		Animator a_oAnimator, AnimatorStateInfo a_stStateInfo, int a_nLayerIdx) {
 
 		m_bIsEnableUpdate = true;
-		this.StateMachine.SetState(this.CreateIdleState());
+
+		// 생존 상태 일 경우
+		if(m_nHP > 0) {
+			this.StateMachine.SetState(this.CreateIdleState());
+		}
 	}
 	#endregion // 함수
 
@@ -140,7 +158,14 @@ public class CE18NonPlayer : CComponent {
 		var oPlayer = this.GetSceneManager().Player;
 		float fDistance = this.GetDistance(oPlayer.transform.position);
 
-		return fDistance.ExIsLessEquals(m_fTrackingRange);
+		var stForward = this.transform.forward;
+		var stDirection = oPlayer.transform.position - this.transform.position;
+
+		float fDot = Vector3.Dot(stForward, stDirection.normalized);
+		float fAngle = Mathf.Acos(fDot) * Mathf.Rad2Deg;
+
+		return fAngle.ExIsLess(m_fSightAngle / 2.0f) && 
+			fDistance.ExIsLessEquals(m_fTrackingRange);
 	}
 
 	/** 거리를 반환한다 */

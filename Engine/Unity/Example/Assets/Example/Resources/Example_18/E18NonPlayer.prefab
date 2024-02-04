@@ -295,9 +295,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4309440796582981500}
+  - component: {fileID: 7132826040795223713}
   m_Layer: 0
   m_Name: L_wrist
-  m_TagString: Untagged
+  m_TagString: E18NonPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,6 +318,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4309440796582981386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7132826040795223713
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4309440796582490908}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4309440796582490916
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,9 +546,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nHP: 3
+  m_nATK: 1
+  m_fSightAngle: 90
   m_fAttackDelay: 1
   m_fAttackRange: 100
   m_fTrackingRange: 750
+  m_oCollider: {fileID: 1405178390644157599}
   m_oAnimator: {fileID: 4309440796575219882}
   m_oNavMeshAgent: {fileID: 1310608416429645972}
   m_oHPImg: {fileID: 4242495044812052555}

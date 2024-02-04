@@ -5,6 +5,18 @@ using UnityEngine;
 /** 확장 메서드 */
 public static class CExtension {
 	#region 클래스 메서드
+	/** 유효 여부를 검사한다 */
+	public static bool ExIsValid(this float a_fSender) {
+		return !float.IsNaN(a_fSender) &&
+			!float.IsInfinity(a_fSender) && !float.IsNegativeInfinity(a_fSender);
+	}
+
+	/** 유효 여부를 검사한다 */
+	public static bool ExIsValid(this Vector3 a_stSender) {
+		return a_stSender.x.ExIsValid() && 
+			a_stSender.y.ExIsValid() && a_stSender.z.ExIsValid();
+	}
+
 	/** 동일 여부를 검사한다 */
 	public static bool ExIsEquals(this float a_fSender, float a_fRhs) {
 		return a_fSender >= a_fRhs - float.Epsilon &&
@@ -81,6 +93,16 @@ public static class CExtension {
 	/** 컴포넌트를 추가한다 */
 	public static T ExAddComponent<T>(this GameObject a_oSender) where T : Component {
 		return a_oSender.GetComponent<T>() ?? a_oSender.AddComponent<T>();
+	}
+
+	/** 값을 복사한다 */
+	public static void ExCopyTo<K, V>(this Dictionary<K, V> a_oSender,
+		Dictionary<K, V> a_oDestDict, System.Func<K, V, V> a_oCallback) {
+
+		foreach(var stKeyVal in a_oSender) {
+			var tVal = a_oCallback(stKeyVal.Key, stKeyVal.Value);
+			a_oDestDict.Add(stKeyVal.Key, tVal);
+		}
 	}
 	#endregion // 제네릭 클래스 메서드
 }

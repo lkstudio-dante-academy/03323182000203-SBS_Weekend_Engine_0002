@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /** 플레이어 */
 public class CE18Player : CComponent {
@@ -12,13 +13,29 @@ public class CE18Player : CComponent {
 		[HideInInspector] MAX_VAL
 	}
 
+	/** 능력치 종류 */
+	public enum EAbilityKinds {
+		NONE = -1,
+		HP,
+		ATK,
+		[HideInInspector] MAX_VAL
+	}
+
 	#region 변수
+	private bool m_bIsDirtyUpdate = true;
 	private EWeaponKinds m_eCurWeaponKinds = EWeaponKinds.RIFLE;
-	
+
+	private Dictionary<EAbilityKinds, int> m_oAbilityValDict = new Dictionary<EAbilityKinds, int>();
+	private Dictionary<EAbilityKinds, int> m_oOriginAbilityValDict = new Dictionary<EAbilityKinds, int>();
+
 	private Animation m_oAnimation = null;
 	private CharacterController m_oController = null;
 
+	[Header("=====> UIs <=====")]
+	[SerializeField] private Image m_oHPImg = null;
+
 	[Header("=====> Game Objects <=====")]
+	[SerializeField] private GameObject m_oHPUIs = null;
 	[SerializeField] private GameObject m_oBulletRoot = null;
 	[SerializeField] private List<GameObject> m_oWeaponList = new List<GameObject>();
 	#endregion // 변수
@@ -38,12 +55,26 @@ public class CE18Player : CComponent {
 
 		m_oAnimation = this.GetComponentInChildren<Animation>();
 		m_oController = this.GetComponentInChildren<CharacterController>();
+
+		// 충돌 이벤트를 설정한다
+		var oDispatcher = this.GetComponentInChildren<CTriggerDispatcher>();
+		oDispatcher.EnterCallback = this.HandleOnTriggerEnter;
+
+		// 능력치를 설정한다 {
+		m_oAbilityValDict.TryAdd(EAbilityKinds.HP, 10);
+		m_oAbilityValDict.TryAdd(EAbilityKinds.ATK, 1);
+
+		m_oAbilityValDict.ExCopyTo(m_oOriginAbilityValDict, (_, a_nVal) => a_nVal);
+		// 능력치를 설정한다 }
 	}
 
 	/** 초기화 */
 	public override void Start() {
 		base.Start();
 		this.GetSceneManager().SetPlayer(this);
+
+		var oRectTrans = m_oHPUIs.transform as RectTransform;
+		LayoutRebuilder.ForceRebuildLayoutImmediate(oRectTrans);
 	}
 
 	/** 상태를 갱신한다 */
@@ -63,6 +94,29 @@ public class CE18Player : CComponent {
 			fHorizontal, a_fDeltaTime);
 	}
 
+	/** 상태를 갱신한다 */
+	public override void OnLateUpdate(float a_fDeltaTime) {
+		base.OnLateUpdate(a_fDeltaTime);
+
+		// 상태 갱신이 필요 할 경우
+		if(m_bIsDirtyUpdate) {
+			m_bIsDirtyUpdate = false;
+			this.UpdateUIsState();
+		}
+	}
+
+	/** UI 상태를 갱신한다 */
+	public void UpdateUIsState() {
+		int nHP = m_oAbilityValDict[EAbilityKinds.HP];
+		int nMaxHP = m_oOriginAbilityValDict[EAbilityKinds.HP];
+
+		var stPos = m_oHPImg.rectTransform.anchoredPosition;
+		float fPercent = nHP / (float)nMaxHP;
+
+		m_oHPImg.fillAmount = fPercent;
+		m_oHPImg.rectTransform.anchoredPosition = new Vector2(fPercent * m_oHPImg.rectTransform.rect.size.x, stPos.y);
+	}
+
 	/** 발사 상태를 갱신한다 */
 	private void UpdateShootState(float a_fDeltaTime) {
 		// 발사 키를 누른 상태가 아닐 경우
@@ -75,6 +129,7 @@ public class CE18Player : CComponent {
 
 		for(int i = 0; i < this.CurWeaponInfo.NumBulletsAtOnce; ++i) {
 			var oBullet = this.CreateBullet();
+			oBullet.Init(CE18Bullet.MakeParams(m_oAbilityValDict));
 			oBullet.transform.position = this.CurWeaponInfo.BulletSpawnPos.transform.position;
 
 			var oDispatcher = oBullet.GetComponentInChildren<CCollisionDispatcher>();
@@ -185,14 +240,47 @@ public class CE18Player : CComponent {
 	}
 
 	/** 충돌 시작을 처리한다 */
+	private void HandleOnTriggerEnter(CTriggerDispatcher a_oSender,
+		Collider a_oCollider) {
+
+		// NPC 가 아닐 경우
+		if(!a_oCollider.CompareTag("E18NonPlayer")) {
+			return;
+		}
+
+		var oNonPlayer = a_oCollider.GetComponentInParent<CE18NonPlayer>();
+
+		// 타격 가능 상태가 아닐 경우
+		if(!oNonPlayer.IsEnableHit) {
+			return;
+		}
+
+		oNonPlayer.IsEnableHit = false;
+
+		int nHP = m_oAbilityValDict[EAbilityKinds.HP];
+		int nDamage = oNonPlayer.ATK;
+
+		m_bIsDirtyUpdate = true;
+		m_oAbilityValDict[EAbilityKinds.HP] = Mathf.Max(0, nHP - nDamage);
+
+		// 체력이 없을 경우
+		if(m_oAbilityValDict[EAbilityKinds.HP] <= 0) {
+			this.GetSceneManager().OnDeathPlayer();
+		}
+	}
+
+	/** 충돌 시작을 처리한다 */
 	private void HandleOnCollisionEnter(CCollisionDispatcher a_oSender,
 		Collision a_oCollision) {
 
 		a_oSender.TryGetComponent(out CE18NonPlayer oNonPlayerA);
 		a_oCollision.gameObject.TryGetComponent(out CE18NonPlayer oNonPlayerB);
 
-		oNonPlayerA?.OnHit();
-		oNonPlayerB?.OnHit();
+		oNonPlayerA?.OnHit(m_oAbilityValDict[EAbilityKinds.ATK], 
+			this.HandleOnDeathNonPlayer);
+
+		oNonPlayerB?.OnHit(m_oAbilityValDict[EAbilityKinds.ATK], 
+			this.HandleOnDeathNonPlayer);
 
 		int nBulletLayer = LayerMask.NameToLayer("E18Bullet");
 
@@ -201,6 +289,11 @@ public class CE18Player : CComponent {
 
 		var oSceneManager = CSceneManager.GetSceneManager<CExample_18>(KDefine.G_SCENE_N_EXAMPLE_18);
 		oSceneManager.GameObjsPoolManager.DespawnGameObj(typeof(CE18Bullet).ToString(), oBullet);
+	}
+
+	/** NPC 사망을 처리한다 */
+	private void HandleOnDeathNonPlayer(CE18NonPlayer a_oSender) {
+		CE18DataStorage.Inst.NumDefeatNonPlayers += 1;
 	}
 	#endregion // 함수
 

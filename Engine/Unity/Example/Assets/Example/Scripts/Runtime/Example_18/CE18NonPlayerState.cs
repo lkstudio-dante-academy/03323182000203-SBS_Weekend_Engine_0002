@@ -22,11 +22,6 @@ public class CE18NonPlayerState : CState<CE18NonPlayer> {
 /** NPC 대기 상태 */
 public class CE18NonPlayerIdleState : CE18NonPlayerState {
 	#region 함수
-	/** 상태가 시작되었을 경우 */
-	public override void OnStateEnter() {
-		base.OnStateEnter();
-	}
-
 	/** 상태를 갱신한다 */
 	public override void OnUpdate(float a_fDeltaTime) {
 		base.OnUpdate(a_fDeltaTime);
@@ -105,6 +100,7 @@ public class CE18NonPlayerBattleState : CE18NonPlayerState {
 		// 공격 가능 할 경우
 		else if(bIsEnableAttack && !m_bIsAttacking) {
 			m_bIsAttacking = true;
+			this.Owner.IsEnableHit = true;
 			this.Owner.Animator.SetTrigger("Attack");
 		}
 	}
@@ -114,6 +110,7 @@ public class CE18NonPlayerBattleState : CE18NonPlayerState {
 		Animator a_oAnimator, AnimatorStateInfo a_stStateInfo, int a_nLayerIdx) {
 
 		m_bIsAttacking = false;
+		this.Owner.IsEnableHit = false;
 		this.Owner.StateMachine.SetState(this.Owner.CreateIdleState());
 	}
 	#endregion // 함수
@@ -126,6 +123,8 @@ public class CE18NonPlayerDeathState : CE18NonPlayerState {
 	public override void OnStateEnter() {
 		base.OnStateEnter();
 		this.Owner.Animator.SetTrigger("Die");
+
+		this.Owner.Collider.enabled = false;
 	}
 	#endregion // 함수
 }
