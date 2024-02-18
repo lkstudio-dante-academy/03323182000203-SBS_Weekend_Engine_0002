@@ -41,6 +41,7 @@ public static partial class KDefine
 	public const string G_SCENE_N_EXAMPLE_18 = "Example_18 (3D TPS - 플레이)";
 	public const string G_SCENE_N_EXAMPLE_19 = "Example_19 (3D TPS - 결과)";
 	public const string G_SCENE_N_EXAMPLE_20 = "Example_20 (쓰레드)";
+	public const string G_SCENE_N_EXAMPLE_21 = "Example_21 (자료구조)";
 	#endregion // 상수
 
 	#region 프로퍼티

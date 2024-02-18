@@ -70,15 +70,18 @@
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Type.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_16\CExample_16.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CE06DataStorage.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CExample_21.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Global.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_05\CExample_05.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\00-State\CE18HitStateMachineBehaviour.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Scene\CSceneLoader.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CCollisionDispatcher.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18Bullet.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21Queue.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10DataStorage.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CNavStackManager.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Factory\CFactory+Global.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21Stack.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_08\CExample_08.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CE06Obstacle.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_13\CExample_13.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Assets\Example\Scripts\Runtime\Example_03\CExample_03.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18NonPlayer.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_20\CExample_20.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21ArrayList.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\UI\Popup\CAlertPopup.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18WeaponInfo.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CSndManager.cs" />
@@ -103,6 +107,7 @@
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Sound\CSnd.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10StateMachineBehaviour.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_00\CExample_00.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21LinkedList.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_19\CExample_19.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18Player.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\State\CStateMachineBehaviour.cs" />
@@ -114,6 +119,7 @@
     <Compile Include="Assets\Example\Scripts\Runtime\Example_17\CExample_17.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_09\CExample_09.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\State\CState.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21BinarySearchTree.cs" />
     <Compile Include="Assets\Simple 2D Platformer BE2\ReadMe\Scripts\ReadmeBE2.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_04\CExample_04.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18CameraController.cs" />
