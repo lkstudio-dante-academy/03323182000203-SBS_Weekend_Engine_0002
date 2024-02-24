@@ -69,13 +69,14 @@
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\UI\Etc\CUIsBillboard.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Type.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_16\CExample_16.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CE06DataStorage.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CExample_21.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CE06DataStorage.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Global.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_05\CExample_05.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\00-State\CE18HitStateMachineBehaviour.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Scene\CSceneLoader.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CCollisionDispatcher.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_22\CExample_22.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18Bullet.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21Queue.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10DataStorage.cs" />

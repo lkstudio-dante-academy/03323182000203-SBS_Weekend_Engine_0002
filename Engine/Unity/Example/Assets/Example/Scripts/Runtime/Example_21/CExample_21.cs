@@ -1,6 +1,7 @@
 //#define E21_ARRAY_LIST
 //#define E21_LINKED_LIST
-#define E21_STACK_QUEUE
+//#define E21_STACK_QUEUE
+#define E21_BINARY_SEARCH_TREE
 
 using System.Collections;
 using System.Collections.Generic;
@@ -77,6 +78,27 @@ using UnityEngine;
  * N-링크 구조만 구현하는 것이 가능하다. (즉, 연결을 통해 트리를 구현 할 경우
  * 자식의 개수가 정해져 있지 않은 트리를 구현하는 것도 가능하다는 것을 알 수
  * 있다.)
+ * 
+ * 해시 테이블이란?
+ * - 탐색에 특화 된 자료구조를 의미하며 해시 함수에 의해 탐색에 성능이 좌우
+ * 되는 특징이 존재한다. (즉, 해시 함수가 비효율적 일 경우 탐색에 성능이
+ * 떨어진다는 것을 의미한다.)
+ * 
+ * 해시 테이블 vs 이진 탐색 트리
+ * - 해시 테이블은 해시 함수에 의해 탐색 할 데이터의 위치를 계산하는 것이
+ * 가능하기 때문에 최선의 경우 상수 시간 (O(1)) 에 데이터를 탐색하는 것이
+ * 가능하다.
+ * 
+ * 단, 내부적으로 많은 충돌에 의해 데이터의 클러스터가 형성 되어있을 경우
+ * 탐색의 성능이 떨어지는 단점이 존재한다.
+ * 
+ * 반면, 이진 탐색 트리는 최선의 경우와 최악의 경우 모두 log N 시간을
+ * 보장하는 특징이 존재한다.
+ * 
+ * 단, 이진 탐색 트리가 log N 시간을 보장하기 위해서는 내부적으로 트리의
+ * 균형이 잡혀 있는 상태여야하기 때문에 특정 데이터가 추가되거나 삭제 될
+ * 때마다 내부적으로 트리의 균형을 유지하기 위한 추가적인 연산이 수행되는
+ * 단점이 존재한다.
  */
 /** Example 21 */
 public class CExample_21 : CSceneManager {
@@ -165,6 +187,48 @@ public class CExample_21 : CSceneManager {
 			oStrBuilder.AppendFormat("{0}, ", oValQueue.Dequeue());
 		}
 
+		Debug.Log(oStrBuilder.ToString());
+#elif E21_BINARY_SEARCH_TREE
+		var oValTree = new CE21BinarySearchTree<int>();
+
+		for(int i = 0; i < 10; ++i) {
+			oValTree.AddVal(Random.Range(0, 10));
+		}
+
+		var oStrBuilder = new System.Text.StringBuilder();
+
+		oValTree.EnumerateVals(CE21BinarySearchTree<int>.EEnumType.PRE, (a_nVal) => {
+			oStrBuilder.AppendFormat("{0}, ", a_nVal);
+		});
+
+		Debug.Log("=====> 전위 순회 <=====");
+		Debug.Log(oStrBuilder.ToString());
+
+		oStrBuilder.Clear();
+
+		oValTree.EnumerateVals(CE21BinarySearchTree<int>.EEnumType.IN, (a_nVal) => {
+			oStrBuilder.AppendFormat("{0}, ", a_nVal);
+		});
+
+		Debug.Log("=====> 중위 순회 <=====");
+		Debug.Log(oStrBuilder.ToString());
+
+		oStrBuilder.Clear();
+
+		oValTree.EnumerateVals(CE21BinarySearchTree<int>.EEnumType.POST, (a_nVal) => {
+			oStrBuilder.AppendFormat("{0}, ", a_nVal);
+		});
+
+		Debug.Log("=====> 후위 순회 <=====");
+		Debug.Log(oStrBuilder.ToString());
+
+		oStrBuilder.Clear();
+
+		oValTree.EnumerateVals(CE21BinarySearchTree<int>.EEnumType.LEVEL, (a_nVal) => {
+			oStrBuilder.AppendFormat("{0}, ", a_nVal);
+		});
+
+		Debug.Log("=====> 레벨 순회 <=====");
 		Debug.Log(oStrBuilder.ToString());
 #endif
 	}

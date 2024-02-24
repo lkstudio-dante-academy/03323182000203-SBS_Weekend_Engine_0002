@@ -4,6 +4,16 @@ using UnityEngine;
 
 /** 이진 탐색 트리 */
 public class CE21BinarySearchTree<T> where T : System.IComparable {
+	/** 순회 타입 */
+	public enum EEnumType {
+		NONE = -1,
+		PRE,
+		IN,
+		POST,
+		LEVEL,
+		[HideInInspector] MAX_VAL
+	}
+
 	/** 노드 */
 	private class CNode {
 		public T m_tVal;
@@ -98,6 +108,91 @@ public class CE21BinarySearchTree<T> where T : System.IComparable {
 
 REMOVE_VAL_EXIT:
 		this.NumVals -= 1;
+	}
+
+	/** 값을 순회한다 */
+	public void EnumerateVals(EEnumType a_eType, 
+		System.Action<T> a_oCallback) {
+
+		switch(a_eType) {
+			case EEnumType.PRE: this.EnumerateValsByPre(m_oRoot, a_oCallback); break;
+			case EEnumType.IN: this.EnumerateValsByIn(m_oRoot, a_oCallback); break;
+			case EEnumType.POST: this.EnumerateValsByPost(m_oRoot, a_oCallback); break;
+			case EEnumType.LEVEL: this.EnumerateValsByLevel(m_oRoot, a_oCallback); break;
+		}
+	}
+
+	/** 전위 순회를 수행한다 */
+	private void EnumerateValsByPre(CNode a_oNode, 
+		System.Action<T> a_oCallback) {
+
+		// 순회가 불가능 할 경우
+		if(a_oNode == null) {
+			return;
+		}
+
+		a_oCallback?.Invoke(a_oNode.m_tVal);
+
+		this.EnumerateValsByPre(a_oNode.m_oLChildNode, a_oCallback);
+		this.EnumerateValsByPre(a_oNode.m_oRChildNode, a_oCallback);
+	}
+
+	/** 중위 순회를 수행한다 */
+	private void EnumerateValsByIn(CNode a_oNode,
+		System.Action<T> a_oCallback) {
+
+		// 순회가 불가능 할 경우
+		if(a_oNode == null) {
+			return;
+		}
+
+		this.EnumerateValsByIn(a_oNode.m_oLChildNode, a_oCallback);
+		
+		a_oCallback?.Invoke(a_oNode.m_tVal);
+		this.EnumerateValsByIn(a_oNode.m_oRChildNode, a_oCallback);
+	}
+
+	/** 후위 순회를 수행한다 */
+	private void EnumerateValsByPost(CNode a_oNode,
+		System.Action<T> a_oCallback) {
+
+		// 순회가 불가능 할 경우
+		if(a_oNode == null) {
+			return;
+		}
+
+		this.EnumerateValsByPost(a_oNode.m_oLChildNode, a_oCallback);
+		this.EnumerateValsByPost(a_oNode.m_oRChildNode, a_oCallback);
+
+		a_oCallback?.Invoke(a_oNode.m_tVal);
+	}
+
+	/** 계층 순회를 수행한다 */
+	private void EnumerateValsByLevel(CNode a_oNode,
+		System.Action<T> a_oCallback) {
+
+		// 순회가 불가능 할 경우
+		if(a_oNode == null) {
+			return;
+		}
+
+		var oNodeQueue = new CE21Queue<CNode>();
+		oNodeQueue.Enqueue(a_oNode);
+
+		while(oNodeQueue.NumVals >= 1) {
+			var oNode = oNodeQueue.Dequeue();
+			a_oCallback?.Invoke(oNode.m_tVal);
+
+			// 왼쪽 자식 노드가 존재 할 경우
+			if(oNode.m_oLChildNode != null) {
+				oNodeQueue.Enqueue(oNode.m_oLChildNode);
+			}
+
+			// 오른쪽 자식 노드가 존재 할 경우
+			if(oNode.m_oRChildNode != null) {
+				oNodeQueue.Enqueue(oNode.m_oRChildNode);
+			}
+		}
 	}
 
 	/** 노드를 탐색한다 */
