@@ -63,4 +63,11 @@ public class CSingleton<T> : CComponent where T : CSingleton<T> {
 		DontDestroyOnLoad(this.gameObject);
 	}
 	#endregion // 함수
+
+	#region 클래스 함수
+	/** 인스턴스를 생성한다 */
+	public static T Create() {
+		return CSingleton<T>.Inst;
+	}
+	#endregion // 클래스 함수
 }

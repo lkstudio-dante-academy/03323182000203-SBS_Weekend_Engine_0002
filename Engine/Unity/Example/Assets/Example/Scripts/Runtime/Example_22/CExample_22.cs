@@ -1,6 +1,5 @@
 //#define E22_SOCKET_01
-//#define E22_SOCKET_02
-#define E22_SOCKET_03
+#define E22_SOCKET_02
 
 using System.Collections;
 using System.Collections.Generic;
@@ -249,45 +248,5 @@ public partial class CExample_22 : CSceneManager {
 		oSocket.Close();
 	}
 #endregion // 함수
-}
-#elif E22_SOCKET_03
-/** Example 22 */
-public partial class CExample_22 : CSceneManager {
-	#region 변수
-	private List<TcpClient> m_oClientList = new List<TcpClient>();
-	#endregion // 변수
-
-	#region 함수
-	/** 서버 쓰레드 메인 메서드 */
-	private void ServerMain() {
-		m_oServer = new TcpListener(new IPEndPoint(IPAddress.Any, 18080));
-		m_oServer.Start();
-
-		do {
-			bool bIsTrue = m_oServer.Server.Poll(0, 
-				SelectMode.SelectRead);
-
-			// 연결 요청이 없을 경우
-			if(!bIsTrue) {
-				continue;
-			}
-
-			var oClient = m_oServer.AcceptTcpClient();
-			m_oClientList.Add(oClient);
-
-			// 매칭이 성사되었을 경우
-			if(m_oClientList.Count % 2 == 0) {
-				// TODO: 다음 주
-			}
-		} while(true);
-
-		m_oServer.Stop();
-	}
-
-	/** 클라이언트 쓰레드 메인 메서드 */
-	private void ClientMain() {
-
-	}
-	#endregion // 함수
 }
 #endif
