@@ -60,77 +60,79 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.17f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_23\CExample_23.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Base\CPopup.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\00-State\CE18AttackStateMachineBehaviour.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_02\CExample_02.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Camera\CResolutionHandler.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18DataStorage.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CTriggerDispatcher.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_25\CExample_25.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\UI\Etc\CUIsBillboard.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Type.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_16\CExample_16.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CExample_21.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CE06DataStorage.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Global.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_05\CExample_05.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\00-State\CE18HitStateMachineBehaviour.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Scene\CSceneLoader.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CCollisionDispatcher.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_26\CExample_26.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_22\CExample_22.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18Bullet.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21Queue.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10DataStorage.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CNavStackManager.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Factory\CFactory+Global.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21Stack.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_08\CExample_08.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CE06Obstacle.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_13\CExample_13.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_11\CExample_11.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\State\CStateMachine.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Extension\CExtension+Global.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CExample_06.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_07\CExample_07.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_15\CExample_15.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_01\CExample_01.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CGameObjsPoolManager.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_24\CE24NetworkManager.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Base\CComponent.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CExample_10.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CScheduleManager.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CTouchDispatcher.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_03\CExample_03.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_24\00-NetworkManager\CE24NetworkManager+Client.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18NonPlayer.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_20\CExample_20.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21ArrayList.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\UI\Popup\CAlertPopup.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18WeaponInfo.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CSndManager.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Scene\CSceneManager.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Sound\CSnd.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_24\CE24DataStorage.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10StateMachineBehaviour.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_00\CExample_00.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_24\CE24Marker.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21LinkedList.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_19\CExample_19.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18Player.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\State\CStateMachineBehaviour.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CEventDispatcher.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_12\CExample_12.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Base\CSingleton.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18NonPlayerState.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_14\CExample_14.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_24\CExample_24.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21BinarySearchTree.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_04\CExample_04.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18CameraController.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_23\CExample_23.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Base\CPopup.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Camera\CResolutionHandler.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CTriggerDispatcher.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_25\CExample_25.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Type.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CE06DataStorage.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Define\KDefine+Global.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_05\CExample_05.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CCollisionDispatcher.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18Bullet.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Manager\CNavStackManager.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Factory\CFactory+Global.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_08\CExample_08.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_13\CExample_13.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_11\CExample_11.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_06\CExample_06.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_15\CExample_15.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_24\CE24NetworkManager.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CExample_10.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CTouchDispatcher.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_24\00-NetworkManager\CE24NetworkManager+Client.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_20\CExample_20.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18WeaponInfo.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Sound\CSnd.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_24\CE24DataStorage.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10StateMachineBehaviour.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_00\CExample_00.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18Player.cs" />
+    <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\Dispatcher\CEventDispatcher.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_17\CExample_17.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_09\CExample_09.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Global\Utility\State\CState.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_24\CExample_24.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_21\CE21BinarySearchTree.cs" />
     <Compile Include="Assets\Simple 2D Platformer BE2\ReadMe\Scripts\ReadmeBE2.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_04\CExample_04.cs" />
-    <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CE18CameraController.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10Target.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_10\CE10Text.cs" />
     <Compile Include="Assets\Example\Scripts\Runtime\Example_18\CExample_18.cs" />
@@ -1024,6 +1026,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.AI.Navigation">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
       <Private>False</Private>
@@ -1064,6 +1070,14 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
       <Private>False</Private>
@@ -1088,6 +1102,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections">
       <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
       <Private>False</Private>
@@ -1098,6 +1116,10 @@
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
       <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PPv2URPConverters">
+      <HintPath>Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
@@ -1116,12 +1138,24 @@
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PsdPlugin">
       <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
@@ -1142,6 +1176,10 @@
     </Reference>
     <Reference Include="Unity.Localization">
       <HintPath>Library\ScriptAssemblies\Unity.Localization.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
@@ -1188,6 +1226,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
       <Private>False</Private>
@@ -1228,8 +1270,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">

@@ -12,6 +12,8 @@ public partial class CE24NetworkManager : CSingleton<CE24NetworkManager> {
 	private TcpClient m_oClient = null;
 	private TcpListener m_oServer = null;
 
+	private Queue<CPacket> m_oResponsePacketQueue = new Queue<CPacket>();
+
 	private List<TcpClient> m_oClientList = new List<TcpClient>();
 	private List<(TcpClient, TcpClient)> m_oMatchingInfoList = new List<(TcpClient, TcpClient)>();
 	#endregion // 변수
@@ -64,6 +66,10 @@ public partial class CE24NetworkManager : CSingleton<CE24NetworkManager> {
 	public override void OnLateUpdate(float a_fDeltaTime) {
 		base.OnLateUpdate(a_fDeltaTime);
 
+		while(m_oResponsePacketQueue.Count >= 1) {
+			this.HandleResponse(m_oResponsePacketQueue.Dequeue());
+		}
+
 #if UNITY_EDITOR
 		// 연결 대기 중인 요청이 없을 경우
 		if(!m_oServer.Server.Poll(0, SelectMode.SelectRead)) {
@@ -103,16 +109,30 @@ public partial class CE24NetworkManager : CSingleton<CE24NetworkManager> {
 		}
 
 		var oBytes = new byte[byte.MaxValue];
-		a_oClient.GetStream().Read(oBytes, 0, oBytes.Length);
+		int nNumBytes = a_oClient.GetStream().Read(oBytes, 0, oBytes.Length);
 
-		string oJSONStr = System.Text.Encoding.Default.GetString(oBytes,
-			0, oBytes.Length);
+		// 연결이 종료되었을 경우
+		if(nNumBytes <= 0) {
+			var oPacket = new CPacket(EPacketType.DISCONNECT);
+			var stMatchingInfo = this.FindMatchingInfo(a_oClient);
 
-		var oPacket = CPacket.MakePacket(oJSONStr);
+			this.SendPacket(stMatchingInfo.Item1, oPacket);
+			this.SendPacket(stMatchingInfo.Item2, oPacket);
 
-		switch(oPacket.PacketType) {
-			case EPacketType.MATCHING: this.HandleRequestMatching(a_oClient, oPacket); break;
-			case EPacketType.TOUCH_CELL: this.HandleRequestTouchCell(a_oClient, oPacket); break;
+			m_oClientList.Remove(stMatchingInfo.Item1);
+			m_oClientList.Remove(stMatchingInfo.Item2);
+
+			m_oMatchingInfoList.Remove(stMatchingInfo);
+		} else {
+			string oJSONStr = System.Text.Encoding.Default.GetString(oBytes,
+				0, nNumBytes);
+
+			var oPacket = CPacket.MakePacket(oJSONStr);
+
+			switch(oPacket.PacketType) {
+				case EPacketType.MATCHING: this.HandleRequestMatching(a_oClient, oPacket); break;
+				case EPacketType.TOUCH_CELL: this.HandleRequestTouchCell(a_oClient, oPacket); break;
+			}
 		}
 	}
 

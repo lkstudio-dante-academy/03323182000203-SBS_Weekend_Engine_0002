@@ -35,6 +35,7 @@ public enum EPacketType {
 	NONE = -1,
 	MATCHING,
 	TOUCH_CELL,
+	DISCONNECT,
 	[HideInInspector] MAX_VAL
 }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /** 확장 메서드 */
 public static class CExtension {
@@ -13,7 +14,7 @@ public static class CExtension {
 
 	/** 유효 여부를 검사한다 */
 	public static bool ExIsValid(this Vector3 a_stSender) {
-		return a_stSender.x.ExIsValid() && 
+		return a_stSender.x.ExIsValid() &&
 			a_stSender.y.ExIsValid() && a_stSender.z.ExIsValid();
 	}
 
@@ -61,6 +62,62 @@ public static class CExtension {
 	/** 상태 갱신 가능 여부를 검사한다 */
 	public static bool ExIsEnableUpdate(this CComponent a_oSender) {
 		return a_oSender.enabled && a_oSender.gameObject.activeInHierarchy;
+	}
+
+	/** 월드 위치를 반환한다 */
+	public static Vector3 ExGetWorldPos(this PointerEventData a_oSender) {
+		var stNormalizePos = a_oSender.ExGetNormalizePos();
+
+		float fAspect = KDefine.DeviceScreenSize.x /
+			KDefine.DeviceScreenSize.y;
+
+		float fDesignScreenWidth = KDefine.G_DESIGN_SCREEN_HEIGHT *
+			fAspect;
+
+		float fWorldPosX = fDesignScreenWidth *
+			stNormalizePos.x / 2.0f;
+
+		float fWorldPosY = KDefine.G_DESIGN_SCREEN_HEIGHT *
+			stNormalizePos.y / 2.0f;
+
+		return new Vector3(fWorldPosX, fWorldPosY, 0.0f);
+	}
+
+	/** 로컬 위치를 반환한다 */
+	public static Vector3 ExGetLocalPos(this PointerEventData a_oSender,
+		GameObject a_oParent) {
+
+		return a_oSender.ExGetWorldPos().ExToLocal(a_oParent);
+	}
+
+	/** 월드 => 로컬 공간으로 변환한다 */
+	public static Vector3 ExToLocal(this Vector3 a_stSender,
+	GameObject a_oParent, bool a_bIsCoord = true) {
+
+		var stVec4 = new Vector4(a_stSender.x,
+			a_stSender.y, a_stSender.z, a_bIsCoord ? 1.0f : 0.0f);
+
+		return a_oParent.transform.worldToLocalMatrix * stVec4;
+	}
+
+	/** 로컬 => 월드 공간으로 변환한다 */
+	public static Vector3 ExToWorld(this Vector3 a_stSender,
+		GameObject a_oParent, bool a_bIsCoord = true) {
+
+		var stVec4 = new Vector4(a_stSender.x,
+			a_stSender.y, a_stSender.z, a_bIsCoord ? 1.0f : 0.0f);
+
+		return a_oParent.transform.localToWorldMatrix * stVec4;
+	}
+
+	/** 정규 위치를 반환한다 */
+	private static Vector3 ExGetNormalizePos(this PointerEventData a_oSender) {
+		var stPos = a_oSender.position;
+
+		float fNormalizePosX = (stPos.x * 2.0f / KDefine.DeviceScreenSize.x) - 1.0f;
+		float fNormalizePosY = (stPos.y * 2.0f / KDefine.DeviceScreenSize.y) - 1.0f;
+
+		return new Vector3(fNormalizePosX, fNormalizePosY, 0.0f);
 	}
 	#endregion // 클래스 메서드
 
