@@ -92,4 +92,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Example/Scenes/Example_26 (URP).unity
     guid: 48880571509ca3d4cbaa4427680e2061
+  - enabled: 1
+    path: "Assets/Example/Scenes/Example_27 (\uD30C\uD2F0\uD074).unity"
+    guid: 9347185ca371c794db50798b9b007520
   m_configObjects: {}

@@ -47,6 +47,7 @@ public static partial class KDefine
 	public const string G_SCENE_N_EXAMPLE_24 = "Example_24 (틱택토 - 플레이)";
 	public const string G_SCENE_N_EXAMPLE_25 = "Example_25 (틱택토 - 결과)";
 	public const string G_SCENE_N_EXAMPLE_26 = "Example_26 (URP)";
+	public const string G_SCENE_N_EXAMPLE_27 = "Example_27 (파티클)";
 	#endregion // 상수
 
 	#region 프로퍼티
