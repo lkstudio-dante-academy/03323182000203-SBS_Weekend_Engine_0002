@@ -27,7 +27,8 @@ using System.Threading.Tasks;
  * - 보호 수준 + 반환 형 + 메서드 이름 + 매개 변수 + 메서드 몸체
  * 
  * Ex)
- * public int SomeMethod(int a_nVal01, int a_nVal02) {
+ * public int SomeMethod(int a_nVal01, int a_nVal02)
+ * {
  *      // 메서드가 호출 될 때 동작 할 명령문 (메서드 몸체)
  * }
  * 
@@ -37,10 +38,13 @@ using System.Threading.Tasks;
  * 따라서, 특정 메서드가 여러 데이터를 반환하기 위해서는 컬렉션 등을 활용
  * 할 필요가 있다는 것을 알 수 있다.
  */
-namespace Example.Classes.Example_07 {
-	class CExample_07 {
+namespace Example.Classes.Example_07
+{
+	class CExample_07
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E07_METHOD_01
 			Console.Write("정수 (2 개) 입력 : ");
 			string[] oTokens = Console.ReadLine().Split();
@@ -139,7 +143,8 @@ namespace Example.Classes.Example_07 {
 
 			Console.WriteLine("=====> 배열 요소 <=====");
 
-			for(int i = 0; i < oVals.Length; ++i) {
+			for(int i = 0; i < oVals.Length; ++i)
+			{
 				Console.Write("{0}, ", oVals[i]);
 			}
 
@@ -150,7 +155,8 @@ namespace Example.Classes.Example_07 {
 
 #if E07_METHOD_01
 		/** 덧셈 결과를 반환한다 */
-		public static int GetSumVal(int a_nLhs, int a_nRhs) {
+		public static int GetSumVal(int a_nLhs, int a_nRhs)
+		{
 			/*
 			 * return 키워드란?
 			 * - 메서드를 종료하고 프로그램의 흐름을 해당 메서드를 호출한 곳으로
@@ -166,32 +172,38 @@ namespace Example.Classes.Example_07 {
 		}
 
 		/** 뺄셈 결과를 반환한다 */
-		public static int GetSubVal(int a_nLhs, int a_nRhs) {
+		public static int GetSubVal(int a_nLhs, int a_nRhs)
+		{
 			return a_nLhs - a_nRhs;
 		}
 
 		/** 곱셈 결과를 반환한다 */
-		public static int GetMultiplyVal(int a_nLhs, int a_nRhs) {
+		public static int GetMultiplyVal(int a_nLhs, int a_nRhs)
+		{
 			return a_nLhs * a_nRhs;
 		}
 
 		/** 나눗셈 결과를 반환한다 */
-		public static float GetDivideVal(int a_nLhs, int a_nRhs) {
+		public static float GetDivideVal(int a_nLhs, int a_nRhs)
+		{
 			return a_nLhs / (float)a_nRhs;
 		}
 #elif E07_METHOD_02
 		/** 값을 변경한다 */
-		public static void SetVal(int a_nVar, int a_nSetVal) {
+		public static void SetVal(int a_nVar, int a_nSetVal)
+		{
 			a_nVar = a_nSetVal;
 		}
 
 		/** 값을 변경한다 */
-		public static void SetValByRef(ref int a_nVar, int a_nSetVal) {
+		public static void SetValByRef(ref int a_nVar, int a_nSetVal)
+		{
 			a_nVar = a_nSetVal;
 		}
 
 		/** 임시 메서드 */
-		public static void TempMethod() {
+		public static void TempMethod()
+		{
 			/*
 			 * 특정 지역 내부에 선언 된 변수는 지역 변수라고 하며 지역 변수는
 			 * 해당 변수가 선언 된 지역 외부에서는 사용하는 것이 불가능하다는
@@ -212,12 +224,14 @@ namespace Example.Classes.Example_07 {
 		}
 #elif E07_METHOD_03
 		/** 값을 변경한다 */
-		public static void SetValByRef(ref int a_nVar, int a_nSetVal) {
+		public static void SetValByRef(ref int a_nVar, int a_nSetVal)
+		{
 			a_nVar = a_nSetVal;
 		}
 
 		/** 값을 변경한다 */
-		public static void SetValByOut(out int a_nVar, int a_nSetVal) {
+		public static void SetValByOut(out int a_nVar, int a_nSetVal)
+		{
 			a_nVar = a_nSetVal;
 		}
 #elif E07_METHOD_04
@@ -232,10 +246,12 @@ namespace Example.Classes.Example_07 {
 		 * 따라 얼마든지 많은 입력 값을 전달 받는 것이 가능하다.
 		 */
 		/** 합계를 반환한다 */
-		public static int GetSumVal(params object[] a_oVals) {
+		public static int GetSumVal(params object[] a_oVals)
+		{
 			int nSumVal = 0;
 
-			for(int i = 0; i < a_oVals.Length; ++i) {
+			for(int i = 0; i < a_oVals.Length; ++i)
+			{
 				/*
 				 * is 키워드란?
 				 * - 데이터가 특정 자료형에 해당하는 데이터인지 검사하는 역할을
@@ -247,7 +263,8 @@ namespace Example.Classes.Example_07 {
 				 * 가능하다는 것을 알 수 있다.
 				 */
 				// 정수 일 경우
-				if(a_oVals[i] is int) {
+				if(a_oVals[i] is int)
+				{
 					nSumVal += (int)a_oVals[i];
 				}
 			}
@@ -286,26 +303,32 @@ namespace Example.Classes.Example_07 {
 		 * 알 수 있다.
 		 */
 		/** 덧셈 결과를 반환한다 */
-		public static int GetSumVal(int a_nLhs, int a_nRhs) {
+		public static int GetSumVal(int a_nLhs, int a_nRhs)
+		{
 			return a_nLhs + a_nRhs;
 		}
 
 		/** 덧셈 결과를 반환한다 */
-		public static float GetSumVal(float a_fLhs, float a_fRhs) {
+		public static float GetSumVal(float a_fLhs, float a_fRhs)
+		{
 			return a_fLhs + a_fRhs;
 		}
 #elif E07_METHOD_06
 		/** 값을 설정한다 */
-		public static void SetupVals(int[] a_oVals) {
-			for(int i = 0; i < a_oVals.Length; ++i) {
+		public static void SetupVals(int[] a_oVals)
+		{
+			for(int i = 0; i < a_oVals.Length; ++i)
+			{
 				a_oVals[i] = i + 1;
 			}
 		}
 
 		/** 덧셈 결과를 반환한다 */
-		public static int GetSumVal(int[] a_oVals, int a_nIdx) {
+		public static int GetSumVal(int[] a_oVals, int a_nIdx)
+		{
 			// 마지막 요소 일 경우
-			if(a_nIdx >= a_oVals.Length - 1) {
+			if(a_nIdx >= a_oVals.Length - 1)
+			{
 				return a_oVals[a_nIdx];
 			}
 

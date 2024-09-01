@@ -6,34 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 01070d5f06055e085c5c5b714474084442161d2b7c7e27672b2d4a36e6b5373a
-      flags: 0
-    RecentlyUsedSceneGuid-1:
       value: 5554045201545b0e590b592315765e44424f417e7e7a22347a2b4e61b5b6603d
       flags: 0
-    RecentlyUsedSceneGuid-2:
+    RecentlyUsedSceneGuid-1:
       value: 5701565601535c035a0b592046770a44424f48297f2d72642e794961b0e13560
       flags: 0
-    RecentlyUsedSceneGuid-3:
+    RecentlyUsedSceneGuid-2:
       value: 5b55515704575b595b0b597b42755d44134e4b2b2d787432797b1935b3b06539
       flags: 0
-    RecentlyUsedSceneGuid-4:
+    RecentlyUsedSceneGuid-3:
       value: 0653500350060d025f0d0e7115730a44464f1b7b2d7b23692e7c4e61bbb9613a
       flags: 0
-    RecentlyUsedSceneGuid-5:
+    RecentlyUsedSceneGuid-4:
       value: 5153555400515103540d5f2040750744404e1c7f2f2d20667e7b186be0b26d61
       flags: 0
-    RecentlyUsedSceneGuid-6:
+    RecentlyUsedSceneGuid-5:
       value: 5553075650565a0b59565f70412706444e4f4e2c2d2b74697d704a6be4b96c6c
       flags: 0
-    RecentlyUsedSceneGuid-7:
+    RecentlyUsedSceneGuid-6:
       value: 5a03010356025809580f0d714376064410161b7b792c7231287c4a35e1e5603a
       flags: 0
-    RecentlyUsedSceneGuid-8:
+    RecentlyUsedSceneGuid-7:
       value: 57090c5e55005e0a585e552111705b441515192b787c74677b714d36b0b06269
       flags: 0
-    RecentlyUsedSceneGuid-9:
+    RecentlyUsedSceneGuid-8:
       value: 5a020051540d5c580c5d5b731374064412154d7a7b717e32742b4d63b5b56668
+      flags: 0
+    RecentlyUsedSceneGuid-9:
+      value: 5b04055656500d5e5a580e7a13740644464e1d7e7a702466792b4d35b6e23161
       flags: 0
     UnityEditor.ShaderGraph.Blackboard:
       value: 18135939215a0a5004000b0e15254b524c030a3f2964643d120d1230e9e93a3fd6e826abbd2e2d293c4ead313b08042de6030a0afa240c0d020be94c4baf5e435d8715fa32c70d15d11612dacc11fee5d3c5d1fe9ab1b5968e93e2ffcbc3e7e2f0b3ffe0e8b0be9af9fcafffff8e85dd8390e29d9d8899daa7
@@ -64,4 +64,5 @@ EditorUserSettings:
   m_VCHierarchyOverlayIcons: 1
   m_VCOtherOverlayIcons: 1
   m_VCAllowAsyncUpdate: 1
+  m_VCScanLocalPackagesOnConnect: 1
   m_ArtifactGarbageCollection: 1

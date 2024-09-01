@@ -1,5 +1,5 @@
-//#define E06_ARRAY
-//#define E06_LINEAR
+#define E06_ARRAY
+#define E06_LINEAR
 #define E06_NON_LINEAR
 
 #if E06_ARRAY
@@ -39,10 +39,13 @@ using System.Threading.Tasks;
  * 많아질 수록 좋은 성능을 발휘하기 때문에 대량의 데이터를 관리 할 필요가
  * 있다면 비선형 컬렉션을 활용하는 것이 일반적이다.
  */
-namespace Example.Classes.Example_06 {
-	class CExample_06 {
+namespace Example.Classes.Example_06
+{
+	class CExample_06
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E06_ARRAY
 #if E06_ARRAY_01
 			/*
@@ -77,7 +80,8 @@ namespace Example.Classes.Example_06 {
 			 * 때문에 특정 배열의 초기화 값을 명시 할 경우 해당 배열의 길이만큼
 			 * 초기화 값을 지정하도록 강제가 되는 특징이 존재한다.
 			 */
-			int[] aoVals02 = new int[5] {
+			int[] aoVals02 = new int[5]
+			{
 				1, 2, 3, 4, 5
 			};
 
@@ -90,25 +94,29 @@ namespace Example.Classes.Example_06 {
 			 * 경우 명시 된 초기화 값의 개수를 기반으로 배열의 길이를 자동으로 설정
 			 * 한다는 것을 알 수 있다.)
 			 */
-			int[] aoVals03 = new int[] {
+			int[] aoVals03 = new int[]
+			{
 				1, 2, 3
 			};
 
 			Console.WriteLine("=====> 1 차원 배열 <=====");
 
-			for(int i = 0; i < aoVals01.Length; ++i) {
+			for(int i = 0; i < aoVals01.Length; ++i)
+			{
 				Console.Write("{0}, ", aoVals01[i]);
 			}
 
 			Console.WriteLine();
 
-			for(int i = 0; i < aoVals02.Length; ++i) {
+			for(int i = 0; i < aoVals02.Length; ++i)
+			{
 				Console.Write("{0}, ", aoVals02[i]);
 			}
 
 			Console.WriteLine();
 
-			for(int i = 0; i < aoVals03.Length; ++i) {
+			for(int i = 0; i < aoVals03.Length; ++i)
+			{
 				Console.Write("{0}, ", aoVals03[i]);
 			}
 
@@ -134,12 +142,14 @@ namespace Example.Classes.Example_06 {
 			 * 있다. (즉, 차원을 명시적으로 지정하지 않으면 컴파일 에러가 발생한다는
 			 * 것을 알 수 있다.)
 			 */
-			int[,] aoMatrix02 = new int[2, 2] {
+			int[,] aoMatrix02 = new int[2, 2]
+			{
 				{ 1, 2 },
 				{ 3, 4 }
 			};
 
-			int[,] aoMatrix03 = new int[,] {
+			int[,] aoMatrix03 = new int[,]
+			{
 				{ 1 },
 				{ 3 }
 			};
@@ -156,8 +166,10 @@ namespace Example.Classes.Example_06 {
 			 * 가능하다. (즉, 차원의 번호가 0 에 가까울수록 상위 차원을 의미하며
 			 * 반대 일 경우에는 하위 차원을 의미한다는 것을 알 수 있다.)
 			 */
-			for(int i = 0; i < aoMatrix01.GetLength(0); ++i) {
-				for(int j = 0; j < aoMatrix01.GetLength(1); ++j) {
+			for(int i = 0; i < aoMatrix01.GetLength(0); ++i)
+			{
+				for(int j = 0; j < aoMatrix01.GetLength(1); ++j)
+				{
 					Console.Write("{0}, ", aoMatrix01[i, j]);
 				}
 
@@ -166,8 +178,10 @@ namespace Example.Classes.Example_06 {
 
 			Console.WriteLine();
 
-			for(int i = 0; i < aoMatrix02.GetLength(0); ++i) {
-				for(int j = 0; j < aoMatrix02.GetLength(1); ++j) {
+			for(int i = 0; i < aoMatrix02.GetLength(0); ++i)
+			{
+				for(int j = 0; j < aoMatrix02.GetLength(1); ++j)
+				{
 					Console.Write("{0}, ", aoMatrix02[i, j]);
 				}
 
@@ -176,8 +190,10 @@ namespace Example.Classes.Example_06 {
 
 			Console.WriteLine();
 
-			for(int i = 0; i < aoMatrix03.GetLength(0); ++i) {
-				for(int j = 0; j < aoMatrix03.GetLength(1); ++j) {
+			for(int i = 0; i < aoMatrix03.GetLength(0); ++i)
+			{
+				for(int j = 0; j < aoMatrix03.GetLength(1); ++j)
+				{
 					Console.Write("{0}, ", aoMatrix03[i, j]);
 				}
 
@@ -189,14 +205,16 @@ namespace Example.Classes.Example_06 {
 
 			int[] aoVals = new int[nNum];
 
-			for(int i = 0; i < nNum; ++i) {
+			for(int i = 0; i < nNum; ++i)
+			{
 				Console.Write("{0} 번째 정수 입력 : ", i + 1);
 				int.TryParse(Console.ReadLine(), out aoVals[i]);
 			}
 
 			int nSumVal = 0;
 
-			for(int i = 0; i < nNum; ++i) {
+			for(int i = 0; i < nNum; ++i)
+			{
 				nSumVal += aoVals[i];
 			}
 
@@ -207,17 +225,20 @@ namespace Example.Classes.Example_06 {
 			
 			int[] aoVals = new int[5];
 
-			do {
+			do
+			{
 				Console.Write("{0} 번째 정수 입력 : ", nNumVals + 1);
 				int.TryParse(Console.ReadLine(), out nVal);
 
 				// 입력을 중단했을 경우
-				if(nVal <= 0) {
+				if(nVal <= 0)
+				{
 					continue;
 				}
 
 				// 배열에 공간이 부족 할 경우
-				if(nNumVals >= aoVals.Length) {
+				if(nNumVals >= aoVals.Length)
+				{
 					/*
 					 * Array.Resize 메서드는 기존 배열의 길이를 변경하는
 					 * 역할을 수행한다. (즉, 해당 메서드를 활용하면 배열의
@@ -232,7 +253,8 @@ namespace Example.Classes.Example_06 {
 
 			int nSumVal = 0;
 
-			for(int i = 0; i < nNumVals; ++i) {
+			for(int i = 0; i < nNumVals; ++i)
+			{
 				nSumVal += aoVals[i];
 			}
 
@@ -288,14 +310,16 @@ namespace Example.Classes.Example_06 {
 			 * 동시에 데이터를 저장하기 위한 공간도 생성하는 역할을 수행한다는
 			 * 것을 알 수 있다.)
 			 */
-			for(int i = 0; i < 10; ++i) {
+			for(int i = 0; i < 10; ++i)
+			{
 				oValList01.Add(i + 1);
 				oValList02.AddLast(i + 1);
 			}
 
 			Console.WriteLine("=====> 배열 리스트 <=====");
 
-			for(int i = 0; i < oValList01.Count; ++i) {
+			for(int i = 0; i < oValList01.Count; ++i)
+			{
 				Console.Write("{0}, ", oValList01[i]);
 			}
 
@@ -304,28 +328,32 @@ namespace Example.Classes.Example_06 {
 
 			Console.WriteLine("\n\n=====> 배열 리스트 - 삭제 후 <=====");
 
-			for(int i = 0; i < oValList01.Count; ++i) {
+			for(int i = 0; i < oValList01.Count; ++i)
+			{
 				Console.Write("{0}, ", oValList01[i]);
 			}
 
 			oValList01.Sort((a_nLhs, a_nRhs) => a_nRhs.CompareTo(a_nLhs));
 			Console.WriteLine("\n\n=====> 배열 리스트 - 내림차순 정렬 후 <=====");
 
-			for(int i = 0; i < oValList01.Count; ++i) {
+			for(int i = 0; i < oValList01.Count; ++i)
+			{
 				Console.Write("{0}, ", oValList01[i]);
 			}
 
 			oValList01.Sort((a_nLhs, a_nRhs) => a_nLhs.CompareTo(a_nRhs));
 			Console.WriteLine("\n\n=====> 배열 리스트 - 오름차순 정렬 후 <=====");
 
-			for(int i = 0; i < oValList01.Count; ++i) {
+			for(int i = 0; i < oValList01.Count; ++i)
+			{
 				Console.Write("{0}, ", oValList01[i]);
 			}
 
 			Console.WriteLine("\n\n=====> 연결 리스트 <=====");
 			LinkedListNode<int> oNode = oValList02.First;
 
-			while(oNode != null) {
+			while(oNode != null)
+			{
 				Console.Write("{0}, ", oNode.Value);
 				oNode = oNode.Next;
 			}
@@ -336,7 +364,8 @@ namespace Example.Classes.Example_06 {
 			Console.WriteLine("\n\n=====> 연결 리스트 - 삭제 후 <=====");
 			oNode = oValList02.First;
 
-			while(oNode != null) {
+			while(oNode != null)
+			{
 				Console.Write("{0}, ", oNode.Value);
 				oNode = oNode.Next;
 			}
@@ -363,7 +392,8 @@ namespace Example.Classes.Example_06 {
 
 			Console.WriteLine("=====> 데이터 입력 순서 <=====");
 
-			for(int i = 0; i < 15; ++i) {
+			for(int i = 0; i < 15; ++i)
+			{
 				oValStack.Push(i + 1);
 				oValQueue.Enqueue(i + 1);
 
@@ -372,13 +402,15 @@ namespace Example.Classes.Example_06 {
 
 			Console.WriteLine("\n\n=====> 스택 데이터 출력 순서 <=====");
 
-			while(oValStack.Count >= 1) {
+			while(oValStack.Count >= 1)
+			{
 				Console.Write("{0}, ", oValStack.Pop());
 			}
 
 			Console.WriteLine("\n\n=====> 큐 데이터 출력 순서 <=====");
 
-			while(oValQueue.Count >= 1) {
+			while(oValQueue.Count >= 1)
+			{
 				Console.Write("{0}, ", oValQueue.Dequeue());
 			}
 
@@ -409,15 +441,17 @@ namespace Example.Classes.Example_06 {
 			HashSet<int> oValSet = new HashSet<int>();
 			Dictionary<string, int> oValDict = new Dictionary<string, int>();
 
-			for(int i = 0; i < 10; ++i) {
+			for(int i = 0; i < 10; ++i)
+			{
 				string oKey = $"Key_{i + 1:00}";
 				oValDict.Add(oKey, i + 1);
 			}
 
-			for(int i = 0; i < 20; ++i) {
+			for(int i = 0; i < 20; ++i)
+			{
 				oValSet.Add(oRandom.Next(0, 10));
 			}
-			
+
 			Console.WriteLine("=====> 셋 <=====");
 
 			/*
@@ -428,27 +462,31 @@ namespace Example.Classes.Example_06 {
 			 * 따라서, 특정 컬렉션이 관리하는 데이터에 모두 접근하고 싶을 경우
 			 * foreach 반복문을 활용하면 된다.
 			 */
-			foreach(int nVal in oValSet) {
+			foreach(int nVal in oValSet)
+			{
 				Console.Write("{0}, ", nVal);
 			}
 
 			Console.WriteLine("\n\n=====> 딕셔너리 <=====");
 
-			foreach(var stKeyVal in oValDict) {
+			foreach(var stKeyVal in oValDict)
+			{
 				Console.Write("{0}:{1}, ", stKeyVal.Key, stKeyVal.Value);
 			}
 
 			oValSet.Remove(1);
 			Console.WriteLine("\n\n=====> 셋 - 제거 후 <=====");
 
-			foreach(int nVal in oValSet) {
+			foreach(int nVal in oValSet)
+			{
 				Console.Write("{0}, ", nVal);
 			}
 
 			oValDict.Remove("Key_01");
 			Console.WriteLine("\n\n=====> 딕셔너리 - 제거 후 <=====");
 
-			foreach(var stKeyVal in oValDict) {
+			foreach(var stKeyVal in oValDict)
+			{
 				Console.Write("{0}:{1}, ", stKeyVal.Key, stKeyVal.Value);
 			}
 
@@ -461,7 +499,8 @@ namespace Example.Classes.Example_06 {
 			oValDict["Key_02"] = 200;
 			Console.WriteLine("\n\n=====> 딕셔너리 - 변경 후 <=====");
 
-			foreach(var stKeyVal in oValDict) {
+			foreach(var stKeyVal in oValDict)
+			{
 				Console.Write("{0}:{1}, ", stKeyVal.Key, stKeyVal.Value);
 			}
 

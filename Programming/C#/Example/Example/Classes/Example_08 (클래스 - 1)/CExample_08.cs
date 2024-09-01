@@ -29,15 +29,19 @@ using System.Threading.Tasks;
  *      public int m_nHP = 0;
  *      public int m_nATK = 0;
  *      
- *      public void ShowInfo() {
+ *      public void ShowInfo()
+ *      {
  *           // Do Something
  *      }
  * }
  */
-namespace Example.Classes.Example_08 {
-	class CExample_08 {
+namespace Example.Classes.Example_08
+{
+	class CExample_08
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E08_CLASS_01
 			CCharacter oCharacter01 = new CCharacter();
 			oCharacter01.m_nLV = 1;
@@ -79,11 +83,13 @@ namespace Example.Classes.Example_08 {
 #elif E08_CLASS_04
 			CArray oVals = new CArray(10);
 
-			for(int i = 0; i < oVals.Length; ++i) {
+			for(int i = 0; i < oVals.Length; ++i)
+			{
 				oVals[i] = i + 1;
 			}
 
-			for(int i = 0; i < oVals.Length; ++i) {
+			for(int i = 0; i < oVals.Length; ++i)
+			{
 				Console.Write("{0}, ", oVals[i]);
 			}
 
@@ -99,7 +105,8 @@ namespace Example.Classes.Example_08 {
 			public int m_nATK = 0;
 
 			/** 정보를 출력한다 */
-			public void ShowInfo() {
+			public void ShowInfo()
+			{
 				Console.WriteLine("레벨 : {0}", m_nLV);
 				Console.WriteLine("체력 : {0}", m_nHP);
 				Console.WriteLine("공격력 : {0}", m_nATK);
@@ -155,34 +162,40 @@ namespace Example.Classes.Example_08 {
 			 * 의미한다.
 			 */
 			/** 생성자 */
-			public CCharacter() {
+			public CCharacter()
+			{
 				// Do Something
 			}
 
 			/** 생성자 */
-			public CCharacter(int a_nLV, int a_nHP, int a_nATK) {
+			public CCharacter(int a_nLV, int a_nHP, int a_nATK)
+			{
 				m_nLV = a_nLV;
 				m_nHP = a_nHP;
 				m_nATK = a_nATK;
 			}
 
 			/** 레벨을 변경한다 */
-			public void SetLV(int a_nLV) {
+			public void SetLV(int a_nLV)
+			{
 				m_nLV = a_nLV;
 			}
 
 			/** 체력을 변경한다 */
-			public void SetHP(int a_nHP) {
+			public void SetHP(int a_nHP)
+			{
 				m_nHP = a_nHP;
 			}
 
 			/** 공격력을 변경한다 */
-			public void SetATK(int a_nATK) {
+			public void SetATK(int a_nATK)
+			{
 				m_nATK = a_nATK;
 			}
 
 			/** 정보를 출력한다 */
-			public void ShowInfo() {
+			public void ShowInfo()
+			{
 				Console.WriteLine("레벨 : {0}", m_nLV);
 				Console.WriteLine("체력 : {0}", m_nHP);
 				Console.WriteLine("공격력 : {0}", m_nATK);
@@ -251,7 +264,8 @@ namespace Example.Classes.Example_08 {
 			public int DEF { get; set; } = 0;
 
 			/** 정보를 출력한다 */
-			public void ShowInfo() {
+			public void ShowInfo()
+			{
 				Console.WriteLine("레벨 : {0}", m_nLV);
 				Console.WriteLine("체력 : {0}", m_nHP);
 				Console.WriteLine("공격력 : {0}", m_nATK);
@@ -260,7 +274,8 @@ namespace Example.Classes.Example_08 {
 		}
 #elif E08_CLASS_04
 		/** 배열 */
-		public class CArray {
+		public class CArray
+		{
 			private int[] m_oVals = null;
 
 			public int Length { get; private set; } = 0;
@@ -274,7 +289,8 @@ namespace Example.Classes.Example_08 {
 			 * - this + 매개 변수 + 인덱서 몸체
 			 * 
 			 * Ex)
-			 * public int this[int a_nIdx] {
+			 * public int this[int a_nIdx]
+			 * {
 			 *      get {
 			 *           // Getter 구현
 			 *      } set {
@@ -283,17 +299,21 @@ namespace Example.Classes.Example_08 {
 			 * }
 			 */
 			/** 인덱서 */
-			public int this[int a_nIdx] {
-				get {
+			public int this[int a_nIdx]
+			{
+				get
+				{
 					return m_oVals[a_nIdx];
 				}
-				set {
+				set
+				{
 					m_oVals[a_nIdx] = value;
 				}
 			}
 
 			/** 생성자 */
-			public CArray(int a_nLength) {
+			public CArray(int a_nLength)
+			{
 				m_oVals = new int[a_nLength];
 				this.Length = a_nLength;
 			}

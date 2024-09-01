@@ -1,5 +1,5 @@
-//#define E05_WHILE
-//#define E05_FOR
+#define E05_WHILE
+#define E05_FOR
 #define E05_DO_WHILE
 
 using System;
@@ -24,19 +24,24 @@ using System.Threading.Tasks;
  * - for
  * - do ~ while
  */
-namespace Example.Classes.Example_05 {
-	class CExample_05 {
+namespace Example.Classes.Example_05
+{
+	class CExample_05
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E05_WHILE
 			Console.Write("반복 횟수 입력 : ");
 			int.TryParse(Console.ReadLine(), out int nTimes);
 
 			int i = 0;
 
-			while(i < nTimes) {
+			while(i < nTimes)
+			{
 				// 홀수 일 경우
-				if((i + 1) % 2 != 0) {
+				if((i + 1) % 2 != 0)
+				{
 					i += 1;
 
 					/*
@@ -82,9 +87,11 @@ namespace Example.Classes.Example_05 {
 			Console.Write("반복 횟수 입력 : ");
 			int.TryParse(Console.ReadLine(), out int nTimes);
 
-			for(int i = 0; i < nTimes; ++i) {
+			for(int i = 0; i < nTimes; ++i)
+			{
 				// 홀수 일 경우
-				if((i + 1) % 2 != 0) {
+				if((i + 1) % 2 != 0)
+				{
 					/*
 					 * for 반복문 내부에서 continue 키워드를 명시 할 경우
 					 * while 반복문과 달리 조건을 끝내기 위한 반복절이 항상
@@ -101,10 +108,12 @@ namespace Example.Classes.Example_05 {
 
 			Console.WriteLine("\n\n=====> 구구단 <=====");
 
-			for(int i = 2; i < 10; ++i) {
+			for(int i = 2; i < 10; ++i)
+			{
 				Console.WriteLine("----- {0} 단", i);
 
-				for(int j = 1; j < 10; ++j) {
+				for(int j = 1; j < 10; ++j)
+				{
 					Console.WriteLine("{0} * {1} = {2}",
 						i, j, i * j);
 				}
@@ -122,11 +131,13 @@ namespace Example.Classes.Example_05 {
 			 * 검사하기 때문에 처음부터 조건이 거짓이라 하더라도 반드시 1 번 이상
 			 * 반복 할 명령문이 실행 된다는 차이점이 존재한다.
 			 */
-			while(false) {
+			while(false)
+			{
 				Console.WriteLine("While 반복문");
 			}
-			
-			do {
+
+			do
+			{
 				Console.WriteLine("Do ~ While 반복문");
 			} while(false);
 #endif

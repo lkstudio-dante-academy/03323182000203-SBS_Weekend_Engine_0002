@@ -59,10 +59,13 @@ public static class CExtension {
 }
 #endif
 
-namespace Example.Classes.Example_10 {
-	class CExample_10 {
+namespace Example.Classes.Example_10
+{
+	class CExample_10
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E10_CLASS_01
 			var oRandom = new Random();
 			var oValList = new List<int>();
@@ -106,7 +109,8 @@ namespace Example.Classes.Example_10 {
 		 * }
 		 */
 		/** 플레이 가능 인터페이스 */
-		public interface IPlayable {
+		public interface IPlayable
+		{
 			/** 공격한다 */
 			void Attack();
 
@@ -115,21 +119,24 @@ namespace Example.Classes.Example_10 {
 		}
 
 		/** 캐릭터 */
-		public class CCharacter : IPlayable {
+		public class CCharacter : IPlayable
+		{
 			private int m_nPosX = 0;
 			private int m_nPosY = 0;
 
 			/** 공격한다 */
-			public void Attack() {
+			public void Attack()
+			{
 				Console.WriteLine("플레이어가 공격을 했습니다.");
 			}
 
 			/** 이동한다 */
-			public void Move(int a_nX, int a_nY) {
+			public void Move(int a_nX, int a_nY)
+			{
 				m_nPosX += a_nX;
 				m_nPosY += a_nY;
 
-				Console.WriteLine("이동 후 위치 : {0}, {1}", 
+				Console.WriteLine("이동 후 위치 : {0}, {1}",
 					m_nPosX, m_nPosY);
 			}
 		}

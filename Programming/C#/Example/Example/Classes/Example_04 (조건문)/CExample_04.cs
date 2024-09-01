@@ -1,4 +1,4 @@
-//#define E04_IF_ELSE
+#define E04_IF_ELSE
 #define E04_SWITCH_CASE
 
 using System;
@@ -18,27 +18,32 @@ using System.Threading.Tasks;
  * - switch ~ case
  * 
  * Ex)
- * if(조건문 A) {
+ * if(조건문 A)
+ * {
  *     // 조건문 A 를 만족했을 때 실행 할 명령문
- * } else if(조건문 B) {
+ * }
+ * else if(조건문 B)
+ * {
  *     // 조건문 B 를 만족했을 때 실행 할 명령문
- * } else {
+ * }
+ * else
+ * {
  *     // 조건문 A 와 B 를 모두 만족하지 않았을 경우 실행 할 명령문
  * }
  * 
- * switch(데이터) {
- *     case 조건 A : {
+ * switch(데이터)
+ * {
+ *     case 조건 A:
  *         // 조건 A 를 만족했을 때 실행 할 명령문
  *         break;
- *     }
- *     case 조건 B : {
+ *         
+ *     case 조건 B:
  *         // 조건 A 를 만족했을 때 실행 할 명령문
  *         break;
- *     }
- *     default: {
+ *         
+ *     default:
  *         // 조건 A 와 B 를 모두 만족하지 않았을 경우 실행 할 명령문
  *         break;
- *     }
  * }
  * 
  * if ~ else vs switch ~ case
@@ -55,32 +60,42 @@ using System.Threading.Tasks;
  * 따라서, 두 조건문을 모두 사용 할 수 있는 경우라면 switch ~ case 조건문을
  * 사용하는 것이 좀 더 빠르게 동작하는 명령문을 작성 할 수 있다.
  */
-namespace Example.Classes.Example_04 {
-	class CExample_04 {
+namespace Example.Classes.Example_04
+{
+	class CExample_04
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E04_IF_ELSE
 			Console.Write("점수 입력 : ");
 			int.TryParse(Console.ReadLine(), out int nScore);
 
 			// F 학점 일 경우
-			if(nScore < 60) {
+			if(nScore < 60)
+			{
 				Console.WriteLine("F 학점입니다.");
-			} else {
+			}
+			else
+			{
 				// A 학점 일 경우
-				if(nScore >= 90) {
+				if(nScore >= 90)
+				{
 					Console.WriteLine("A 학점입니다.");
 				}
 				// B 학점 일 경우
-				else if(nScore >= 80) {
+				else if(nScore >= 80)
+				{
 					Console.WriteLine("B 학점입니다.");
 				}
 				// C 학점 일 경우
-				else if(nScore >= 70) {
+				else if(nScore >= 70)
+				{
 					Console.WriteLine("C 학점입니다.");
 				}
 				// D 학점 일 경우
-				else {
+				else
+				{
 					Console.WriteLine("D 학점입니다.");
 				}
 			}
@@ -88,12 +103,24 @@ namespace Example.Classes.Example_04 {
 			Console.Write("점수 입력 : ");
 			int.TryParse(Console.ReadLine(), out int nScore);
 
-			switch(nScore / 10) {
-				case 9: case 10: Console.WriteLine("A 학점입니다."); break;
-				case 8: Console.WriteLine("B 학점입니다."); break;
-				case 7: Console.WriteLine("C 학점입니다."); break;
-				case 6: Console.WriteLine("D 학점입니다."); break;
-				default: Console.WriteLine("F 학점입니다."); break;
+			switch(nScore / 10)
+			{
+				case 9:
+				case 10:
+					Console.WriteLine("A 학점입니다.");
+					break;
+				case 8:
+					Console.WriteLine("B 학점입니다.");
+					break;
+				case 7:
+					Console.WriteLine("C 학점입니다.");
+					break;
+				case 6:
+					Console.WriteLine("D 학점입니다.");
+					break;
+				default:
+					Console.WriteLine("F 학점입니다.");
+					break;
 			}
 #endif
 		}

@@ -110,10 +110,13 @@ using System.Threading.Tasks;
  * 
  * 게임을 종료했습니다.
  */
-namespace Practice.Classes.Practice_02 {
-	class CPractice_02 {
+namespace Practice.Classes.Practice_02
+{
+	class CPractice_02
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if P02_01
 			Console.Write("2 ~ 9 범위 숫자 입력 : ");
 			int.TryParse(Console.ReadLine(), out int nVal);
@@ -173,7 +176,8 @@ namespace Practice.Classes.Practice_02 {
 				Console.WriteLine();
 			} while(nVal != nAnswer);
 #elif P02_04
-			string[] oWords = new string[] {
+			string[] oWords = new string[]
+			{
 				"Apple", "Google", "Samsung", "Microsoft"
 			};
 
@@ -272,18 +276,21 @@ namespace Practice.Classes.Practice_02 {
 			Random oRandom = new Random();
 			List<int> oAnswer = new List<int>();
 
-			while(oAnswer.Count < 4) {
+			while(oAnswer.Count < 4)
+			{
 				int nVal = oRandom.Next(1, 10);
 
 				// 중복 된 값이 없을 경우
-				if(!oAnswer.Contains(nVal)) {
+				if(!oAnswer.Contains(nVal))
+				{
 					oAnswer.Add(nVal);
 				}
 			}
 
 			Console.Write("정답 : ");
 
-			for(int i = 0; i < oAnswer.Count; ++i) {
+			for(int i = 0; i < oAnswer.Count; ++i)
+			{
 				Console.Write("{0}, ", oAnswer[i]);
 			}
 
@@ -292,18 +299,21 @@ namespace Practice.Classes.Practice_02 {
 			int nNumBalls = 0;
 			int nNumStrikes = 0;
 
-			do {
+			do
+			{
 				Console.Write("숫자 (4 개) 입력 : ");
 				string[] oTokens = Console.ReadLine().Split();
 
 				nNumBalls = 0;
 				nNumStrikes = 0;
 
-				for(int i = 0; i < oTokens.Length; ++i) {
+				for(int i = 0; i < oTokens.Length; ++i)
+				{
 					int.TryParse(oTokens[i], out int nNum);
 
 					// 숫자가 정답에 포함 되어있을 경우
-					if(oAnswer.Contains(nNum)) {
+					if(oAnswer.Contains(nNum))
+					{
 						int nIdx = oAnswer.IndexOf(nNum);
 
 						nNumBalls += (i != nIdx) ? 1 : 0;

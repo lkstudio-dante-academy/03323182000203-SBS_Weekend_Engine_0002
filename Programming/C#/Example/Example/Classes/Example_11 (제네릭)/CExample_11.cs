@@ -36,10 +36,13 @@ using System.Threading.Tasks;
  * 따라서, 제네릭 형식 인자는 임시적으로 자료형의 역할을 수행한다는 것을 
  * 알 수 있다.
  */
-namespace Example.Classes.Example_11 {
-	class CExample_11 {
+namespace Example.Classes.Example_11
+{
+	class CExample_11
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E11_GENERIC_01
 			int nLhs = 10;
 			int nRhs = 20;
@@ -104,7 +107,8 @@ namespace Example.Classes.Example_11 {
 			var oValList01 = new CArrayList<int>();
 			var oValList02 = new CArrayList<float>();
 
-			for(int i = 0; i < 10; ++i) {
+			for(int i = 0; i < 10; ++i)
+			{
 				oValList01.Add(i + 1);
 				oValList02.Add(i + 1.0f);
 			}
@@ -117,13 +121,15 @@ namespace Example.Classes.Example_11 {
 
 			Console.WriteLine("=====> 배열 요소 <=====");
 
-			for(int i = 0; i < oValList01.Count; ++i) {
+			for(int i = 0; i < oValList01.Count; ++i)
+			{
 				Console.Write("{0}, ", oValList01[i]);
 			}
 
 			Console.WriteLine();
 
-			for(int i = 0; i < oValList02.Count; ++i) {
+			for(int i = 0; i < oValList02.Count; ++i)
+			{
 				Console.Write("{0}, ", oValList02[i]);
 			}
 
@@ -177,31 +183,38 @@ namespace Example.Classes.Example_11 {
 		}
 #elif E11_GENERIC_03
 		/** 배열 리스트 */
-		public class CArrayList<T> {
+		public class CArrayList<T>
+		{
 			private int m_nNumVals = 0;
 			private T[] m_oVals = null;
 
 			public int Count => m_nNumVals;
 
 			/** 인덱서 */
-			public T this[int a_nIdx] {
-				get {
+			public T this[int a_nIdx]
+			{
+				get
+				{
 					return m_oVals[a_nIdx];
 				}
-				set {
+				set
+				{
 					m_oVals[a_nIdx] = value;
 				}
 			}
 
 			/** 생성자 */
-			public CArrayList(int a_nSize = 5) {
+			public CArrayList(int a_nSize = 5)
+			{
 				m_oVals = new T[a_nSize];
 			}
 
 			/** 값을 추가한다 */
-			public void Add(T a_tVal) {
+			public void Add(T a_tVal)
+			{
 				// 배열이 가득 찼을 경우
-				if(m_nNumVals >= m_oVals.Length) {
+				if(m_nNumVals >= m_oVals.Length)
+				{
 					Array.Resize(ref m_oVals, m_oVals.Length * 2);
 				}
 
@@ -209,18 +222,22 @@ namespace Example.Classes.Example_11 {
 			}
 
 			/** 값을 추가한다 */
-			public void Insert(int a_nIdx, T a_tVal) {
+			public void Insert(int a_nIdx, T a_tVal)
+			{
 				// 배열의 범위를 벗어났을 경우
-				if(a_nIdx < 0 || a_nIdx >= m_nNumVals) {
+				if(a_nIdx < 0 || a_nIdx >= m_nNumVals)
+				{
 					return;
 				}
 
 				// 배열이 가득 찼을 경우
-				if(m_nNumVals >= m_oVals.Length) {
+				if(m_nNumVals >= m_oVals.Length)
+				{
 					Array.Resize(ref m_oVals, m_oVals.Length * 2);
 				}
 
-				for(int i = m_nNumVals; i > a_nIdx; --i) {
+				for(int i = m_nNumVals; i > a_nIdx; --i)
+				{
 					m_oVals[i] = m_oVals[i - 1];
 				}
 
@@ -229,18 +246,22 @@ namespace Example.Classes.Example_11 {
 			}
 
 			/** 값을 제거한다 */
-			public void Remove(T a_tVal) {
+			public void Remove(T a_tVal)
+			{
 				int nResult = this.FindVal(a_tVal);
 
 				// 값이 존재 할 경우
-				if(nResult >= 0) {
+				if(nResult >= 0)
+				{
 					this.RemoveAt(nResult);
 				}
 			}
 
 			/** 값을 제거한다 */
-			public void RemoveAt(int a_nIdx) {
-				for(int i = a_nIdx; i < m_nNumVals - 1; ++i) {
+			public void RemoveAt(int a_nIdx)
+			{
+				for(int i = a_nIdx; i < m_nNumVals - 1; ++i)
+				{
 					m_oVals[i] = m_oVals[i + 1];
 				}
 
@@ -248,10 +269,13 @@ namespace Example.Classes.Example_11 {
 			}
 
 			/** 값을 탐색한다 */
-			public int FindVal(T a_tVal) {
-				for(int i = 0; i < m_nNumVals; ++i) {
+			public int FindVal(T a_tVal)
+			{
+				for(int i = 0; i < m_nNumVals; ++i)
+				{
 					// 값이 존재 할 경우
-					if(m_oVals[i].Equals(a_tVal)) {
+					if(m_oVals[i].Equals(a_tVal))
+					{
 						return i;
 					}
 				}

@@ -4,14 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practice.Classes.Practice_04 {
-	class CPractice_04 {
+namespace Practice.Classes.Practice_04
+{
+	class CPractice_04
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 			EMenu eMenu = EMenu.NONE;
 			CCanvas oCanvas = new CCanvas();
 
-			do {
+			do
+			{
 				PrintMenus();
 				Console.Write("\n메뉴 선택 : ");
 
@@ -19,14 +23,18 @@ namespace Practice.Classes.Practice_04 {
 				eMenu = (EMenu)(nMenu - 1);
 
 				// 종료를 선택했을 경우
-				if(eMenu == EMenu.EXIT) {
+				if(eMenu == EMenu.EXIT)
+				{
 					continue;
 				}
 
 				// 모든 도형 그리기를 선택했을 경우
-				if(eMenu == EMenu.DRAW_ALL_SHAPES) {
+				if(eMenu == EMenu.DRAW_ALL_SHAPES)
+				{
 					oCanvas.DrawAllShapes();
-				} else {
+				}
+				else
+				{
 					CShape oShape = CreateShape(eMenu);
 					oCanvas.AddShape(oShape);
 				}
@@ -36,7 +44,8 @@ namespace Practice.Classes.Practice_04 {
 		}
 
 		/** 메뉴를 출력한다 */
-		public static void PrintMenus() {
+		public static void PrintMenus()
+		{
 			Console.WriteLine("=====> 메뉴 <=====");
 			Console.WriteLine("1. 삼각형 추가");
 			Console.WriteLine("2. 사각형 추가");
@@ -45,20 +54,25 @@ namespace Practice.Classes.Practice_04 {
 		}
 
 		/** 도형을 생성한다 */
-		public static CShape CreateShape(EMenu a_eMenu) {
+		public static CShape CreateShape(EMenu a_eMenu)
+		{
 			Random oRandom = new Random();
 			EColor eColor = (EColor)oRandom.Next(0, (int)EColor.MAX_VAL);
 
-			switch(a_eMenu) {
-				case EMenu.ADD_TRIANGLE: return new CTriangle(eColor);
-				case EMenu.ADD_RECTANGLE: return new CRectangle(eColor);
+			switch(a_eMenu)
+			{
+				case EMenu.ADD_TRIANGLE:
+					return new CTriangle(eColor);
+				case EMenu.ADD_RECTANGLE:
+					return new CRectangle(eColor);
 			}
 
 			return null;
 		}
 
 		/** 메뉴 */
-		public enum EMenu {
+		public enum EMenu
+		{
 			NONE = -1,
 			ADD_TRIANGLE,
 			ADD_RECTANGLE,
@@ -68,7 +82,8 @@ namespace Practice.Classes.Practice_04 {
 		}
 
 		/** 색상 */
-		public enum EColor {
+		public enum EColor
+		{
 			NONE = -1,
 			RED,
 			GREEN,
@@ -77,20 +92,27 @@ namespace Practice.Classes.Practice_04 {
 		}
 
 		/** 도형 */
-		public abstract class CShape {
+		public abstract class CShape
+		{
 			public EColor Color { get; private set; } = EColor.NONE;
 
 			/** 생성자 */
-			public CShape(EColor a_eColor) {
+			public CShape(EColor a_eColor)
+			{
 				this.Color = a_eColor;
 			}
 
 			/** 색상 문자열을 반환한다 */
-			public string GetColorStr() {
-				switch(this.Color) {
-					case EColor.RED: return "빨간색";
-					case EColor.GREEN: return "녹색";
-					case EColor.BLUE: return "파란색";
+			public string GetColorStr()
+			{
+				switch(this.Color)
+				{
+					case EColor.RED:
+						return "빨간색";
+					case EColor.GREEN:
+						return "녹색";
+					case EColor.BLUE:
+						return "파란색";
 				}
 
 				return string.Empty;
@@ -125,43 +147,53 @@ namespace Practice.Classes.Practice_04 {
 		}
 
 		/** 삼각형 */
-		public class CTriangle : CShape {
+		public class CTriangle : CShape
+		{
 			/** 생성자 */
-			public CTriangle(EColor a_eColor) : base(a_eColor) {
+			public CTriangle(EColor a_eColor) : base(a_eColor)
+			{
 				// Do Something
 			}
 
 			/** 도형을 그린다 */
-			public override void Draw() {
+			public override void Draw()
+			{
 				Console.WriteLine("{0} 삼각형을 그렸습니다.", this.GetColorStr());
 			}
 		}
 
 		/** 사각형 */
-		public class CRectangle : CShape {
+		public class CRectangle : CShape
+		{
 			/** 생성자 */
-			public CRectangle(EColor a_eColor) : base(a_eColor) {
+			public CRectangle(EColor a_eColor) : base(a_eColor)
+			{
 				// Do Something
 			}
 
 			/** 도형을 그린다 */
-			public override void Draw() {
+			public override void Draw()
+			{
 				Console.WriteLine("{0} 사각형을 그렸습니다.", this.GetColorStr());
 			}
 		}
 
 		/** 캔버스 */
-		public class CCanvas {
+		public class CCanvas
+		{
 			private List<CShape> m_oShapeList = new List<CShape>();
 
 			/** 도형을 추가한다 */
-			public void AddShape(CShape a_oShape) {
+			public void AddShape(CShape a_oShape)
+			{
 				m_oShapeList.Add(a_oShape);
 			}
 
 			/** 모든 도형을 그린다 */
-			public void DrawAllShapes() {
-				for(int i = 0; i < m_oShapeList.Count; ++i) {
+			public void DrawAllShapes()
+			{
+				for(int i = 0; i < m_oShapeList.Count; ++i)
+				{
 					m_oShapeList[i].Draw();
 				}
 			}

@@ -63,10 +63,13 @@ using System.Threading.Tasks;
  * # **#
  * ##*##
  */
-namespace Practice.Classes.Practice_03 {
-	class CPractice_03 {
+namespace Practice.Classes.Practice_03
+{
+	class CPractice_03
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if P03_01
 			int nWinCount = 0;
 			int nDrawCount = 0;
@@ -112,7 +115,8 @@ namespace Practice.Classes.Practice_03 {
 			Console.WriteLine("\n\n=====> 배열 요소 - 치환 후 <=====");
 			PrintVals(oValList);
 #elif P03_03
-			char[,] oMaps = new char[5, 5] {
+			char[,] oMaps = new char[5, 5]
+			{
 				{ '#', '#', 'S', '#', '#' },
 				{ '#', ' ', ' ', ' ', '#' },
 				{ '#', ' ', '#', ' ', '#' },
@@ -132,7 +136,8 @@ namespace Practice.Classes.Practice_03 {
 
 #if P03_01
 		/** 선택 */
-		public enum ESel {
+		public enum ESel
+		{
 			NONE = -1,
 			ROCK,
 			SCISSORS,
@@ -141,7 +146,8 @@ namespace Practice.Classes.Practice_03 {
 		}
 
 		/** 결과 */
-		public enum EResult {
+		public enum EResult
+		{
 			NONE = -1,
 			WIN,
 			LOSE,
@@ -169,21 +175,14 @@ namespace Practice.Classes.Practice_03 {
 
 		/** 결과를 반환한다 */
 		public static EResult GetResult(ESel a_eUser, ESel a_eComputer) {
-			var oResults = new EResult[(int)ESel.MAX_VAL, (int)ESel.MAX_VAL] {
+			var oResults = new EResult[(int)ESel.MAX_VAL, (int)ESel.MAX_VAL]
+			{
 				{ EResult.DRAW, EResult.WIN, EResult.LOSE },
 				{ EResult.LOSE, EResult.DRAW, EResult.WIN },
 				{ EResult.WIN, EResult.LOSE, EResult.DRAW }
 			};
 
 			return oResults[(int)a_eUser, (int)a_eComputer];
-
-
-
-			//if(a_eUser == a_eComputer) {
-			//	return EResult.DRAW;
-			//}
-
-			//return ((a_eUser + 1) % 3 == a_eComputer) ? EResult.WIN : EResult.LOSE;
 		}
 #elif P03_02
 		/** 값을 설정한다 */
@@ -220,9 +219,12 @@ namespace Practice.Classes.Practice_03 {
 		}
 #elif P03_03
 		/** 맵을 출력한다 */
-		public static void PrintMaps(char[,] a_oMaps) {
-			for(int i = 0; i < a_oMaps.GetLength(0); ++i) {
-				for(int j = 0; j < a_oMaps.GetLength(1); ++j) {
+		public static void PrintMaps(char[,] a_oMaps)
+		{
+			for(int i = 0; i < a_oMaps.GetLength(0); ++i)
+			{
+				for(int j = 0; j < a_oMaps.GetLength(1); ++j)
+				{
 					Console.Write("{0}", a_oMaps[i, j]);
 				}
 
@@ -231,13 +233,15 @@ namespace Practice.Classes.Practice_03 {
 		}
 
 		/** 경로를 탐색한다 */
-		public static bool FindPath(char[,] a_oMaps, int a_nRow, int a_nCol) {
+		public static bool FindPath(char[,] a_oMaps, int a_nRow, int a_nCol)
+		{
 			bool bIsValid01 = a_nRow >= 0 && a_nRow < a_oMaps.GetLength(0);
 			bool bIsValid02 = a_nCol >= 0 && a_nCol < a_oMaps.GetLength(1);
 
 			// 탐색이 불가능 할 경우
-			if(!bIsValid01 || !bIsValid02 || 
-				a_oMaps[a_nRow, a_nCol] == '#' || a_oMaps[a_nRow, a_nCol] == '*') {
+			if(!bIsValid01 || !bIsValid02 ||
+				a_oMaps[a_nRow, a_nCol] == '#' || a_oMaps[a_nRow, a_nCol] == '*')
+			{
 				return false;
 			}
 
@@ -245,7 +249,8 @@ namespace Practice.Classes.Practice_03 {
 			a_oMaps[a_nRow, a_nCol] = '*';
 
 			// 목적지에 도착했을 경우
-			if(chPrevLetter == 'E') {
+			if(chPrevLetter == 'E')
+			{
 				return true;
 			}
 
@@ -253,12 +258,14 @@ namespace Practice.Classes.Practice_03 {
 				(0, -1), (0, 1), (-1, 0), (1, 0)
 			};
 
-			for(int i = 0; i < oOffsetInfoList.Count; ++i) {
+			for(int i = 0; i < oOffsetInfoList.Count; ++i)
+			{
 				int nNextRow = a_nRow + oOffsetInfoList[i].Item1;
 				int nNextCol = a_nCol + oOffsetInfoList[i].Item2;
 
 				// 경로 탐색에 성공했을 경우
-				if(FindPath(a_oMaps, nNextRow, nNextCol)) {
+				if(FindPath(a_oMaps, nNextRow, nNextCol))
+				{
 					return true;
 				}
 			}

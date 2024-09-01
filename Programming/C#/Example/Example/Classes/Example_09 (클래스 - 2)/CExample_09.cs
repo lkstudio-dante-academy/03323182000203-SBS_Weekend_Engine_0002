@@ -8,10 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Example.Classes.Example_09 {
-	class CExample_09 {
+namespace Example.Classes.Example_09
+{
+	class CExample_09
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E09_CLASS_01
 			CBase oBase = new CBase(10, 3.14f);
 			CDerived oDerived = new CDerived(10, 3.14f, "Hello, World!");
@@ -257,7 +260,8 @@ namespace Example.Classes.Example_09 {
 		 * 따라서, 정적 멤버는 모든 객체가 공유는 멤버라는 것을 알 수 있다.
 		 */
 		/** 데이터 */
-		public class CData {
+		public class CData
+		{
 			public int m_nInstVal = 0;
 			public static int m_nVal = 0;
 			public static float m_fVal = 0.0f;
@@ -265,14 +269,17 @@ namespace Example.Classes.Example_09 {
 			private static CData m_oInst = null;
 
 			/** 생성자 */
-			private CData() {
+			private CData()
+			{
 				// Do Something
 			}
 
 			/** 인스턴스를 반환한다 */
-			public static CData GetInst() {
+			public static CData GetInst()
+			{
 				// 생성 된  인스턴스가 없을 경우
-				if(m_oInst == null) {
+				if(m_oInst == null)
+				{
 					m_oInst = new CData();
 				}
 
@@ -280,14 +287,16 @@ namespace Example.Classes.Example_09 {
 			}
 
 			/** 정보를 출력한다 */
-			public void ShowInstInfo() {
+			public void ShowInstInfo()
+			{
 				Console.WriteLine("정수 : {0}", m_nVal);
 				Console.WriteLine("실수 : {0}", m_fVal);
 				Console.WriteLine("멤버 : {0}", m_nInstVal);
 			}
 
 			/** 정보를 출력한다 */
-			public static void ShowInfo() {
+			public static void ShowInfo()
+			{
 				Console.WriteLine("정수 : {0}", m_nVal);
 				Console.WriteLine("실수 : {0}", m_fVal);
 

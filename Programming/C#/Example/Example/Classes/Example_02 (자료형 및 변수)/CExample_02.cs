@@ -1,4 +1,4 @@
-//#define E02_VAL_VAR
+#define E02_VAL_VAR
 #define E02_REF_VAR
 
 using System;
@@ -64,10 +64,13 @@ using System.Threading.Tasks;
  * 의해서 동적 할당 된 메모리가 관리되는 관리형 프로그래밍 언어라는 것을 알 수
  * 있다.)
  */
-namespace Example.Classes.Example_02 {
-	class CExample_02 {
+namespace Example.Classes.Example_02
+{
+	class CExample_02
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E02_VAL_VAR
 			/*
 			 * 변수란?

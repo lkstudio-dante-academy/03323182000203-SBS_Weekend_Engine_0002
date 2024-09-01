@@ -74,10 +74,13 @@ using System.Threading.Tasks;
  * 
  * EItemType eItemType = EItemType.NONE;
  */
-namespace Example.Classes.Example_12 {
-	class CExample_12 {
+namespace Example.Classes.Example_12
+{
+	class CExample_12
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E12_DATA_TYPE_01
 			var stData01 = new STData();
 			stData01.m_nVal = 10;
@@ -97,10 +100,17 @@ namespace Example.Classes.Example_12 {
 			var oRandom = new Random();
 			var eItemType = (EItemType)oRandom.Next(0, (int)EItemType.MAX_VAL);
 
-			switch(eItemType) {
-				case EItemType.GOLD: Console.WriteLine("골드를 획득했습니다."); break;
-				case EItemType.POTION: Console.WriteLine("물약을 획득했습니다."); break;
-				case EItemType.EQUIPMENTS: Console.WriteLine("장비를 획득했습니다."); break;
+			switch(eItemType)
+			{
+				case EItemType.GOLD:
+					Console.WriteLine("골드를 획득했습니다.");
+					break;
+				case EItemType.POTION:
+					Console.WriteLine("물약을 획득했습니다.");
+					break;
+				case EItemType.EQUIPMENTS:
+					Console.WriteLine("장비를 획득했습니다.");
+					break;
 			}
 #endif
 		}
@@ -129,7 +139,8 @@ namespace Example.Classes.Example_12 {
 		}
 #elif E12_DATA_TYPE_02
 		/** 아이템 타입 */
-		public enum EItemType {
+		public enum EItemType
+		{
 			NONE = -1,
 			GOLD,
 			POTION,

@@ -18,10 +18,13 @@ using System.Threading.Tasks;
  * - 비트 연산자 (&, |, ^, ~, <<, >>)
  * - 증감 연산자 (++, --)
  */
-namespace Example.Classes.Example_03 {
-	class CExample_03 {
+namespace Example.Classes.Example_03
+{
+	class CExample_03
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 			Console.Write("정수 (2 개) 입력 : ");
 			var oTokens = Console.ReadLine().Split();
 

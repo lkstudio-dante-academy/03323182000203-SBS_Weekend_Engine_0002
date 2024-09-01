@@ -36,10 +36,13 @@ using System.Threading.Tasks;
  * Compare oCompare = CompareByAscending;
  * oCompare(10, 20);
  */
-namespace Example.Classes.Example_13 {
-	class CExample_13 {
+namespace Example.Classes.Example_13
+{
+	class CExample_13
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if E13_DELEGATE_01
 			Console.Write("수식 입력 : ");
 			var oTokens = Console.ReadLine().Split();
@@ -266,17 +269,20 @@ namespace Example.Classes.Example_13 {
 		public delegate void EventHandler(string a_oEvent);
 
 		/** 이벤트를 처리한다 */
-		public static void HandleEvent01(string a_oEvent) {
+		public static void HandleEvent01(string a_oEvent)
+		{
 			Console.WriteLine("HandleEvent01 호출");
 		}
 
 		/** 이벤트를 처리한다 */
-		public static void HandleEvent02(string a_oEvent) {
+		public static void HandleEvent02(string a_oEvent)
+		{
 			Console.WriteLine("HandleEvent02 호출");
 		}
 
 		/** 이벤트를 처리한다 */
-		public static void HandleEvent03(string a_oEvent) {
+		public static void HandleEvent03(string a_oEvent)
+		{
 			Console.WriteLine("HandleEvent03 호출");
 		}
 #endif

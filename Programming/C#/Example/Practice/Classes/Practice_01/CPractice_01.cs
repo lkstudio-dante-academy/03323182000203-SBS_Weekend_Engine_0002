@@ -32,39 +32,52 @@ using System.Threading.Tasks;
  * 바위 (0), 가위 (1), 보 (2) 선택 : 2
  * 결과 : 졌습니다. (나 - 보, 컴퓨터 - 가위)
  */
-namespace Practice.Classes.Practice_01 {
-	class CPractice_01 {
+namespace Practice.Classes.Practice_01
+{
+	class CPractice_01
+	{
 		/** 초기화 */
-		public static void Start(string[] args) {
+		public static void Start(string[] args)
+		{
 #if P01_01
 			Console.Write("점수 입력 : ");
 			int.TryParse(Console.ReadLine(), out int nScore);
 
 			// F 학점 일 경우
-			if(nScore < 60) {
+			if(nScore < 60)
+			{
 				Console.Write("F");
-			} else {
+			}
+			else
+			{
 				// A 학점 일 경우
-				if(nScore >= 90) {
+				if(nScore >= 90)
+				{
 					Console.Write("A");
 				}
 				// B 학점 일 경우
-				else if(nScore >= 80) {
+				else if(nScore >= 80)
+				{
 					Console.Write("B");
 				}
 				// C 학점 일 경우
-				else if(nScore >= 70) {
+				else if(nScore >= 70)
+				{
 					Console.Write("C");
 				}
 				// D 학점 일 경우
-				else {
+				else
+				{
 					Console.Write("D");
 				}
 
 				// + 학점 일 경우
-				if(nScore >= 100 || (nScore % 10) >= 7) {
+				if(nScore >= 100 || (nScore % 10) >= 7)
+				{
 					Console.Write("+");
-				} else {
+				}
+				else
+				{
 					Console.Write("{0}", (nScore % 10 <= 3) ? '-' : '0');
 				}
 			}
