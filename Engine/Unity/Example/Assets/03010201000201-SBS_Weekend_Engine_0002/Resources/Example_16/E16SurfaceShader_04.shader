@@ -1,4 +1,4 @@
-Shader "Example_16/E16SurfaceShader_04" {
+Shader "Example_16/E01S_Shader_16_04" {
 	Properties {
 		_Color("Color", Color) = (1.0, 1.0, 1.0, 1.0)
 		_MainTex("Main Texture", Cube) = "white" { }

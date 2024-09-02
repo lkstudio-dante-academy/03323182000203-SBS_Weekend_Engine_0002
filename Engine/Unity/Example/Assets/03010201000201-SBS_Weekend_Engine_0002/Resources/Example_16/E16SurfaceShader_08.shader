@@ -1,4 +1,4 @@
-Shader "Example_16/E16SurfaceShader_08" {
+Shader "Example_16/E01S_Shader_16_08" {
 	Properties {
 		_Cutout("_Cutout", Range(0.0, 1.0)) = 0.5
 		_SpecularPower("Specular Power", Range(5.0, 25.0)) = 10.0

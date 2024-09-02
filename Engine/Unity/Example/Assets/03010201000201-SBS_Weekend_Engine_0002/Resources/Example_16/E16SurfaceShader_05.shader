@@ -1,4 +1,4 @@
-Shader "Example_16/E16SurfaceShader_05" {
+Shader "Example_16/E01S_Shader_16_05" {
 	Properties {
 		_Color("Color", Color) = (1.0, 1.0, 1.0, 1.0)
 	}

@@ -1,4 +1,4 @@
-Shader "Example_16/E16SurfaceShader_09" {
+Shader "Example_16/E01S_Shader_16_09" {
 	Properties {
 		_Refraction("Refraction", Range(-1.0, 1.0)) = 0.0
 

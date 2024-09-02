@@ -1,4 +1,4 @@
-Shader "Example_16/E16SurfaceShader_03" {
+Shader "Example_16/E01S_Shader_16_03" {
 	Properties {
 		_SpecularPower("Specular Power", Range(5.0, 25.0)) = 10.0
 		_RimPower("Rim Power", Range(1.0, 5.0)) = 2.5

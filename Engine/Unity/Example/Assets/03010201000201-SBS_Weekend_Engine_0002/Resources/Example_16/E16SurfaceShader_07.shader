@@ -1,4 +1,4 @@
-Shader "Example_16/E16SurfaceShader_07" {
+Shader "Example_16/E01S_Shader_16_07" {
 	Properties {
 		_RimColor("Rim Color", Color) = (1.0, 1.0, 1.0, 1.0)
 		_NormalTex("Normal Texture", 2D) = "bump" { }

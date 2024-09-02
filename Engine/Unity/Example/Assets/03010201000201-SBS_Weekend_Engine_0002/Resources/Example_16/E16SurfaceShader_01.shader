@@ -6,7 +6,7 @@ Unity 쉐이더는 반드시 Shader 영역으로 시작해야 되며 해당 영�
 명시된 경로를 기반으로 쉐이더를 실행 중에 로드 할 수 있기 때문에 해당 영역에
 명시되는 경로는 중복을 허용하지 않는다.
 */
-Shader "Example_16/E16SurfaceShader_01" {
+Shader "Example_16/E01S_Shader_16_01" {
 	/*
 	Properties 영역은 Unity 에디터 상에서 쉐이더가 동작하는데 필요한 여러
 	정보를 설정 할 수 있게 설정 필드를 명시하는 역할을 수행한다. (즉, 해당
