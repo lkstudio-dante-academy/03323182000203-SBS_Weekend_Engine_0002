@@ -1,3 +1,6 @@
+#define EXAMPLE
+#define PRACTICE
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,19 +37,26 @@ namespace Example {
 		 * 해당 함수에 작성 된 명령문을 실행한다는 것을 의미한다.)
 		 */
 		static void Main(string[] args) {
-			//Classes.Example_01.CExample_01.Start(args);
-			//Classes.Example_02.CExample_02.Start(args);
-			//Classes.Example_03.CExample_03.Start(args);
-			//Classes.Example_04.CExample_04.Start(args);
-			//Classes.Example_05.CExample_05.Start(args);
-			//Classes.Example_06.CExample_06.Start(args);
-			//Classes.Example_07.CExample_07.Start(args);
-			//Classes.Example_08.CExample_08.Start(args);
-			//Classes.Example_09.CExample_09.Start(args);
-			//Classes.Example_10.CExample_10.Start(args);
-			//Classes.Example_11.CExample_11.Start(args);
-			//Classes.Example_12.CExample_12.Start(args);
-			Classes.Example_13.CExample_13.Start(args);
+#if EXAMPLE
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_01.CExample_01.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_02.CExample_02.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_03.CExample_03.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_04.CExample_04.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_05.CExample_05.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_06.CExample_06.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_07.CExample_07.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_08.CExample_08.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_09.CExample_09.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_10.CExample_10.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_11.CExample_11.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_12.CExample_12.Start(args);
+			_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_13.CExample_13.Start(args);
+#elif PRACTICE
+			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_01.CPractice_01.Start(args);
+			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_02.CPractice_02.Start(args);
+			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_03.CPractice_03.Start(args);
+			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_04.CPractice_04.Start(args);
+#endif // #if EXAMPLE
 
 			/*
 			 * Console.Read 계열 메서드는 콘솔 창으로부터 특정 문자를 입력 
