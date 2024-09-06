@@ -20,34 +20,34 @@ public static partial class KDefine
 	public const float G_DESIGN_SCREEN_HEIGHT = 1080.0f;
 
 	// 씬 이름
-	public const string G_SCENE_N_EXAMPLE_00 = "Example_00 (메뉴)";
-	public const string G_SCENE_N_EXAMPLE_01 = "Example_01 (기초)";
-	public const string G_SCENE_N_EXAMPLE_02 = "Example_02 (프리팹, 스크립트)";
-	public const string G_SCENE_N_EXAMPLE_03 = "Example_03 (카메라, 광원)";
-	public const string G_SCENE_N_EXAMPLE_04 = "Example_04 (물리)";
-	public const string G_SCENE_N_EXAMPLE_05 = "Example_05 (플래피 버드 - 시작)";
-	public const string G_SCENE_N_EXAMPLE_06 = "Example_06 (플래피 버드 - 플레이)";
-	public const string G_SCENE_N_EXAMPLE_07 = "Example_07 (플래피 버드 - 결과)";
-	public const string G_SCENE_N_EXAMPLE_08 = "Example_08 (스프라이트, 애니메이션)";
-	public const string G_SCENE_N_EXAMPLE_09 = "Example_09 (두더지 잡기 - 시작)";
-	public const string G_SCENE_N_EXAMPLE_10 = "Example_10 (두더지 잡기 - 플레이)";
-	public const string G_SCENE_N_EXAMPLE_11 = "Example_11 (두더지 잡기 - 결과)";
-	public const string G_SCENE_N_EXAMPLE_12 = "Example_12 (UI)";
-	public const string G_SCENE_N_EXAMPLE_13 = "Example_13 (스케줄링)";
-	public const string G_SCENE_N_EXAMPLE_14 = "Example_14 (사운드)";
-	public const string G_SCENE_N_EXAMPLE_15 = "Example_15 (내비게이션 메쉬)";
-	public const string G_SCENE_N_EXAMPLE_16 = "Example_16 (쉐이더)";
-	public const string G_SCENE_N_EXAMPLE_17 = "Example_17 (3D TPS - 시작)";
-	public const string G_SCENE_N_EXAMPLE_18 = "Example_18 (3D TPS - 플레이)";
-	public const string G_SCENE_N_EXAMPLE_19 = "Example_19 (3D TPS - 결과)";
-	public const string G_SCENE_N_EXAMPLE_20 = "Example_20 (쓰레드)";
-	public const string G_SCENE_N_EXAMPLE_21 = "Example_21 (자료구조)";
-	public const string G_SCENE_N_EXAMPLE_22 = "Example_22 (네트워크)";
-	public const string G_SCENE_N_EXAMPLE_23 = "Example_23 (틱택토 - 시작)";
-	public const string G_SCENE_N_EXAMPLE_24 = "Example_24 (틱택토 - 플레이)";
-	public const string G_SCENE_N_EXAMPLE_25 = "Example_25 (틱택토 - 결과)";
-	public const string G_SCENE_N_EXAMPLE_26 = "Example_26 (URP)";
-	public const string G_SCENE_N_EXAMPLE_27 = "Example_27 (파티클)";
+	public const string G_SCENE_N_EXAMPLE_00 = "E01Example_00 (메뉴)";
+	public const string G_SCENE_N_EXAMPLE_01 = "E01Example_01 (기초)";
+	public const string G_SCENE_N_EXAMPLE_02 = "E01Example_02 (프리팹, 스크립트)";
+	public const string G_SCENE_N_EXAMPLE_03 = "E01Example_03 (카메라, 광원)";
+	public const string G_SCENE_N_EXAMPLE_04 = "E01Example_04 (물리)";
+	public const string G_SCENE_N_EXAMPLE_05 = "E01Example_05 (플래피 버드 - 시작)";
+	public const string G_SCENE_N_EXAMPLE_06 = "E01Example_06 (플래피 버드 - 플레이)";
+	public const string G_SCENE_N_EXAMPLE_07 = "E01Example_07 (플래피 버드 - 결과)";
+	public const string G_SCENE_N_EXAMPLE_08 = "E01Example_08 (스프라이트, 애니메이션)";
+	public const string G_SCENE_N_EXAMPLE_09 = "E01Example_09 (두더지 잡기 - 시작)";
+	public const string G_SCENE_N_EXAMPLE_10 = "E01Example_10 (두더지 잡기 - 플레이)";
+	public const string G_SCENE_N_EXAMPLE_11 = "E01Example_11 (두더지 잡기 - 결과)";
+	public const string G_SCENE_N_EXAMPLE_12 = "E01Example_12 (UI)";
+	public const string G_SCENE_N_EXAMPLE_13 = "E01Example_13 (스케줄링)";
+	public const string G_SCENE_N_EXAMPLE_14 = "E01Example_14 (사운드)";
+	public const string G_SCENE_N_EXAMPLE_15 = "E01Example_15 (내비게이션 메쉬)";
+	public const string G_SCENE_N_EXAMPLE_16 = "E01Example_16 (쉐이더)";
+	public const string G_SCENE_N_EXAMPLE_17 = "E01Example_17 (3D TPS - 시작)";
+	public const string G_SCENE_N_EXAMPLE_18 = "E01Example_18 (3D TPS - 플레이)";
+	public const string G_SCENE_N_EXAMPLE_19 = "E01Example_19 (3D TPS - 결과)";
+	public const string G_SCENE_N_EXAMPLE_20 = "E01Example_20 (쓰레드)";
+	public const string G_SCENE_N_EXAMPLE_21 = "E01Example_21 (자료구조)";
+	public const string G_SCENE_N_EXAMPLE_22 = "E01Example_22 (네트워크)";
+	public const string G_SCENE_N_EXAMPLE_23 = "E01Example_23 (틱택토 - 시작)";
+	public const string G_SCENE_N_EXAMPLE_24 = "E01Example_24 (틱택토 - 플레이)";
+	public const string G_SCENE_N_EXAMPLE_25 = "E01Example_25 (틱택토 - 결과)";
+	public const string G_SCENE_N_EXAMPLE_26 = "E01Example_26 (URP)";
+	public const string G_SCENE_N_EXAMPLE_27 = "E01Example_27 (파티클)";
 	#endregion // 상수
 
 	#region 프로퍼티

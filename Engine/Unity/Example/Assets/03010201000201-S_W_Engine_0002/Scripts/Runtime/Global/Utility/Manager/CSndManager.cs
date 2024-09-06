@@ -31,7 +31,7 @@ public class CSndManager : CSingleton<CSndManager>
 		base.Awake();
 
 		m_oBGSnd = CFactory.CreateCloneGameObj<CSnd>("BGSnd",
-			Resources.Load<GameObject>("Global/Prefabs/G_BGSnd"), this.gameObject);
+			Resources.Load<GameObject>("Prefabs/Global/G_Prefab_BGM"), this.gameObject);
 	}
 
 	/** 배경음을 재생한다 */
@@ -111,7 +111,7 @@ public class CSndManager : CSingleton<CSndManager>
 		}
 
 		var oFXSnds = CFactory.CreateCloneGameObj<CSnd>("FXSnds",
-			Resources.Load<GameObject>("Global/Prefabs/G_FXSnds"), this.gameObject);
+			Resources.Load<GameObject>("Prefabs/Global/G_Prefab_SFX"), this.gameObject);
 
 		oFXSndsList.ExAddVal(oFXSnds);
 		return oFXSnds;

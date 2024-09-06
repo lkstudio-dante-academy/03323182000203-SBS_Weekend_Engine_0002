@@ -38,24 +38,24 @@ namespace Example {
 		 */
 		static void Main(string[] args) {
 #if EXAMPLE
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_01.CExample_01.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_02.CExample_02.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_03.CExample_03.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_04.CExample_04.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_05.CExample_05.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_06.CExample_06.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_07.CExample_07.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_08.CExample_08.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_09.CExample_09.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_10.CExample_10.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_11.CExample_11.Start(args);
-			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_12.CExample_12.Start(args);
-			_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_13.CExample_13.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_01.CE01Example_01.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_02.CE01Example_02.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_03.CE01Example_03.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_04.CE01Example_04.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_05.CE01Example_05.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_06.CE01Example_06.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_07.CE01Example_07.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_08.CE01Example_08.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_09.CE01Example_09.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_10.CE01Example_10.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_11.CE01Example_11.Start(args);
+			//_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_12.CE01Example_12.Start(args);
+			_03010201000201_S_W_Engine_0002.E01.Example.Classes.Example_13.CE01Example_13.Start(args);
 #elif PRACTICE
-			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_01.CPractice_01.Start(args);
-			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_02.CPractice_02.Start(args);
-			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_03.CPractice_03.Start(args);
-			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_04.CPractice_04.Start(args);
+			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_01.CP01Practice_01.Start(args);
+			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_02.CP01Practice_02.Start(args);
+			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_03.CP01Practice_03.Start(args);
+			_03010201000201_S_W_Engine_0002.E01.Practice.Classes.Practice_04.CP01Practice_04.Start(args);
 #endif // #if EXAMPLE
 
 			/*
