@@ -100,9 +100,9 @@ public class CE01Example_12 : CSceneManager
 		 * 존재하는 리스너를 설정하기 위해서는 람다 or 무명 메서드를 활용 할
 		 * 필요가 있다.
 		 */
-		m_oBtn01.onClick.AddListener(() => this.OnTouchBtn(m_oBtn01));
-		m_oBtn02.onClick.AddListener(() => this.OnTouchBtn(m_oBtn02));
-		m_oBtn03.onClick.AddListener(() => this.OnTouchBtn(m_oBtn03));
+		m_oBtn01.onClick.AddListener(() => this.OnTouchUIBtn(m_oBtn01));
+		m_oBtn02.onClick.AddListener(() => this.OnTouchUIBtn(m_oBtn02));
+		m_oBtn03.onClick.AddListener(() => this.OnTouchUIBtn(m_oBtn03));
 
 		for(int i = 0; i < m_oBtn01.onClick.GetPersistentEventCount(); ++i)
 		{
@@ -136,9 +136,9 @@ public class CE01Example_12 : CSceneManager
 	}
 
 	/** 버튼을 눌렀을 경우 */
-	public void OnTouchBtn(Button a_oSender)
+	public void OnTouchUIBtn(Button a_oSender)
 	{
-		Debug.Log($"OnTouchBtn: {a_oSender.name}");
+		Debug.Log($"OnTouchUIBtn: {a_oSender.name}");
 	}
 
 	/** 토글이 변경 되었을 경우 */

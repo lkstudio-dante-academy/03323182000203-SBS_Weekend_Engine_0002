@@ -1639,7 +1639,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1991610502}
         m_TargetAssemblyTypeName: CE01Example_12, Assembly-CSharp
-        m_MethodName: OnTouchBtn
+        m_MethodName: OnTouchUIBtn
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 379612256}
@@ -2949,7 +2949,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1991610502}
         m_TargetAssemblyTypeName: CE01Example_12, Assembly-CSharp
-        m_MethodName: OnTouchBtn
+        m_MethodName: OnTouchUIBtn
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 823871662}
@@ -5198,7 +5198,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1991610502}
         m_TargetAssemblyTypeName: CE01Example_12, Assembly-CSharp
-        m_MethodName: OnTouchBtn
+        m_MethodName: OnTouchUIBtn
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1680858273}
