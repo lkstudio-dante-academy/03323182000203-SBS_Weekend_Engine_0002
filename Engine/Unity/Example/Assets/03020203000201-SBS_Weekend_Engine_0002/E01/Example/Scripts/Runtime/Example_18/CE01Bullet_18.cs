@@ -41,7 +41,7 @@ public class CE01Bullet_18 : CComponent
 	{
 		m_oTrail.Clear();
 
-		m_oRigidbody.velocity = Vector3.zero;
+		m_oRigidbody.linearVelocity = Vector3.zero;
 		m_oRigidbody.AddForce(a_stForce, ForceMode.VelocityChange);
 	}
 	#endregion // 함수
