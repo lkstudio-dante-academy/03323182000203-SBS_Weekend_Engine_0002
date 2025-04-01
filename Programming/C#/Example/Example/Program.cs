@@ -18,7 +18,7 @@ namespace Example {
 	 * 클래스란?
 	 * - 데이터와 기능을 하나로 묶어서 관리 할 수 있는 기능을 의미한다.
 	 */
-	class Program {
+	internal class Program {
 		/* 
 		 * 메인 함수 (메서드) 란?
 		 * - C# 으로 제작 된 프로그램이 실행 될 때 가장 먼저 실행되는 함수를
