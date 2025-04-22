@@ -23,7 +23,7 @@ using System.Threading.Tasks;
  * 결과 : 졌습니다. (나 - 가위, 컴퓨터 - 바위)
  * 
  * 전적 : 1 승 0 무 1 패
- * 프로그램을 종료했습니다.
+ * 프로그램을 종료합니다.
  * 
  * 
  * 연습 문제 3 - 2
@@ -99,7 +99,7 @@ namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Practice.Classes.P
 			} while(eResult != EResult.LOSE);
 
 			Console.WriteLine("전적 : {0} 승 {1} 무 1 패", nWinCount, nDrawCount);
-			Console.WriteLine("프로그램을 종료했습니다.");
+			Console.WriteLine("프로그램을 종료합니다.");
 #elif P03_02
 			List<int> oValList = new List<int>();
 			SetupVals(oValList);
