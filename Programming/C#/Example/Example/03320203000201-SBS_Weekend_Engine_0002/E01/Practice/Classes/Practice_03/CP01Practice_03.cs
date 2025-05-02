@@ -33,12 +33,12 @@ using System.Threading.Tasks;
  * - 단, 한자리 수가 아닐 경우 치환 종료
  * 
  * Ex)
- * =====> 배열 요소 <=====
+ * =====> 배열 <=====
  * 1, 10, 5, 8, 9, 11, 14, 5, 2, 3
  * 
  * 시작 위치 입력 : 2
  * 
- * =====> 배열 요소 - 치환 후 <=====
+ * =====> 배열 - 치환 후 <=====
  * 1, 10, 0, 0, 0, 11, 14, 5, 2, 3
  * 
  * 
@@ -104,7 +104,7 @@ namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Practice.Classes.P
 			List<int> oValList = new List<int>();
 			SetupVals(oValList);
 
-			Console.WriteLine("=====> 배열 요소 - 치환 전 <=====");
+			Console.WriteLine("=====> 배열 - 치환 전 <=====");
 			PrintVals(oValList);
 
 			Console.Write("\n위치 입력 : ");
@@ -112,7 +112,7 @@ namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Practice.Classes.P
 
 			ReplaceVals(oValList, nIdx);
 
-			Console.WriteLine("\n\n=====> 배열 요소 - 치환 후 <=====");
+			Console.WriteLine("\n\n=====> 배열 - 치환 후 <=====");
 			PrintVals(oValList);
 #elif P03_03
 			char[,] oMaps = new char[5, 5]

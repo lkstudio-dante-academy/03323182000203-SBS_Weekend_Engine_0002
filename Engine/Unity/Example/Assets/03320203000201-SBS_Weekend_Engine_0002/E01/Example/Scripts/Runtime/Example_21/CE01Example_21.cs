@@ -145,7 +145,7 @@ public class CE01Example_21 : CSceneManager
 		}
 		
 		var oStrBuilder = new System.Text.StringBuilder();
-		Debug.Log("=====> 리스트 요소 <=====");
+		Debug.Log("=====> 리스트 <=====");
 
 		for(int i = 0; i < oValList.NumVals; ++i) {
 			oStrBuilder.AppendFormat("{0}, ", oValList[i]);
@@ -156,7 +156,7 @@ public class CE01Example_21 : CSceneManager
 		oValList.RemoveVal(0);
 		oValList.RemoveValAt(0);
 
-		Debug.Log("=====> 리스트 요소 - 제거 후 <=====");
+		Debug.Log("=====> 리스트 - 제거 후 <=====");
 		oStrBuilder.Clear();
 
 		for(int i = 0; i < oValList.NumVals; ++i) {
@@ -174,7 +174,7 @@ public class CE01Example_21 : CSceneManager
 		}
 
 		var oStrBuilder = new System.Text.StringBuilder();
-		Debug.Log("=====> 스택 요소 <=====");
+		Debug.Log("=====> 스택 <=====");
 
 		while(oValStack.NumVals >= 1) {
 			oStrBuilder.AppendFormat("{0}, ", oValStack.Pop());
@@ -183,7 +183,7 @@ public class CE01Example_21 : CSceneManager
 		Debug.Log(oStrBuilder.ToString());
 		
 		oStrBuilder.Clear();
-		Debug.Log("=====> 큐 요소 <=====");
+		Debug.Log("=====> 큐 <=====");
 
 		while(oValQueue.NumVals >= 1) {
 			oStrBuilder.AppendFormat("{0}, ", oValQueue.Dequeue());

@@ -119,7 +119,7 @@ namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Ex
 			oValList01.Insert(0, 100);
 			oValList02.Insert(0, 100.0f);
 
-			Console.WriteLine("=====> 배열 요소 <=====");
+			Console.WriteLine("=====> 배열 <=====");
 
 			for(int i = 0; i < oValList01.Count; ++i)
 			{

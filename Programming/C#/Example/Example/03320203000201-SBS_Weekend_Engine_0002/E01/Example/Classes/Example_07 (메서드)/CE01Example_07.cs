@@ -141,7 +141,7 @@ namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Ex
 			int[] oVals = new int[10];
 			SetupVals(oVals);
 
-			Console.WriteLine("=====> 배열 요소 <=====");
+			Console.WriteLine("=====> 배열 <=====");
 
 			for(int i = 0; i < oVals.Length; ++i)
 			{

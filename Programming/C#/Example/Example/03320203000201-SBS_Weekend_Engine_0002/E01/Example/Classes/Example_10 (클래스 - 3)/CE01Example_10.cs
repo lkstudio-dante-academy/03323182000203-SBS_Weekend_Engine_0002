@@ -74,7 +74,7 @@ namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Ex
 				oValList.Add(oRandom.Next(0, 100));
 			}
 
-			Console.WriteLine("=====> 리스트 요소 <=====");
+			Console.WriteLine("=====> 리스트 <=====");
 			oValList.PrintVals();
 
 			int nSumVal = oValList.GetSumVal();
