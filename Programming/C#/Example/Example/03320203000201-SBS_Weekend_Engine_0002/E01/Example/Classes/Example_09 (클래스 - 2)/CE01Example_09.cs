@@ -88,7 +88,7 @@ namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Ex
 #if E09_CLASS_01
 		/*
 		 * 객체 지향 프로그래밍 3 대 요소
-		 * - 캡슐화 or 정보 은닉
+		 * - 캡슐화 (+ or 정보 은닉)
 		 * - 상속
 		 * - 다형성
 		 * 
