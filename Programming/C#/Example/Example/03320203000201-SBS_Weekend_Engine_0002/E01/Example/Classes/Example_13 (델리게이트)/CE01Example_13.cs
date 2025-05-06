@@ -36,7 +36,7 @@ using System.Threading.Tasks;
  * Compare oCompare = CompareByAscending;
  * oCompare(10, 20);
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_13
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_13
 {
 	class CE01Example_13
 	{

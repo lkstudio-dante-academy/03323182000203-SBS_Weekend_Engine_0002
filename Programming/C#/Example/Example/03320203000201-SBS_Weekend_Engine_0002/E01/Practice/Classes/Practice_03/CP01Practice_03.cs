@@ -63,7 +63,7 @@ using System.Threading.Tasks;
  * # **#
  * ##*##
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Practice.Classes.Practice_03
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Practice.Classes.Practice_03
 {
 	class CP01Practice_03
 	{

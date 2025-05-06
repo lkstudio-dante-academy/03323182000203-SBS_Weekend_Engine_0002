@@ -60,7 +60,7 @@ using System.Threading.Tasks;
  * 따라서, 두 조건문을 모두 사용 할 수 있는 경우라면 switch ~ case 조건문을
  * 사용하는 것이 좀 더 빠르게 동작하는 명령문을 작성 할 수 있다.
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_04
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_04
 {
 	class CE01Example_04
 	{

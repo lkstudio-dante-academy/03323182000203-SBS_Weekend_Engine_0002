@@ -32,7 +32,7 @@ using System.Threading.Tasks;
  * 바위 (0), 가위 (1), 보 (2) 선택 : 2
  * 결과 : 졌습니다. (나 - 보, 컴퓨터 - 가위)
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Practice.Classes.Practice_01
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Practice.Classes.Practice_01
 {
 	class CP01Practice_01
 	{

@@ -59,7 +59,7 @@ public static class CExtension {
 }
 #endif
 
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_10
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_10
 {
 	class CE01Example_10
 	{

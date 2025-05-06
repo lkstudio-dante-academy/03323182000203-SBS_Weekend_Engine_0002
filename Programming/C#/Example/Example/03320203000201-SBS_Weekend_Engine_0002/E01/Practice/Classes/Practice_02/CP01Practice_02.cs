@@ -110,7 +110,7 @@ using System.Threading.Tasks;
  * 
  * 게임을 종료했습니다.
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Practice.Classes.Practice_02
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Practice.Classes.Practice_02
 {
 	class CP01Practice_02
 	{

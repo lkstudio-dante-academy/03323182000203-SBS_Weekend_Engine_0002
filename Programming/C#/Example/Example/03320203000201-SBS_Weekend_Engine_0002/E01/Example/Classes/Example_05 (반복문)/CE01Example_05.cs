@@ -24,7 +24,7 @@ using System.Threading.Tasks;
  * - for
  * - do ~ while
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_05
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_05
 {
 	class CE01Example_05
 	{

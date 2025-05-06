@@ -64,7 +64,7 @@ using System.Threading.Tasks;
  * 의해서 동적 할당 된 메모리가 관리되는 관리형 프로그래밍 언어라는 것을 알 수
  * 있다.)
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_02
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_02
 {
 	class CE01Example_02
 	{

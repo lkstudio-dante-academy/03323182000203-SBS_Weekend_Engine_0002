@@ -17,7 +17,7 @@ using System.Threading.Tasks;
  * 따라서, 고급 언어 (프로그래밍 언어) 를 저급 언어 (기계어) 로 변환하기 
  * 위한 프로그램이 필요하며 해당 프로그램을 컴파일러 or 인터프리터고 한다.
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_01
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_01
 {
 	class CE01Example_01
 	{

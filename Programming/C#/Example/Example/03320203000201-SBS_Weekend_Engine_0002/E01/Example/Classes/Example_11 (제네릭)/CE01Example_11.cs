@@ -36,7 +36,7 @@ using System.Threading.Tasks;
  * 따라서, 제네릭 형식 인자는 임시적으로 자료형의 역할을 수행한다는 것을 
  * 알 수 있다.
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_11
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_11
 {
 	class CE01Example_11
 	{

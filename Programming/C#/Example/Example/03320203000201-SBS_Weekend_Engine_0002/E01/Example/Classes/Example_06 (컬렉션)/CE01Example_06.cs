@@ -39,7 +39,7 @@ using System.Threading.Tasks;
  * 많아질 수록 좋은 성능을 발휘하기 때문에 대량의 데이터를 관리 할 필요가
  * 있다면 비선형 컬렉션을 활용하는 것이 일반적이다.
  */
-namespace Example._03320203000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_06
+namespace Example._03320282000201_SBS_Weekend_Engine_0002.E01.Example.Classes.Example_06
 {
 	class CE01Example_06
 	{
